@@ -1,53 +1,101 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sustaina - Your Path to Eco-Friendly Living</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sustaina - Your Path to Eco-Friendly Living</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- Header Section -->
-    <header>
-        <div class="logo">
-            <h1>Sustaina</h1>
-        </div>
-        <p class="tagline">Helping you embrace a sustainable and eco-friendly lifestyle.</p>
-    </header>
-
-    <!-- Main Container -->
-    <div class="container">
-
-        <!-- Introduction Section -->
-        <section class="intro">
-            <h2>Welcome to Sustaina!</h2>
-            <p>Your journey towards a healthier, eco-friendly, and responsible lifestyle starts here.</p>
-        </section>
-
-        <!-- Key Features Section -->
-        <section class="features">
-            <h2>Key Features</h2>
-            <ul>
-                <li><strong>Daily Habit Tracking:</strong> Easily track your eco-friendly habits.</li>
-                <li><strong>Streak System:</strong> Stay motivated by maintaining your eco-streaks.</li>
-                <li><strong>Rewards & Achievements:</strong> Unlock rewards as you level up your habits.</li>
-                <li><strong>Friendly UI:</strong> Simple and clean interface for a better user experience.</li>
-            </ul>
-        </section>
-
-        <!-- Call to Action Section -->
-        <section class="cta">
-            <button class="start-button">Start Your Eco Journey</button>
-        </section>
-
-    </div>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2025 Sustaina. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <header>
+    <div class="logo">Sustaina</div>
+    <nav>
+      <ul>
+        <li><a href="#" data-view="login" class="nav-link active">Login</a></li>
+        <li><a href="#" data-view="dashboard" class="nav-link">Dashboard</a></li>
+        <li><a href="#" data-view="profile" class="nav-link">Profile</a></li>
+        <li><a href="#" data-view="diet" class="nav-link">Diet Chart</a></li>
+        <li><a href="#" data-view="exercise" class="nav-link">Exercise</a></li>
+        <li><a href="#" data-view="contact" class="nav-link">Contact</a></li>
+        <li><a href="#" data-view="support" class="nav-link">Support</a></li>
+        <li><span id="notif" class="nav-link">🔔<span class="badge" id="notifCount">3</span></span></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="view-container">
+    <!-- Login View -->
+    <section class="view" id="login">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit" class="btn">Sign In</button>
+      </form>
+    </section>
+    <!-- Dashboard View -->
+    <section class="view" id="dashboard" hidden>
+      <h2>Dashboard</h2>
+      <div class="cards">
+        <div class="card">Streak: <span id="streak">0</span> days</div>
+        <div class="card">XP: <span id="xp">0</span></div>
+        <div class="card">Eco-Score: <span id="ecoScore">0</span></div>
+      </div>
+      <div class="habits">
+        <button class="habit-btn" data-habit="walk">🚶 Walk instead of bike</button>
+        <button class="habit-btn" data-habit="water">💧 Drink in reusable bottle</button>
+        <button class="habit-btn" data-habit="plant">🌱 Water a plant</button>
+        <button class="habit-btn" data-habit="junk">🥗 No junk food today</button>
+      </div>
+      <div class="quote">
+        <button id="quoteButton" class="btn">Motivate Me</button>
+        <p id="quoteDisplay"></p>
+      </div>
+    </section>
+    <!-- Profile View -->
+    <section class="view" id="profile" hidden>
+      <h2>Profile</h2>
+      <div class="profile-info">
+        <p><strong>Username:</strong> <span id="user-name">User</span></p>
+        <p><strong>Email:</strong> <span id="user-email">user@example.com</span></p>
+      </div>
+    </section>
+    <!-- Diet Chart View -->
+    <section class="view" id="diet" hidden>
+      <h2>Diet Chart</h2>
+      <ul class="list">
+        <li>Breakfast: Oats & Fruit</li>
+        <li>Lunch: Salad & Quinoa</li>
+        <li>Snack: Nuts & Yogurt</li>
+        <li>Dinner: Veg Curry & Brown Rice</li>
+      </ul>
+    </section>
+    <!-- Exercise View -->
+    <section class="view" id="exercise" hidden>
+      <h2>Exercise</h2>
+      <ul class="list">
+        <li>30 min Walking</li>
+        <li>15 min Yoga</li>
+        <li>Push-ups: 20 reps</li>
+      </ul>
+    </section>
+    <!-- Contact View -->
+    <section class="view" id="contact" hidden>
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Message..." required></textarea>
+        <button type="submit" class="btn">Send</button>
+      </form>
+    </section>
+    <!-- Support View -->
+    <section class="view" id="support" hidden>
+      <h2>Support</h2>
+      <p>Help Desk: <a href="mailto:support@sustaina.com">support@sustaina.com</a></p>
+      <p>FAQs: Coming soon</p>
+    </section>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
