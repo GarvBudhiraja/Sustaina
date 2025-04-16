@@ -1,47 +1,61 @@
-// Simple animation on page load
-window.onload = () => {
-    document.querySelector('header').style.animation = "fadeIn 2s ease-in-out";
-}
+// Streak and Level System
+let streak = 0;
+let xp = 0;
+let userLevel = "Eco Novice";
 
-// Smooth Scroll to different sections
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+const streakStatus = document.getElementById("streak-status");
+const userXp = document.getElementById("user-xp");
+const userLevelElement = document.getElementById("user-level");
 
-// Form Validation Example
-const form = document.querySelector("form");
-const submitButton = document.querySelector("button");
-
-submitButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    
-    if (name === "" || email === "") {
-        alert("Please fill in all fields!");
-    } else {
-        alert("Form submitted successfully!");
-    }
-});
-
-// Random Motivational Quote for Users
+// Random Motivational Quote
 const quoteButton = document.getElementById('quoteButton');
 const quoteDisplay = document.getElementById('quoteDisplay');
 
+const quotes = [
+    "The best time to plant a tree was 20 years ago. The second best time is now.",
+    "In nature, nothing is perfect and everything is perfect.",
+    "Act as if what you do makes a difference. It does.",
+    "Sustainability is no longer about doing less harm. It’s about doing more good."
+];
+
 quoteButton.addEventListener('click', () => {
-    const quotes = [
-        "The best time to plant a tree was 20 years ago. The second best time is now.",
-        "In nature, nothing is perfect and everything is perfect.",
-        "Act as if what you do makes a difference. It does.",
-        "Sustainability is no longer about doing less harm. It’s about doing more good."
-    ];
-    
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     quoteDisplay.textContent = randomQuote;
 });
+
+// Track Habits and Update Streak/XP
+document.querySelectorAll('.habit-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const habit = button.getAttribute("data-habit");
+        handleHabitCompletion(habit);
+    });
+});
+
+function handleHabitCompletion(habit) {
+    xp += 10;
+    streak += 1;
+    userXp.textContent = xp;
+
+    // Update Level
+    if (xp >= 30) {
+        userLevel = "Eco Champ";
+    } else if (xp >= 60) {
+        userLevel = "Earth Guardian";
+    }
+
+    userLevelElement.textContent = userLevel;
+
+    // Update Streak
+    if (streak === 7) {
+        streakStatus.textContent = "🪴 7-day streak";
+    } else if (streak === 30) {
+        streakStatus.textContent = "🌳 30-day streak";
+    } else {
+        streakStatus.textContent = "🌿 Ongoing streak";
+    }
+}
+
+// Check if a New Streak has started
+if (streak === 0) {
+    streakStatus.textContent = "🌱 New streak started";
+}
