@@ -1,54 +1,21 @@
-/* Simple Styles for the Dashboard */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-}
-
-header {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-h1 {
-    font-size: 3em;
-}
-
-#dashboard {
-    padding: 20px;
-    text-align: center;
-}
-
-button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px;
-    font-size: 1.2em;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-#quoteDisplay {
-    font-style: italic;
-    margin-top: 20px;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: #eef2f3; color: #333; }
+header { background: #27ae60; color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.logo { font-size: 1.8em; font-weight: bold; }
+nav ul { list-style: none; display: flex; gap: 15px; }
+nav a { color: #fff; text-decoration: none; padding: 5px 8px; border-radius: 4px; transition: background 0.3s; }
+nav a.active, nav a:hover { background: rgba(255,255,255,0.2); }
+.badge { background: #e74c3c; border-radius: 50%; padding: 2px 6px; font-size: 0.8em; vertical-align: super; }
+main { padding: 20px; }
+.view { background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); animation: slideIn 0.5s ease; }
+.cards { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+.card { flex: 1 1 120px; background: #dff9fb; padding: 15px; border-radius: 5px; text-align: center; font-weight: bold; }
+.habits { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+.habit-btn { background: #27ae60; border: none; color: #fff; padding: 10px; border-radius: 5px; cursor: pointer; transition: transform 0.2s; }
+.habit-btn:hover { transform: translateY(-3px); }
+.btn { background: #2980b9; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+.btn:hover { background: #1c5980; }
+.list { list-style: disc inside; text-align: left; }
+p { margin-bottom: 10px; }
+footer { display: none; }
+@keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
