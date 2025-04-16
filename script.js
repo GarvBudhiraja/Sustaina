@@ -1,61 +1,64 @@
-// Streak and Level System
-let streak = 0;
-let xp = 0;
-let userLevel = "Eco Novice";
-
-const streakStatus = document.getElementById("streak-status");
-const userXp = document.getElementById("user-xp");
-const userLevelElement = document.getElementById("user-level");
-
-// Random Motivational Quote
-const quoteButton = document.getElementById('quoteButton');
-const quoteDisplay = document.getElementById('quoteDisplay');
-
-const quotes = [
-    "The best time to plant a tree was 20 years ago. The second best time is now.",
-    "In nature, nothing is perfect and everything is perfect.",
-    "Act as if what you do makes a difference. It does.",
-    "Sustainability is no longer about doing less harm. It’s about doing more good."
-];
-
-quoteButton.addEventListener('click', () => {
-    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    quoteDisplay.textContent = randomQuote;
+// --- SPA Navigation ---
+const links = document.querySelectorAll('nav a');
+const views = document.querySelectorAll('.view');
+links.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    // Highlight active link
+    links.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+    // Show corresponding view
+    const viewId = link.getAttribute('data-view');
+    views.forEach(v => v.hidden = v.id !== viewId);
+  });
 });
 
-// Track Habits and Update Streak/XP
-document.querySelectorAll('.habit-button').forEach(button => {
-    button.addEventListener('click', () => {
-        const habit = button.getAttribute("data-habit");
-        handleHabitCompletion(habit);
-    });
-});
+// --- Notification Count ---
+document.getElementById('notifCount').textContent = 3;
 
-function handleHabitCompletion(habit) {
+// --- Dashboard Statistics ---
+let streak = 0, xp = 0, ecoScore = 0;
+const streakCount = document.getElementById('streak');
+const streakEmoji = document.getElementById('streakEmoji');
+const userXp = document.getElementById('xp');
+const userEco = document.getElementById('ecoScore');
+
+function updateStats() {
+  streakCount.textContent = streak;
+  userXp.textContent = xp;
+  userEco.textContent = ecoScore;
+  // Update streak emoji
+  if (streak === 0) streakEmoji.textContent = '🌱';
+  else if (streak < 7) streakEmoji.textContent = '🌿';
+  else if (streak < 30) streakEmoji.textContent = '🪴';
+  else streakEmoji.textContent = '🌳';
+}
+
+// --- Habit Tracking ---
+document.querySelectorAll('.habit-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
     xp += 10;
+    ecoScore += 5;
     streak += 1;
-    userXp.textContent = xp;
+    updateStats();
+  });
+});
 
-    // Update Level
-    if (xp >= 30) {
-        userLevel = "Eco Champ";
-    } else if (xp >= 60) {
-        userLevel = "Earth Guardian";
-    }
+// --- Motivational Quotes ---
+const quotes = [
+  "The best time to plant a tree was 20 years ago. The second best time is now.",
+  "In nature, nothing is perfect and everything is perfect.",
+  "Act as if what you do makes a difference. It does.",
+  "Sustainability is no longer about doing less harm. It’s about doing more good."
+];
+const quoteBtn = document.getElementById('quoteButton');
+const quoteDisplay = document.getElementById('quoteDisplay');
+quoteBtn.addEventListener('click', () => {
+  const q = quotes[Math.floor(Math.random() * quotes.length)];
+  quoteDisplay.textContent = q;
+});
 
-    userLevelElement.textContent = userLevel;
-
-    // Update Streak
-    if (streak === 7) {
-        streakStatus.textContent = "🪴 7-day streak";
-    } else if (streak === 30) {
-        streakStatus.textContent = "🌳 30-day streak";
-    } else {
-        streakStatus.textContent = "🌿 Ongoing streak";
-    }
-}
-
-// Check if a New Streak has started
-if (streak === 0) {
-    streakStatus.textContent = "🌱 New streak started";
-}
+// --- Initial Setup ---
+views.forEach(v => v.hidden = true);
+document.getElementById('login').hidden = false;
+updateStats();
