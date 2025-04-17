@@ -1,127 +1,95 @@
 // Main JavaScript for Sustaina website
 
 // DOM Content Loaded - Initialize everything
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize components
+document.addEventListener('DOMContentLoaded', function () {
     initScrollAnimations();
     initAuthSystem();
     initHabitTracker();
     initQuoteGenerator();
-    initProfileSystem();
     loadDietExercisePlanner();
-    checkRewards();
-    
-    // Add active class to current nav item
     highlightCurrentNavItem();
 });
 
 // Scroll animations for landing page
 function initScrollAnimations() {
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+    const reveals = document.querySelectorAll('.reveal');
+    window.addEventListener('scroll', function () {
+        reveals.forEach(reveal => {
+            const windowHeight = window.innerHeight;
+            const revealTop = reveal.getBoundingClientRect().top;
+            if (revealTop < windowHeight - 100) {
+                reveal.classList.add('active');
             }
         });
-    }, { threshold: 0.1 });
-    
-    animatedElements.forEach(element => {
-        observer.observe(element);
-    });
-    
-    // Parallax effect for hero section
-    window.addEventListener('scroll', function() {
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            const scrollPosition = window.scrollY;
-            hero.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
-        }
     });
 }
 
-// Authentication System (Sign Up / Login)
+// Authentication System (Login/Signup)
 function initAuthSystem() {
-    const loginForm = document.getElementById('login-form');
-    const signupForm = document.getElementById('signup-form');
-    const loginBtn = document.getElementById('login-btn');
-    const signupBtn = document.getElementById('signup-btn');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
     const loginToggle = document.getElementById('login-toggle');
     const signupToggle = document.getElementById('signup-toggle');
-    const authSection = document.getElementById('auth-section');
-    
-    // Skip if not on a page with auth
-    if (!authSection) return;
-    
-    // Toggle between login/signup forms
+    const loginBtn = document.getElementById('login-btn');
+    const signupBtn = document.getElementById('signup-btn');
+
+    // Toggle between login and signup forms
     if (loginToggle && signupToggle) {
-        loginToggle.addEventListener('click', function(e) {
+        loginToggle.addEventListener('click', function (e) {
             e.preventDefault();
             loginForm.style.display = 'block';
             signupForm.style.display = 'none';
         });
-        
-        signupToggle.addEventListener('click', function(e) {
+
+        signupToggle.addEventListener('click', function (e) {
             e.preventDefault();
             loginForm.style.display = 'none';
             signupForm.style.display = 'block';
         });
     }
-    
+
     // Handle login
     if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
+        loginForm.addEventListener('submit', function (e) {
             e.preventDefault();
             const username = document.getElementById('login-username').value;
             const password = document.getElementById('login-password').value;
-            
-            if (username && password) {
-                // Store in localStorage (for demo purposes only - not secure)
-                localStorage.setItem('sustaina_username', username);
+
+            const storedUsername = localStorage.getItem('sustaina_username');
+            const storedPassword = localStorage.getItem('sustaina_password');
+
+            if (username === storedUsername && password === storedPassword) {
                 localStorage.setItem('sustaina_logged_in', 'true');
-                
-                // Redirect to dashboard
-                window.location.href = 'dashboard.html';
+                alert('Login successful!');
+                window.location.href = 'dashboard.html'; // Redirect to dashboard
             } else {
-                showNotification('Please fill in all fields', 'error');
+                alert('Invalid username or password.');
             }
         });
     }
-    
+
     // Handle signup
     if (signupForm) {
-        signupForm.addEventListener('submit', function(e) {
+        signupForm.addEventListener('submit', function (e) {
             e.preventDefault();
             const username = document.getElementById('signup-username').value;
             const email = document.getElementById('signup-email').value;
             const password = document.getElementById('signup-password').value;
             const confirmPassword = document.getElementById('signup-confirm').value;
-            
-            if (username && email && password && confirmPassword) {
-                if (password !== confirmPassword) {
-                    showNotification('Passwords do not match', 'error');
-                    return;
-                }
-                
-                // Store user data (for demo purposes only - not secure)
-                localStorage.setItem('sustaina_username', username);
-                localStorage.setItem('sustaina_email', email);
-                localStorage.setItem('sustaina_logged_in', 'true');
-                
-                // Initialize user profile
-                initUserProfile(username);
-                
-                // Redirect to dashboard
-                window.location.href = 'dashboard.html';
-            } else {
-                showNotification('Please fill in all fields', 'error');
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
             }
+
+            localStorage.setItem('sustaina_username', username);
+            localStorage.setItem('sustaina_email', email);
+            localStorage.setItem('sustaina_password', password);
+            alert('Signup successful! Please log in.');
+            loginForm.style.display = 'block';
+            signupForm.style.display = 'none';
         });
     }
-    
-    // Check login status
-    checkLoginStatus();
 }
 
 // Initialize user profile with default values
@@ -195,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Habit Tracker System
 function initHabitTracker() {
-    const habitList = document.getElementById('habit-list');
+    const habitList = document.getElementById('habitsList'); // Corrected ID
     if (!habitList) return;
     
     // Load user data
@@ -242,6 +210,8 @@ function initHabitTracker() {
     // Add New Habit Button
     const addHabitBtn = document.getElementById('add-habit-btn');
     const addHabitForm = document.getElementById('add-habit-form');
+    const addHabitModal = document.getElementById('addHabitModal');
+    const closeAddHabitModal = document.getElementById('closeAddHabitModal');
     
     if (addHabitBtn && addHabitForm) {
         addHabitBtn.addEventListener('click', function() {
@@ -264,43 +234,43 @@ function initHabitTracker() {
     }
 }
 
-// Toggle habit completion
+// Add Habit Modal Functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const addHabitBtn = document.getElementById('addHabitBtn');
+    const addHabitModal = document.getElementById('addHabitModal');
+    const closeAddHabitModal = document.getElementById('closeAddHabitModal');
+
+    if (addHabitBtn && addHabitModal && closeAddHabitModal) {
+        addHabitBtn.addEventListener('click', () => {
+            addHabitModal.style.display = 'flex';
+        });
+
+        closeAddHabitModal.addEventListener('click', () => {
+            addHabitModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === addHabitModal) {
+                addHabitModal.style.display = 'none';
+            }
+        });
+    }
+});
+
+// Toggle Habit Completion
 function toggleHabitCompletion(habitId) {
     const userData = JSON.parse(localStorage.getItem('sustaina_user_data'));
     const habit = userData.habits.find(h => h.id === habitId);
-    
+
     if (!habit) return;
-    
-    // Update completion status
+
     habit.completed = !habit.completed;
-    
-    if (habit.completed) {
-        // Increment streak
-        habit.streak += 1;
-        
-        // Add XP for completing a habit
-        userData.xp += 10;
-        
-        // Check if user leveled up
-        checkLevelUp(userData);
-        
-        showNotification(`${habit.name} completed! +10 XP`, 'success');
-    } else {
-        // Reset streak if uncompleting
-        habit.streak -= 1;
-        if (habit.streak < 0) habit.streak = 0;
-        
-        // Remove XP
-        userData.xp -= 10;
-        if (userData.xp < 0) userData.xp = 0;
-        
-        showNotification(`${habit.name} marked incomplete`, 'info');
-    }
-    
-    // Save updated user data
+    habit.streak = habit.completed ? habit.streak + 1 : Math.max(habit.streak - 1, 0);
+
+    userData.xp += habit.completed ? 10 : -10;
+    userData.xp = Math.max(userData.xp, 0);
+
     localStorage.setItem('sustaina_user_data', JSON.stringify(userData));
-    
-    // Refresh habit tracker display
     initHabitTracker();
     updateProfileInfo();
 }
@@ -512,157 +482,49 @@ function initProfileSystem() {
 
 // Quote Generator
 function initQuoteGenerator() {
-    const quoteContainer = document.getElementById('quote-container');
-    if (!quoteContainer) return;
-    
     const quotes = [
-        {
-            text: "The greatest threat to our planet is the belief that someone else will save it.",
-            author: "Robert Swan"
-        },
-        {
-            text: "We don't need a handful of people doing zero waste perfectly. We need millions doing it imperfectly.",
-            author: "Anne-Marie Bonneau"
-        },
-        {
-            text: "Health is a state of complete physical, mental and social well-being.",
-            author: "World Health Organization"
-        },
-        {
-            text: "Take care of your body. It's the only place you have to live.",
-            author: "Jim Rohn"
-        },
-        {
-            text: "The Earth is what we all have in common.",
-            author: "Wendell Berry"
-        },
-        {
-            text: "One step at a time is all it takes to get you there.",
-            author: "Emily Dickinson"
-        },
-        {
-            text: "Small changes can make a big difference.",
-            author: "Sustainably Yours"
-        },
-        {
-            text: "The best time to plant a tree was 20 years ago. The second best time is now.",
-            author: "Chinese Proverb"
-        },
-        {
-            text: "Your health is an investment, not an expense.",
-            author: "Anonymous"
-        },
-        {
-            text: "What you do makes a difference, and you have to decide what kind of difference you want to make.",
-            author: "Jane Goodall"
-        }
+        { text: "The greatest threat to our planet is the belief that someone else will save it.", author: "Robert Swan" },
+        { text: "Take care of your body. It's the only place you have to live.", author: "Jim Rohn" }
     ];
-    
-    // Get random quote
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    const quote = quotes[randomIndex];
-    
-    // Update quote display
-    quoteContainer.innerHTML = `
-        <p class="quote-text">"${quote.text}"</p>
-        <p class="quote-author">— ${quote.author}</p>
-    `;
-    
-    // Refresh quote button
-    const refreshQuoteBtn = document.getElementById('refresh-quote');
-    if (refreshQuoteBtn) {
-        refreshQuoteBtn.addEventListener('click', initQuoteGenerator);
+
+    const quoteContainer = document.getElementById('dailyQuote');
+    const newQuoteBtn = document.getElementById('newQuoteBtn');
+
+    function displayRandomQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        const quote = quotes[randomIndex];
+        quoteContainer.innerHTML = `"${quote.text}" — ${quote.author}`;
     }
+
+    if (newQuoteBtn) {
+        newQuoteBtn.addEventListener('click', displayRandomQuote);
+    }
+
+    displayRandomQuote();
 }
 
 // Diet and Exercise Planner
 function loadDietExercisePlanner() {
-    const plannerContainer = document.getElementById('planner-container');
-    if (!plannerContainer) return;
-    
-    // Default exercise plans
-    const exercises = [
-        { day: 'Monday', activity: 'Cardio (30 min)', intensity: 'Medium' },
-        { day: 'Tuesday', activity: 'Strength Training', intensity: 'High' },
-        { day: 'Wednesday', activity: 'Yoga/Stretching', intensity: 'Low' },
-        { day: 'Thursday', activity: 'Rest Day', intensity: 'None' },
-        { day: 'Friday', activity: 'HIIT Training', intensity: 'High' },
-        { day: 'Saturday', activity: 'Outdoor Walk/Run', intensity: 'Medium' },
-        { day: 'Sunday', activity: 'Active Recovery', intensity: 'Low' }
-    ];
-    
-    // Default diet plan
-    const meals = [
-        { meal: 'Breakfast', suggestion: 'Oatmeal with berries', ecoImpact: 'Low' },
-        { meal: 'Lunch', suggestion: 'Grain bowl with vegetables', ecoImpact: 'Low' },
-        { meal: 'Dinner', suggestion: 'Plant-based protein with vegetables', ecoImpact: 'Low' },
-        { meal: 'Snacks', suggestion: 'Nuts, fruits, vegetables', ecoImpact: 'Low' }
-    ];
-    
-    // Create exercise table
-    const exerciseTable = document.createElement('div');
-    exerciseTable.className = 'planner-table';
-    exerciseTable.innerHTML = `
-        <h3>Weekly Exercise Plan</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Day</th>
-                    <th>Activity</th>
-                    <th>Intensity</th>
-                </tr>
-            </thead>
-            <tbody id="exercise-tbody">
-                ${exercises.map(ex => `
-                    <tr>
-                        <td>${ex.day}</td>
-                        <td>${ex.activity}</td>
-                        <td>${ex.intensity}</td>
-                    </tr>
-                `).join('')}
-            </tbody>
-        </table>
-    `;
-    
-    // Create meal table
-    const mealTable = document.createElement('div');
-    mealTable.className = 'planner-table';
-    mealTable.innerHTML = `
-        <h3>Daily Meal Plan</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Meal</th>
-                    <th>Suggestion</th>
-                    <th>Eco Impact</th>
-                </tr>
-            </thead>
-            <tbody id="meal-tbody">
-                ${meals.map(m => `
-                    <tr>
-                        <td>${m.meal}</td>
-                        <td>${m.suggestion}</td>
-                        <td>${m.ecoImpact}</td>
-                    </tr>
-                `).join('')}
-            </tbody>
-        </table>
-    `;
-    
-    // Add tables to planner container
-    plannerContainer.innerHTML = '';
-    plannerContainer.appendChild(exerciseTable);
-    plannerContainer.appendChild(mealTable);
-    
-    // Add customize button
-    const customizeBtn = document.createElement('button');
-    customizeBtn.className = 'btn btn-primary';
-    customizeBtn.textContent = 'Customize Plan';
-    customizeBtn.addEventListener('click', function() {
-        showNotification('Customization feature coming soon!', 'info');
-    });
-    
-    plannerContainer.appendChild(customizeBtn);
+    const plannerTabs = document.querySelectorAll('.planner-tab');
+    const dietPlanner = document.getElementById('dietPlanner');
+    const exercisePlanner = document.getElementById('exercisePlanner');
+
+    if (plannerTabs && dietPlanner && exercisePlanner) {
+        plannerTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                plannerTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                if (tab.dataset.planner === 'diet') {
+                    dietPlanner.classList.add('active');
+                    exercisePlanner.classList.remove('active');
+                } else {
+                    exercisePlanner.classList.add('active');
+                    dietPlanner.classList.remove('active');
+                }
+            });
+        });
+    }
 }
 
 // Show notification
@@ -690,18 +552,25 @@ function showNotification(message, type = 'info') {
 
 // Highlight current navigation item
 function highlightCurrentNavItem() {
-    const currentPage = window.location.pathname;
-    const navLinks = document.querySelectorAll('nav a');
-    
-    navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        if (currentPage.includes(linkPath) && linkPath !== '#' && linkPath !== 'index.html') {
-            link.classList.add('active');
-        } else if (currentPage.endsWith('/') && linkPath === 'index.html') {
-            link.classList.add('active');
-        } else if (currentPage.endsWith('index.html') && linkPath === 'index.html') {
-            link.classList.add('active');
-        }
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let currentSection = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 60; // Adjust for navbar height
+            if (window.scrollY >= sectionTop) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(currentSection)) {
+                link.classList.add('active');
+            }
+        });
     });
 }
 
