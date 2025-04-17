@@ -35,7 +35,7 @@
             <button class="cta-btn" id="getStartedBtn">Get Started</button>
         </div>
         <div class="hero-image">
-            <img src="https://via.placeholder.com/500x400" alt="Eco-friendly lifestyle">
+            <img src="images/eco-friendly-lifestyle.jpg" alt="Eco-friendly lifestyle">
         </div>
     </section>
     
@@ -58,21 +58,6 @@
                 <h3>XP & Levels</h3>
                 <p>Earn XP and level up from Eco Novice to Earth Guardian.</p>
             </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fas fa-quote-right"></i></div>
-                <h3>Daily Quotes</h3>
-                <p>Get motivated with daily eco and fitness inspiration.</p>
-            </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fas fa-gift"></i></div>
-                <h3>Rewards</h3>
-                <p>Unlock discount coupons and special badges as you level up.</p>
-            </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
-                <h3>Planner</h3>
-                <p>Plan your diet and exercise routines with our simple tools.</p>
-            </div>
         </div>
     </section>
     
@@ -80,249 +65,36 @@
     <section id="about" class="about">
         <div class="about-text reveal">
             <h2>About Sustaina</h2>
-            <p>Sustaina is a student project designed to help people build healthier habits while reducing their environmental impact. By gamifying positive behaviors, we make sustainable living fun and rewarding.</p>
-            <p>Our mission is to create a community of mindful individuals who care about their wellbeing and the planet's future.</p>
+            <p>Sustaina is a student project designed to help people build healthier habits while reducing their environmental impact.</p>
         </div>
         <div class="about-image reveal">
-            <img src="https://via.placeholder.com/400x300" alt="About Sustaina">
+            <img src="images/about-sustaina.jpg" alt="About Sustaina">
         </div>
     </section>
     
-    <!-- Auth Modals -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
+    <!-- Login and Signup Section -->
+    <section id="auth-section" class="auth-container">
+        <div id="loginForm" class="auth-form">
             <h2>Login</h2>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="loginEmail">Email</label>
-                    <input type="email" id="loginEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" id="loginPassword" required>
-                </div>
-                <button type="submit" class="submit-btn">Login</button>
+            <form>
+                <input type="text" id="login-username" placeholder="Username" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit" id="login-btn">Login</button>
             </form>
-            <p class="switch-form">Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+            <p>Don't have an account? <a href="#" id="signup-toggle">Sign Up</a></p>
         </div>
-    </div>
-    
-    <div class="modal" id="signupModal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
+        <div id="signupForm" class="auth-form" style="display: none;">
             <h2>Sign Up</h2>
-            <form id="signupForm">
-                <div class="form-group">
-                    <label for="signupName">Full Name</label>
-                    <input type="text" id="signupName" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupEmail">Email</label>
-                    <input type="email" id="signupEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupPassword">Password</label>
-                    <input type="password" id="signupPassword" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupConfirmPassword">Confirm Password</label>
-                    <input type="password" id="signupConfirmPassword" required>
-                </div>
-                <button type="submit" class="submit-btn">Sign Up</button>
+            <form>
+                <input type="text" id="signup-username" placeholder="Username" required>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <input type="password" id="signup-confirm" placeholder="Confirm Password" required>
+                <button type="submit" id="signup-btn">Sign Up</button>
             </form>
-            <p class="switch-form">Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+            <p>Already have an account? <a href="#" id="login-toggle">Login</a></p>
         </div>
-    </div>
-    
-    <!-- Dashboard (initially hidden) -->
-    <div class="dashboard-container" id="dashboard">
-        <div class="sidebar">
-            <div class="user-profile">
-                <div class="profile-img">
-                    <img src="https://via.placeholder.com/100" alt="Profile Picture">
-                </div>
-                <h3 id="username">User Name</h3>
-                <p id="userLevel">Eco Novice</p>
-                <div class="progress-container">
-                    <div class="progress-bar" id="userXPBar"></div>
-                </div>
-                <p id="userXP">XP: 0/100</p>
-            </div>
-            <ul class="dashboard-menu">
-                <li class="active" data-tab="overview"><i class="fas fa-home"></i> Overview</li>
-                <li data-tab="habits"><i class="fas fa-tasks"></i> Habits</li>
-                <li data-tab="rewards"><i class="fas fa-gift"></i> Rewards</li>
-                <li data-tab="planner"><i class="fas fa-calendar-alt"></i> Planner</li>
-                <li data-tab="settings"><i class="fas fa-cog"></i> Settings</li>
-                <li id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</li>
-            </ul>
-        </div>
-        
-        <div class="dashboard-content">
-            <div class="tab-content active" id="overview">
-                <h2>Dashboard Overview</h2>
-                
-                <div class="stats-container">
-                    <div class="stat-card">
-                        <h3>Current Streak</h3>
-                        <div class="streak-icon" id="streakIcon">🌱</div>
-                        <p id="streakCount">1 day</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Completed Habits</h3>
-                        <p id="completedHabits">0 today</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Carbon Saved</h3>
-                        <p id="carbonSaved">0 kg</p>
-                    </div>
-                </div>
-                
-                <div class="quote-container">
-                    <h3>Today's Motivation</h3>
-                    <blockquote id="dailyQuote">
-                        "The greatest threat to our planet is the belief that someone else will save it."
-                    </blockquote>
-                    <button id="newQuoteBtn" class="small-btn">New Quote</button>
-                </div>
-                
-                <div class="today-habits">
-                    <h3>Today's Habits</h3>
-                    <div id="todayHabitsList" class="habits-list">
-                        <!-- Habits will be dynamically loaded here -->
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="habits">
-                <h2>Habit Tracker</h2>
-                <div class="habits-header">
-                    <div class="habit-categories">
-                        <button class="category-btn active" data-category="all">All</button>
-                        <button class="category-btn" data-category="fitness">Fitness</button>
-                        <button class="category-btn" data-category="eco">Eco-friendly</button>
-                    </div>
-                    <button id="addHabitBtn" class="small-btn"><i class="fas fa-plus"></i> Add Habit</button>
-                </div>
-                
-                <div id="habitsList" class="habits-list">
-                    <!-- Habits will be dynamically loaded here -->
-                </div>
-            </div>
-            
-            <div class="tab-content" id="rewards">
-                <h2>Your Rewards</h2>
-                <div class="levels-progress">
-                    <div class="level-item current" data-level="1">
-                        <div class="level-icon">🌱</div>
-                        <p>Eco Novice</p>
-                    </div>
-                    <div class="level-item" data-level="2">
-                        <div class="level-icon">🌿</div>
-                        <p>Nature Friend</p>
-                    </div>
-                    <div class="level-item" data-level="3">
-                        <div class="level-icon">🪴</div>
-                        <p>Earth Protector</p>
-                    </div>
-                    <div class="level-item" data-level="4">
-                        <div class="level-icon">🌳</div>
-                        <p>Earth Guardian</p>
-                    </div>
-                </div>
-                
-                <div class="rewards-container">
-                    <h3>Available Rewards</h3>
-                    <div id="rewardsList" class="rewards-list">
-                        <!-- Rewards will be dynamically loaded here -->
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="planner">
-                <h2>Diet & Exercise Planner</h2>
-                <div class="planner-tabs">
-                    <button class="planner-tab active" data-planner="diet">Diet</button>
-                    <button class="planner-tab" data-planner="exercise">Exercise</button>
-                </div>
-                
-                <div class="planner-content active" id="dietPlanner">
-                    <div class="meal-plan">
-                        <h3>Weekly Meal Plan</h3>
-                        <table class="meal-table">
-                            <thead>
-                                <tr>
-                                    <th>Day</th>
-                                    <th>Breakfast</th>
-                                    <th>Lunch</th>
-                                    <th>Dinner</th>
-                                    <th>Snacks</th>
-                                </tr>
-                            </thead>
-                            <tbody id="mealPlanTable">
-                                <!-- Meal plan will be dynamically loaded here -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="planner-content" id="exercisePlanner">
-                    <div class="exercise-plan">
-                        <h3>Weekly Exercise Plan</h3>
-                        <div id="exercisePlanCards" class="exercise-cards">
-                            <!-- Exercise plan will be dynamically loaded here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="settings">
-                <h2>Account Settings</h2>
-                <form id="settingsForm">
-                    <div class="form-group">
-                        <label for="settingsName">Full Name</label>
-                        <input type="text" id="settingsName" value="User Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="settingsEmail">Email</label>
-                        <input type="email" id="settingsEmail" value="user@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="settingsPassword">Change Password</label>
-                        <input type="password" id="settingsPassword" placeholder="New Password">
-                    </div>
-                    <div class="form-group">
-                        <label for="settingsConfirmPassword">Confirm New Password</label>
-                        <input type="password" id="settingsConfirmPassword" placeholder="Confirm New Password">
-                    </div>
-                    <button type="submit" class="submit-btn">Save Changes</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Add Habit Modal -->
-    <div class="modal" id="addHabitModal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeAddHabitModal">&times;</span>
-            <h2>Add New Habit</h2>
-            <form id="addHabitForm">
-                <div class="form-group">
-                    <label for="habitName">Habit Name</label>
-                    <input type="text" id="habitName" required>
-                </div>
-                <div class="form-group">
-                    <label for="habitCategory">Category</label>
-                    <select id="habitCategory" required>
-                        <option value="fitness">Fitness</option>
-                        <option value="eco">Eco-friendly</option>
-                    </select>
-                </div>
-                <button type="submit" class="submit-btn">Add Habit</button>
-            </form>
-        </div>
-    </div>
+    </section>
     
     <!-- Footer -->
     <footer>
