@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Sustaina</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="auth.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.imgur.com/8KgVB8B.png" type="image/png">
+</head>
+<body>
+    <!-- Single, clean preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo">
+            <h2>Sustaina</h2>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo">
+                    <span>Sustaina</span>
+                </a>
+            </div>
+            
+            <div class="navbar-menu">
+                <a href="index.html" class="navbar-link">Home</a>
+                <a href="index.html#features" class="navbar-link">Features</a>
+                <a href="about.html" class="navbar-link">About</a>
+                <a href="index.html#testimonials" class="navbar-link">Testimonials</a>
+                <a href="contact.html" class="navbar-link">Contact</a>
+            </div>
+            
+            <div class="navbar-actions">
+                <!-- This will be dynamically updated by auth.js -->
+            </div>
+            
+            <div class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo">
+                    <span>Sustaina</span>
+                </a>
+            </div>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-body">
+            <a href="index.html" class="mobile-menu-link">Home</a>
+            <a href="index.html#features" class="mobile-menu-link">Features</a>
+            <a href="about.html" class="mobile-menu-link">About</a>
+            <a href="index.html#testimonials" class="mobile-menu-link">Testimonials</a>
+            <a href="contact.html" class="mobile-menu-link">Contact</a>
+            <div class="mobile-menu-actions">
+                <!-- This will be dynamically updated by auth.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Register Hero -->
+        <section class="auth-hero">
+            <div class="container">
+                <h1>Join Sustaina</h1>
+                <p>Start your journey towards a sustainable future today</p>
+            </div>
+        </section>
+
+        <!-- Register Section -->
+        <section class="auth-section">
+            <div class="auth-container">
+                <!-- Register Form -->
+                <div class="auth-form-container">
+                    <h2>Create Your Account</h2>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <div class="input-icon-wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <div class="input-icon-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="password">Password</label>
+                            <div class="input-icon-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                                <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="strength-meter">
+                                    <div class="strength-meter-fill" data-strength="0"></div>
+                                </div>
+                                <div class="strength-text">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Password strength</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <div class="input-icon-wrapper password-field">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                                <button type="button" class="password-toggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="terms-group">
+                                <input type="checkbox" id="terms" class="form-check-input" required>
+                                <label for="terms" class="form-check-label">
+                                    I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Create Account</button>
+                        <div class="auth-divider">
+                            <span>or register with</span>
+                        </div>
+                        <div class="social-login">
+                            <button type="button" class="social-btn google">
+                                <i class="fab fa-google"></i>
+                                <span>Google</span>
+                            </button>
+                            <button type="button" class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="login.html">Login here</a></p>
+                    </div>
+                </div>
+
+                <!-- Register Benefits -->
+                <div class="auth-benefits">
+                    <h2>Why Register?</h2>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Track Your Impact</h3>
+                            <p>Monitor your environmental footprint and see your progress over time</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Join the Community</h3>
+                            <p>Connect with like-minded individuals and share your sustainability journey</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Get Personalized Tips</h3>
+                            <p>Receive customized recommendations to improve your sustainable lifestyle</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Earn Rewards</h3>
+                            <p>Get points for your sustainable actions and redeem them for eco-friendly rewards</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo" class="footer-logo">
+                    <p>Empowering individuals and businesses to create a sustainable future through innovative solutions and conscious choices.</p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="footer-links-title">Quick Links</h3>
+                    <ul class="footer-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="footer-links-title">Features</h3>
+                    <ul class="footer-menu">
+                        <li><a href="#">Habit Tracking</a></li>
+                        <li><a href="#">Rewards System</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Eco Insights</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="footer-links-title">Support</h3>
+                    <ul class="footer-menu">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">© 2024 Sustaina. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script src="register.js"></script>
+</body>
+</html> 

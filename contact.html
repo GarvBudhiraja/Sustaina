@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Sustaina</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="auth.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.imgur.com/8KgVB8B.png" type="image/png">
+</head>
+<body>
+    <!-- Single, clean preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo">
+            <h2>Sustaina</h2>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo">
+                    <span>Sustaina</span>
+                </a>
+            </div>
+            
+            <div class="navbar-menu">
+                <a href="index.html" class="navbar-link">Home</a>
+                <a href="index.html#features" class="navbar-link">Features</a>
+                <a href="about.html" class="navbar-link">About</a>
+                <a href="index.html#testimonials" class="navbar-link">Testimonials</a>
+                <a href="contact.html" class="navbar-link active">Contact</a>
+            </div>
+            
+            <div class="navbar-actions">
+                <!-- This will be dynamically updated by auth.js -->
+            </div>
+            
+            <div class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo">
+                    <span>Sustaina</span>
+                </a>
+            </div>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-body">
+            <a href="index.html" class="mobile-menu-link">Home</a>
+            <a href="index.html#features" class="mobile-menu-link">Features</a>
+            <a href="about.html" class="mobile-menu-link">About</a>
+            <a href="index.html#testimonials" class="mobile-menu-link">Testimonials</a>
+            <a href="contact.html" class="mobile-menu-link active">Contact</a>
+            <div class="mobile-menu-actions">
+                <!-- This will be dynamically updated by auth.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Contact Hero Section -->
+        <section class="contact-hero">
+            <div class="contact-hero-content">
+                <h1>Get in Touch</h1>
+                <p>Have questions about Sustaina? We're here to help! Reach out to us through any of the channels below or fill out our contact form.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">Get In Touch</span>
+                    <h2 class="section-title">Contact Us</h2>
+                    <p class="section-subtitle">
+                        Have questions or suggestions? We'd love to hear from you! Reach out to our team using the form below.
+                    </p>
+                </div>
+
+                <div class="contact-container">
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h3>Our Location</h3>
+                                <p>123 Eco Street, Green Valley<br>Sustainable City, SC 12345</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h3>Email Us</h3>
+                                <p>info@sustaina.com<br>support@sustaina.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h3>Call Us</h3>
+                                <p>+1 (555) 123-4567<br>+1 (555) 987-6543</p>
+                            </div>
+                        </div>
+                        <div class="contact-social">
+                            <h3>Follow Us</h3>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="contact-form-container">
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label class="form-label" for="name">Full Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="subject">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="message">Message</label>
+                                <textarea class="form-control" id="message" placeholder="Enter your message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-content">
+                <!-- Footer About -->
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <img src="https://i.imgur.com/8KgVB.png" alt="Sustaina Logo">
+                        <span>Sustaina</span>
+                    </a>
+                    <p class="footer-description">
+                        Empowering individuals to live sustainably through habit tracking, rewards, and community engagement. Together, we can create a more sustainable future for our planet.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">Quick Links</h3>
+                        <ul class="footer-menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#features">Features</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="index.html#testimonials">Testimonials</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">Features</h3>
+                        <ul class="footer-menu">
+                            <li><a href="#">Habit Tracking</a></li>
+                            <li><a href="#">Rewards System</a></li>
+                            <li><a href="#">Community</a></li>
+                            <li><a href="#">Eco Insights</a></li>
+                            <li><a href="#">Challenges</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">Support</h3>
+                        <ul class="footer-menu">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Contact Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">© 2024 Sustaina. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div class="toast-container">
+        <!-- Toasts will be dynamically added here -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script src="contact.js"></script>
+
+    <script>
+        // Initialize contact form
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove preloader when page is fully loaded
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }, 500);
+            }
+
+            // Handle contact form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Add your form submission logic here
+                    // For now, just show a success message
+                    const toast = document.createElement('div');
+                    toast.className = 'toast success';
+                    toast.textContent = 'Message sent successfully!';
+                    document.querySelector('.toast-container').appendChild(toast);
+                    setTimeout(() => toast.remove(), 3000);
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
