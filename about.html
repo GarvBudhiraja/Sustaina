@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Sustaina</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animation Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="auth.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.imgur.com/8KgVB8B.png" type="image/png">
+</head>
+<body>
+    <!-- Single, clean preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo">
+            <h2>Sustaina</h2>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <!-- Animated Background Elements -->
+    <div class="bg-elements">
+        <div class="leaf leaf-1"></div>
+        <div class="leaf leaf-2"></div>
+        <div class="leaf leaf-3"></div>
+        <div class="leaf leaf-4"></div>
+        <div class="leaf leaf-5"></div>
+        <div class="leaf leaf-6"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo">
+                    <span>Sustaina</span>
+                </a>
+            </div>
+            
+            <div class="navbar-menu">
+                <a href="index.html" class="navbar-link">Home</a>
+                <a href="index.html#features" class="navbar-link">Features</a>
+                <a href="about.html" class="navbar-link active">About</a>
+                <a href="index.html#testimonials" class="navbar-link">Testimonials</a>
+                <a href="contact.html" class="navbar-link">Contact</a>
+            </div>
+            
+            <div class="navbar-actions">
+                <!-- This will be dynamically updated by auth.js -->
+            </div>
+            
+            <div class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo">
+                    <span>Sustaina</span>
+                </a>
+            </div>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-body">
+            <a href="index.html" class="mobile-menu-link">Home</a>
+            <a href="index.html#features" class="mobile-menu-link">Features</a>
+            <a href="about.html" class="mobile-menu-link active">About</a>
+            <a href="index.html#testimonials" class="mobile-menu-link">Testimonials</a>
+            <a href="contact.html" class="mobile-menu-link">Contact</a>
+            <div class="mobile-menu-actions">
+                <!-- This will be dynamically updated by auth.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="about-hero-content">
+                <h1>Our Story</h1>
+                <p>Learn about our mission, values, and the team behind Sustaina.</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-container">
+                    <div class="about-image">
+                        <img src="https://i.imgur.com/nWFJGiD.jpg" alt="About Sustaina">
+                        <div class="about-image-decoration"></div>
+                    </div>
+                    <div class="about-content">
+                        <span class="section-tagline">Our Story</span>
+                        <h2 class="section-title">About Sustaina</h2>
+                        <p class="about-text">
+                            Sustaina was born from a simple idea: making sustainable living accessible, enjoyable, and rewarding for everyone. Our team of environmentalists, designers, and developers came together with a shared mission to create a platform that empowers individuals to make a positive impact on the planet.
+                        </p>
+                        <p class="about-text">
+                            We believe that small, consistent actions can lead to significant change when multiplied across a community. That's why we've built Sustaina to track habits, provide rewards, and connect like-minded individuals who are passionate about protecting our environment.
+                        </p>
+                        <div class="about-stats">
+                            <div class="about-stat">
+                                <span class="about-stat-number">2M+</span>
+                                <span class="about-stat-label">Trees Planted</span>
+                            </div>
+                            <div class="about-stat">
+                                <span class="about-stat-number">50K+</span>
+                                <span class="about-stat-label">Tons of CO2 Saved</span>
+                            </div>
+                            <div class="about-stat">
+                                <span class="about-stat-number">100K+</span>
+                                <span class="about-stat-label">Active Users</span>
+                            </div>
+                        </div>
+                        <div class="about-cta">
+                            <button class="btn btn-primary">Our Mission</button>
+                            <button class="btn btn-outline">Meet The Team</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">Our Team</span>
+                    <h2 class="section-title">Meet The People Behind Sustaina</h2>
+                    <p class="section-subtitle">
+                        Our diverse team brings together expertise in environmental science, technology, and user experience to create a platform that makes a difference.
+                    </p>
+                </div>
+
+                <div class="team-container">
+                    <div class="team-member">
+                        <div class="team-member-image">
+                            <img src="https://i.imgur.com/8LWTHYs.jpg" alt="Sarah Johnson">
+                        </div>
+                        <h3 class="team-member-name">Sarah Johnson</h3>
+                        <p class="team-member-role">Founder & CEO</p>
+                        <p class="team-member-bio">
+                            Environmental scientist with 15+ years of experience in sustainability initiatives and climate change research.
+                        </p>
+                        <div class="team-member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="team-member-image">
+                            <img src="https://i.imgur.com/Gs8JgcP.jpg" alt="Michael Rodriguez">
+                        </div>
+                        <h3 class="team-member-name">Michael Rodriguez</h3>
+                        <p class="team-member-role">CTO</p>
+                        <p class="team-member-bio">
+                            Tech innovator with a passion for creating user-friendly applications that solve real-world problems.
+                        </p>
+                        <div class="team-member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="team-member-image">
+                            <img src="https://i.imgur.com/pJmxJ5t.jpg" alt="Emma Chen">
+                        </div>
+                        <h3 class="team-member-name">Emma Chen</h3>
+                        <p class="team-member-role">Head of Design</p>
+                        <p class="team-member-bio">
+                            UX/UI designer focused on creating intuitive and engaging experiences that inspire positive change.
+                        </p>
+                        <div class="team-member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="team-member-image">
+                            <img src="https://i.imgur.com/JQcXnZF.jpg" alt="David Patel">
+                        </div>
+                        <h3 class="team-member-name">David Patel</h3>
+                        <p class="team-member-role">Community Manager</p>
+                        <p class="team-member-bio">
+                            Community builder with expertise in fostering engagement and creating meaningful connections.
+                        </p>
+                        <div class="team-member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">Our Mission</span>
+                    <h2 class="section-title">Our Commitment to Sustainability</h2>
+                    <p class="section-subtitle">
+                        At Sustaina, we're dedicated to creating a more sustainable future through technology, community, and individual action.
+                    </p>
+                </div>
+
+                <div class="mission-container">
+                    <div class="mission-item">
+                        <div class="mission-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="mission-title">Environmental Impact</h3>
+                        <p class="mission-description">
+                            We measure our success by the positive environmental impact our users create collectively. Every small action counts toward a healthier planet.
+                        </p>
+                    </div>
+
+                    <div class="mission-item">
+                        <div class="mission-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="mission-title">Community Building</h3>
+                        <p class="mission-description">
+                            We believe in the power of community to drive change. By connecting like-minded individuals, we create a network of support and inspiration.
+                        </p>
+                    </div>
+
+                    <div class="mission-item">
+                        <div class="mission-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="mission-title">Innovation</h3>
+                        <p class="mission-description">
+                            We continuously innovate to find new ways to make sustainable living easier, more accessible, and more rewarding for everyone.
+                        </p>
+                    </div>
+
+                    <div class="mission-item">
+                        <div class="mission-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="mission-title">Partnerships</h3>
+                        <p class="mission-description">
+                            We collaborate with environmental organizations, sustainable businesses, and community leaders to amplify our impact.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-container">
+                    <div class="cta-content">
+                        <h2 class="cta-title">Join Our Mission for a Sustainable Future</h2>
+                        <p class="cta-text">
+                            Be part of a growing community dedicated to making a positive impact on the planet. Sign up today and start your sustainability journey with Sustaina.
+                        </p>
+                        <div class="cta-actions">
+                            <a href="register.html" class="btn btn-light btn-lg">
+                                Get Started <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="contact.html" class="btn btn-outline-light btn-lg">
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cta-image">
+                        <img src="https://i.imgur.com/tKg0DvZ.png" alt="Sustaina App">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-content">
+                <!-- Footer About -->
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo">
+                        <span>Sustaina</span>
+                    </a>
+                    <p class="footer-description">
+                        Empowering individuals to live sustainably through habit tracking, rewards, and community engagement. Together, we can create a more sustainable future for our planet.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">Quick Links</h3>
+                        <ul class="footer-menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#features">Features</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="index.html#testimonials">Testimonials</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">Features</h3>
+                        <ul class="footer-menu">
+                            <li><a href="#">Habit Tracking</a></li>
+                            <li><a href="#">Rewards System</a></li>
+                            <li><a href="#">Community</a></li>
+                            <li><a href="#">Eco Insights</a></li>
+                            <li><a href="#">Challenges</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">Support</h3>
+                        <ul class="footer-menu">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Contact Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">© 2024 Sustaina. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div class="toast-container">
+        <!-- Toasts will be dynamically added here -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html> 

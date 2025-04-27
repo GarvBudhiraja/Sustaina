@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShapeUp Club - Your Fitness Journey</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animation Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="shapeup.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.imgur.com/8KgVB8B.png" type="image/png">
+</head>
+<body>
+    <div id="preloader" class="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="https://i.imgur.com/8KgVB8B.png" alt="ShapeUp Club Logo">
+                <span>ShapeUp Club</span>
+            </div>
+            
+            <div class="navbar-menu">
+                <a href="#home" class="navbar-link active">Home</a>
+                <a href="#workouts" class="navbar-link">Workouts</a>
+                <a href="#nutrition" class="navbar-link">Nutrition</a>
+                <a href="#progress" class="navbar-link">Progress</a>
+                <a href="#community" class="navbar-link">Community</a>
+            </div>
+            
+            <div class="navbar-actions">
+                <a href="login.html" class="btn btn-login">Login</a>
+                <a href="register.html" class="btn btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title animate__animated animate__fadeInUp">
+                        Transform Your Body, 
+                        <span class="text-accent">Transform Your Life</span>
+                    </h1>
+                    <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">
+                        Join ShapeUp Club for personalized workouts, nutrition plans, and a supportive community to achieve your fitness goals.
+                    </p>
+                    <div class="hero-actions animate__animated animate__fadeInUp animate__delay-2s">
+                        <a href="register.html" class="btn btn-primary btn-lg">
+                            Start Free Trial <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <button class="btn btn-outline btn-lg" id="learnMoreBtn">
+                            Learn More <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image animate__animated animate__fadeIn animate__delay-1s">
+                    <img src="https://i.imgur.com/JKgQPCh.png" alt="ShapeUp Club App">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">What We Offer</span>
+                    <h2 class="section-title">Comprehensive Fitness Solution</h2>
+                    <p class="section-subtitle">
+                        Everything you need to achieve your fitness goals in one place.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h3>Personalized Workouts</h3>
+                        <p>Custom workout plans based on your goals, fitness level, and available equipment.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Nutrition Tracking</h3>
+                        <p>Track your meals, count calories, and get personalized nutrition advice.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Progress Tracking</h3>
+                        <p>Monitor your progress with detailed analytics and visual charts.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community Support</h3>
+                        <p>Connect with like-minded individuals and share your fitness journey.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workouts Section -->
+        <section id="workouts" class="workouts-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">Workout Plans</span>
+                    <h2 class="section-title">Find Your Perfect Workout</h2>
+                    <p class="section-subtitle">
+                        Choose from a variety of workout plans tailored to your goals.
+                    </p>
+                </div>
+
+                <div class="workout-categories">
+                    <div class="workout-category">
+                        <img src="https://i.imgur.com/tKg0DvZ.png" alt="Strength Training">
+                        <h3>Strength Training</h3>
+                        <p>Build muscle and increase strength with our comprehensive programs.</p>
+                        <a href="#" class="btn btn-outline">View Programs</a>
+                    </div>
+
+                    <div class="workout-category">
+                        <img src="https://i.imgur.com/sFvQoQm.png" alt="Cardio">
+                        <h3>Cardio</h3>
+                        <p>Improve endurance and burn calories with effective cardio workouts.</p>
+                        <a href="#" class="btn btn-outline">View Programs</a>
+                    </div>
+
+                    <div class="workout-category">
+                        <img src="https://i.imgur.com/ZLkGdvY.png" alt="Flexibility">
+                        <h3>Flexibility</h3>
+                        <p>Enhance mobility and prevent injuries with stretching routines.</p>
+                        <a href="#" class="btn btn-outline">View Programs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrition Section -->
+        <section id="nutrition" class="nutrition-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">Nutrition</span>
+                    <h2 class="section-title">Fuel Your Fitness Journey</h2>
+                    <p class="section-subtitle">
+                        Track your nutrition and get personalized meal plans.
+                    </p>
+                </div>
+
+                <div class="nutrition-features">
+                    <div class="nutrition-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3>Calorie Tracking</h3>
+                        <p>Easily track your daily calorie intake and macronutrients.</p>
+                    </div>
+
+                    <div class="nutrition-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Meal Plans</h3>
+                        <p>Access customized meal plans based on your goals.</p>
+                    </div>
+
+                    <div class="nutrition-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Recipe Library</h3>
+                        <p>Discover healthy recipes for every meal of the day.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress" class="progress-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">Track Progress</span>
+                    <h2 class="section-title">Monitor Your Journey</h2>
+                    <p class="section-subtitle">
+                        Visualize your progress with detailed analytics and tracking tools.
+                    </p>
+                </div>
+
+                <div class="progress-features">
+                    <div class="progress-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-weight"></i>
+                        </div>
+                        <h3>Weight Tracking</h3>
+                        <p>Track your weight and body measurements over time.</p>
+                    </div>
+
+                    <div class="progress-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Performance Analytics</h3>
+                        <p>Monitor your workout performance and improvements.</p>
+                    </div>
+
+                    <div class="progress-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Achievements</h3>
+                        <p>Earn badges and rewards for reaching milestones.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="community-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">Join Our Community</span>
+                    <h2 class="section-title">Connect & Inspire</h2>
+                    <p class="section-subtitle">
+                        Share your journey and connect with others on the same path.
+                    </p>
+                </div>
+
+                <div class="community-features">
+                    <div class="community-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Discussion Forums</h3>
+                        <p>Engage in discussions about fitness, nutrition, and motivation.</p>
+                    </div>
+
+                    <div class="community-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Group Challenges</h3>
+                        <p>Participate in community challenges and competitions.</p>
+                    </div>
+
+                    <div class="community-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3>Progress Sharing</h3>
+                        <p>Share your achievements and inspire others.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Start Your Fitness Journey?</h2>
+                    <p>Join ShapeUp Club today and transform your life with personalized workouts, nutrition plans, and a supportive community.</p>
+                    <a href="register.html" class="btn btn-primary btn-lg">Start Free Trial</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ShapeUp Club</h3>
+                    <p>Your journey to a healthier lifestyle starts here.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#workouts">Workouts</a></li>
+                        <li><a href="#nutrition">Nutrition</a></li>
+                        <li><a href="#progress">Progress</a></li>
+                        <li><a href="#community">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: support@shapeupclub.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShapeUp Club. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="shapeup.js"></script>
+</body>
+</html> 
