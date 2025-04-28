@@ -158,7 +158,7 @@ section {
     box-shadow: 0 4px 15px rgba(46, 204, 113, 0.2);
 }
 
-.btn-primary:hover {
+.btn-primary:hover{
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(46, 204, 113, 0.3);
 }
