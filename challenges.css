@@ -1,0 +1,211 @@
+/* Modal Styles */
+.challenge-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.35);
+    align-items: center;
+    justify-content:center;
+}
+
+.challenge-modal-content {
+    background: #fff;
+    border-radius: 1.25rem;
+    max-width: 400px;
+    width: 90vw;
+    padding: 2rem 1.5rem;
+    position: relative;
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.12);
+}
+
+.modal-header {
+    margin-bottom: 1.5rem;
+}
+
+.modal-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Challenge Info Styles */
+.challenge-info {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.75rem;
+}
+
+.challenge-info p {
+    margin: 0.5rem 0;
+    color: #444;
+}
+
+/* Progress Bar Styles */
+.progress-info{
+    margin-bottom: 1rem;
+}
+
+.progress-bar{
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress {
+    height: 100%;
+    background: #7ed957;
+    transition: width 0.3s ease;
+}
+
+/* Instructions Styles */
+.instructions {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.75rem;
+}
+
+.instructions h4 {
+    margin: 0 0 0.75rem 0;
+    color: #333;
+}
+
+.instructions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.instructions li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #444;
+}
+
+.instructions li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #7ed957;
+}
+
+/* Badge Styles */
+.badge-info {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.75rem;
+}
+
+.badge-info h4 {
+    margin: 0 0 0.75rem 0;
+    color: #333;
+}
+
+.badge-preview {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    border: 1px solid #e9ecef;
+}
+
+.badge-icon {
+    font-size: 2rem;
+}
+
+.badge-preview.earned {
+    background: #f0fff0;
+    border-color: #7ed957;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.btn-primary {
+    background: #7ed957;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #6bc84d;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #7ed957;
+    color: #7ed957;
+}
+
+.btn-outline:hover {
+    background: #7ed957;
+    color: #fff;
+}
+
+.btn-outline.joined {
+    background: #7ed957;
+    color: #fff;
+}
+
+/* Completion Message Styles */
+.completion-message {
+    text-align: center;
+    padding: 1rem;
+    background: #f0fff0;
+    border-radius: 0.75rem;
+    border: 1px solid #7ed957;
+}
+
+.completion-message p {
+    margin: 0;
+    color: #333;
+    font-weight: 500;
+}
+
+.profile-notice {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Close Button */
+#closeChallengeModal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #7ed957;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+#closeChallengeModal:hover {
+    color: #6bc84d;
+} 

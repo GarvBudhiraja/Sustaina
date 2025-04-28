@@ -1,14 +1,15 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Sustaina-Live Eco-Consciously</title>
+    <title>Sustaina - Live Eco-Consciously</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
@@ -22,8 +23,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="components.css">
     <link rel="stylesheet" href="auth.css">
-    <link rel="stylesheet" href="progress.css">
-    <link rel="stylesheet" href="challenge-details.css">
+    <link rel="stylesheet" href="profile.css">
     
     <!-- Favicon -->
     <link rel="icon" href="https://i.imgur.com/8KgVB8B.png" type="image/png">
@@ -60,13 +60,40 @@
                 <a href="#home" class="navbar-link active">Home</a>
                 <a href="#features" class="navbar-link">Features</a>
                 <a href="about.html" class="navbar-link">About</a>
-                <a href="#testimonials" class="navbar-link">Testimonials</a>
+                <a href="challenges.html" class="navbar-link">Challenges</a>
                 <a href="contact.html" class="navbar-link">Contact</a>
             </div>
             
             <div class="navbar-actions">
                 <a href="login.html" class="btn btn-login">Login</a>
                 <a href="register.html" class="btn btn-primary">Sign Up</a>
+                <!-- Add Profile Dropdown -->
+                <div class="profile-dropdown" id="profileDropdown" style="display: none;">
+                    <button class="profile-btn" id="profileBtn">
+                        <img src="https://i.imgur.com/8LWTHYs.jpg" alt="Profile" class="profile-img">
+                        <span>Profile</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user"></i>
+                            My Profile
+                        </a>
+                        <a href="#badges" class="dropdown-item">
+                            <i class="fas fa-medal"></i>
+                            My Badges
+                        </a>
+                        <a href="#settings" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </a>
+                        <div class="dropdowndivider"></div>
+                        <a href="login.html" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
             </div>
             
             <div class="navbar-toggle" id="navbarToggle">
@@ -92,7 +119,7 @@
             <a href="#home" class="mobile-menu-link active">Home</a>
             <a href="#features" class="mobile-menu-link">Features</a>
             <a href="about.html" class="mobile-menu-link">About</a>
-            <a href="#testimonials" class="mobile-menu-link">Testimonials</a>
+            <a href="challenges.html" class="mobile-menu-link">Challenges</a>
             <a href="contact.html" class="mobile-menu-link">Contact</a>
             <div class="mobile-menu-actions">
                 <a href="login.html" class="btn btn-login-mobile">Login</a>
@@ -178,6 +205,10 @@
                             <i class="fas fa-chart-line"></i>
                             <span>Eco Insights</span>
                         </button>
+                        <button class="features-tab-btn" data-tab="ai-tracker">
+                            <i class="fas fa-robot"></i>
+                            <span>AI Tracking</span>
+                        </button>
                     </div>
 
                     <div class="features-tabs-content">
@@ -248,12 +279,12 @@
                         <div class="features-tab-pane" id="community-tab">
                             <div class="tab-content-wrapper">
                                 <div class="tab-content-image">
-                                    <img src="" alt="Community Feature">
+                                    <img src="https://i.imgur.com/ZLkGdvY.png" alt="Community Feature">
                                 </div>
                                 <div class="tab-content-info">
-                                    <h3>Join  Global Eco-Community</h3>
+                                    <h3>Join a Global Eco-Community</h3>
                                     <p>
-                                        Connect with like-minded individuals, share tip, and participate in challenges with our supportive community of eco-enthusiasts.
+                                        Connect with like-minded individuals, share tips, and participate in challenges with our supportive community of eco-enthusiasts.
                                     </p>
                                     <ul class="feature-list">
                                         <li>
@@ -308,10 +339,110 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="features-tab-pane" id="ai-tracker-tab">
+                            <div class="tab-content-wrapper">
+                                <div class="tab-content-image">
+                                    <img src="https://i.imgur.com/abc123.jpg" alt="AI Tracking">
+                                </div>
+                                <div class="tab-content-info">
+                                    <h3>Smart Eco Tracking</h3>
+                                    <p>Track your sustainability efforts using multiple AI-powered methods:</p>
+                                    <div class="tracking-methods">
+                                        <div class="method-card" id="photoUpload">
+                                            <i class="fas fa-camera"></i>
+                                            <span>Snap Sustainability</span>
+                                            <input type="file" accept="image/*" hidden>
+                                        </div>
+                                        <div class="method-card" id="voiceInput">
+                                            <i class="fas fa-microphone"></i>
+                                            <span>Voice Logging</span>
+                                        </div>
+                                        <div class="method-card" id="barcodeScan">
+                                            <i class="fas fa-barcode"></i>
+                                            <span>Product Scan</span>
+                                        </div>
+                                    </div>
+                                    <div class="quick-track">
+                                        <input type="text" placeholder="Quick track (e.g. 'recycled 2kg paper')">
+                                        <button class="btn btn-accent">Add</button>
+                                    </div>
+                                    <div class="action-history">
+                                        <h4>Tracked Actions</h4>
+                                        <ul id="actionHistoryList" class="feature-list"></ul>
+                                    </div>
+                                    <canvas id="actionsChart" height="100"></canvas>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Eco-Friendly Challenges Section -->
+        <section class="challenges-section" id="challenges">
+          <div class="container">
+            <div class="section-header" style="margin-bottom: 2.5rem;">
+              <h2 class="section-title">Eco-Friendly Challenges</h2>
+              <p class="section-subtitle">Participate in community challenges to boost your sustainability efforts and earn extra rewards.</p>
+            </div>
+            <div class="challenges-cards-row" style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+              <!-- Challenge Card 1 -->
+              <div class="challenge-card" style="flex: 1 1 300px; max-width: 350px; min-width: 260px; background: #fff; border-radius: 1.25rem; box-shadow: 0 2px 16px rgba(0,0,0,0.04); padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center;">
+                <div style="margin-bottom: 0.5rem;">
+                  <span class="badge" style="background: #7ed957; color: #fff; font-size: 0.85em; padding: 0.25em 1em; border-radius: 1em; font-weight: 600;">POPULAR</span>
+                </div>
+                <div style="font-size: 2.5rem; color: #7ed957; margin-bottom: 0.5rem;"><i class="fas fa-bicycle"></i></div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem;">30-Day Car-Free Challenge</h3>
+                <p style="text-align: center; color: #444; margin-bottom: 1.25rem;">Reduce your carbon footprint by using alternative transportation for 30 days.</p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 1.2em; font-size: 0.98em; color: #222; margin-bottom: 1.25rem;">
+                  <span><i class="fas fa-users" style="color:#7ed957;"></i> 1,245 participants</span>
+                  <span><i class="fas fa-clock" style="color:#7ed957;"></i> 15 days left</span>
+                </div>
+                <button class="btn btn-outline" style="width: 100%;">
+                    <span class="btn-text">Join Challenge</span>
+                    <i class="fas fa-arrow-right btn-icon"></i>
+                </button>
+              </div>
+              <!-- Challenge Card 2 -->
+              <div class="challenge-card" style="flex: 1 1 300px; max-width: 350px; min-width: 260px; background: #fff; border-radius: 1.25rem; box-shadow: 0 2px 16px rgba(0,0,0,0.04); padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center;">
+                <div style="margin-bottom: 0.5rem;">
+                  <span class="badge" style="background: #7ed957; color: #fff; font-size: 0.85em; padding: 0.25em 1em; border-radius: 1em; font-weight: 600;">NEW</span>
+                </div>
+                <div style="font-size: 2.5rem; color: #7ed957; margin-bottom: 0.5rem;"><i class="fas fa-lock"></i></div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem;">Zero Waste Week</h3>
+                <p style="text-align: center; color: #444; margin-bottom: 1.25rem;">Minimize your waste production and find creative ways to reuse and recycle.</p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 1.2em; font-size: 0.98em; color: #222; margin-bottom: 1.25rem;">
+                  <span><i class="fas fa-users" style="color:#7ed957;"></i> 876 participants</span>
+                  <span><i class="fas fa-clock" style="color:#7ed957;"></i> 7 days left</span>
+                </div>
+                <button class="btn btn-outline" style="width: 100%;">
+                    <span class="btn-text">Join Challenge</span>
+                    <i class="fas fa-arrow-right btn-icon"></i>
+                </button>
+              </div>
+              <!-- Challenge Card 3 -->
+              <div class="challenge-card" style="flex: 1 1 300px; max-width: 350px; min-width: 260px; background: #fff; border-radius: 1.25rem; box-shadow: 0 2px 16px rgba(0,0,0,0.04); padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center;">
+                <div style="margin-bottom: 0.5rem;">
+                  <span class="badge" style="background: #7ed957; color: #fff; font-size: 0.85em; padding: 0.25em 1em; border-radius: 1em; font-weight: 600;">FEATURED</span>
+                </div>
+                <div style="font-size: 2.5rem; color: #7ed957; margin-bottom: 0.5rem;"><i class="fas fa-seedling"></i></div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem;">Plant 100 Trees</h3>
+                <p style="text-align: center; color: #444; margin-bottom: 1.25rem;">Join our community effort to plant 100 trees in your local area this month.</p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 1.2em; font-size: 0.98em; color: #222; margin-bottom: 1.25rem;">
+                  <span><i class="fas fa-users" style="color:#7ed957;"></i> 2,103 participants</span>
+                  <span><i class="fas fa-clock" style="color:#7ed957;"></i> 22 days left</span>
+                </div>
+                <button class="btn btn-outline" style="width: 100%;">
+                    <span class="btn-text">Join Challenge</span>
+                    <i class="fas fa-arrow-right btn-icon"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- End Eco-Friendly Challenges Section -->
 
         <!-- How It Works Section -->
         <section class="how-it-works-section">
@@ -433,7 +564,7 @@
                                     <img src="https://i.imgur.com/6MQhQpC.png" alt="Analytics Screen">
                                     <div class="showcase-info">
                                         <h3>Impact Analytics</h3>
-                                        <p>Visualize yourenvironmental impact with detailed charts and insights.</p>
+                                        <p>Visualize your environmental impact with detailed charts and insights.</p>
                                     </div>
                                 </div>
                             </div>
@@ -445,7 +576,7 @@
                             <i class="fas fa-chevron-left"></i>
                         </button>
                         <button class="showcase-slider-next">
-                            <i class="fasfa-chevron-right"></i>
+                            <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
                 </div>
@@ -557,146 +688,6 @@
             </div>
         </section>
 
-        <!-- Progress Tracking Section -->
-        <section class="progress-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tagline">Track Your Impact</span>
-                    <h2 class="section-title">Monitor Your Sustainability Journey</h2>
-                    <p class="section-subtitle">
-                        Visualize your eco-friendly actions and see the real impact you're making on the planet.
-                    </p>
-                </div>
-
-                <div class="progress-cards">
-                    <div class="progress-card">
-                        <div class="progress-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <h3>Carbon Footprint</h3>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" style="width: 75%;">
-                                <span class="progress-text">75%</span>
-                            </div>
-                        </div>
-                        <p>Track your carbon emissions and see how your actions reduce your footprint</p>
-                    </div>
-
-                    <div class="progress-card">
-                        <div class="progress-icon">
-                            <i class="fas fa-tint"></i>
-                        </div>
-                        <h3>Water Conservation</h3>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" style="width: 60%;">
-                                <span class="progress-text">60%</span>
-                            </div>
-                        </div>
-                        <p>Monitor your water usage and find ways to conserve this precious resource</p>
-                    </div>
-
-                    <div class="progress-card">
-                        <div class="progress-icon">
-                            <i class="fas fa-recycle"></i>
-                        </div>
-                        <h3>Waste Reduction</h3>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" style="width: 85%;">
-                                <span class="progress-text">85%</span>
-                            </div>
-                        </div>
-                        <p>Track your recycling and composting efforts to minimize landfill waste</p>
-                    </div>
-                </div>
-
-                <div class="progress-cta">
-                    <button class="btn btn-primary btn-lg" id="trackProgressBtn">
-                        Start Tracking Your Impact
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Challenges Section -->
-        <section class="challenges-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tagline">Join Challenges</span>
-                    <h2 class="section-title">Eco-Friendly Challenges</h2>
-                    <p class="section-subtitle">
-                        Participate in community challenges to boost your sustainability efforts and earn extra rewards.
-                    </p>
-                </div>
-
-                <div class="challenges-grid">
-                    <div class="challenge-card" data-id="1">
-                        <div class="challenge-badge">Popular</div>
-                        <div class="challenge-icon">
-                            <i class="fas fa-bicycle"></i>
-                        </div>
-                        <h3>30-Day Car-Free Challenge</h3>
-                        <p>Reduce your carbon footprint by using alternative transportation for 30 days.</p>
-                        <div class="challenge-stats">
-                            <div class="challenge-stat">
-                                <i class="fas fa-users"></i>
-                                <span>1,245 participants</span>
-                            </div>
-                            <div class="challenge-stat">
-                                <i class="fas fa-clock"></i>
-                                <span>15 days left</span>
-                            </div>
-                        </div>
-                        <button class="btn btn-outline">Join Challenge</button>
-                    </div>
-
-                    <div class="challenge-card" data-id="2">
-                        <div class="challenge-badge">New</div>
-                        <div class="challenge-icon">
-                            <i class="fas fa-shopping-bag"></i>
-                        </div>
-                        <h3>Zero Waste Week</h3>
-                        <p>Minimize your waste production and find creative ways to reuse and recycle.</p>
-                        <div class="challenge-stats">
-                            <div class="challenge-stat">
-                                <i class="fas fa-users"></i>
-                                <span>876 participants</span>
-                            </div>
-                            <div class="challenge-stat">
-                                <i class="fas fa-clock"></i>
-                                <span>7 days left</span>
-                            </div>
-                        </div>
-                        <button class="btn btn-outline">Join Challenge</button>
-                    </div>
-
-                    <div class="challenge-card" data-id="3">
-                        <div class="challenge-badge">Featured</div>
-                        <div class="challenge-icon">
-                            <i class="fas fa-seedling"></i>
-                        </div>
-                        <h3>Plant 100 Trees</h3>
-                        <p>Join our community effort to plant 100 trees in your local area this month.</p>
-                        <div class="challenge-stats">
-                            <div class="challenge-stat">
-                                <i class="fas fa-users"></i>
-                                <span>2,103 participants</span>
-                            </div>
-                            <div class="challenge-stat">
-                                <i class="fas fa-clock"></i>
-                                <span>22 days left</span>
-                            </div>
-                        </div>
-                        <button class="btn btn-outline">Join Challenge</button>
-                    </div>
-                </div>
-
-                <div class="challenges-cta">
-                    <a href="challenges.html" class="btn btn-primary btn-lg" id="viewAllChallengesBtn">
-                        View All Challenges <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
 
         <!-- CTA Section -->
         <section class="cta-section">
@@ -722,6 +713,153 @@
                 </div>
             </div>
         </section>
+
+        <!-- Add Profile Section -->
+        <section id="profile" class="profile-section" style="display: none;">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">Your Profile</span>
+                    <h2 class="section-title">My Sustainability Journey</h2>
+                </div>
+                
+                <div class="profile-content">
+                    <!-- Profile Header -->
+                    <div class="profile-info">
+                        <div class="profile-header">
+                            <div class="profile-avatar-container">
+                                <img src="https://i.imgur.com/8LWTHYs.jpg" alt="Profile Picture" class="profile-picture" id="profilePicture">
+                                <button class="avatar-edit-btn" id="avatarEditBtn">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                            </div>
+                            <div class="profile-details">
+                                <h3>Sarah Johnson</h3>
+                                <p>Eco Warrior Level 3</p>
+                                <div class="profile-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-number">45</span>
+                                        <span class="stat-label">Days Streak</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">1,250</span>
+                                        <span class="stat-label">Eco Points</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">3</span>
+                                        <span class="stat-label">Badges</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Health Data Overview -->
+                    <div class="health-data-section">
+                        <h3>Health & Wellness</h3>
+                        <div class="health-data-grid">
+                            <div class="health-data-card">
+                                <div class="health-data-icon">
+                                    <i class="fas fa-weight"></i>
+                                </div>
+                                <div class="health-data-info">
+                                    <h4>Weight</h4>
+                                    <div class="health-data-value">68 kg</div>
+                                    <div class="health-data-trend">
+                                        <i class="fas fa-arrow-down"></i>
+                                        <span>2 kg down this month</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="health-data-card">
+                                <div class="health-data-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="health-data-info">
+                                    <h4>BMI</h4>
+                                    <div class="health-data-value">22.5</div>
+                                    <div class="health-data-trend">
+                                        <i class="fas fa-check"></i>
+                                        <span>Healthy Range</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="health-data-card">
+                                <div class="health-data-icon">
+                                    <i class="fas fa-walking"></i>
+                                </div>
+                                <div class="health-data-info">
+                                    <h4>Daily Steps</h4>
+                                    <div class="health-data-value">8,500</div>
+                                    <div class="health-data-trend">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>500 more than yesterday</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Goals Section -->
+                    <div class="goals-section">
+                        <div class="goals-header">
+                            <h3>My Sustainability Goals</h3>
+                            <button class="btn btn-primary" id="addGoalBtn">
+                                <i class="fas fa-plus"></i> Add Goal
+                            </button>
+                        </div>
+                        <div class="goals-grid" id="goalsGrid">
+                            <div class="goal-card">
+                                <div class="goal-icon">
+                                    <i class="fas fa-bicycle"></i>
+                                </div>
+                                <div class="goal-info">
+                                    <h4>Reduce Car Usage</h4>
+                                    <p>Use public transport or bike at least 3 times a week</p>
+                                    <div class="goal-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 75%"></div>
+                                        </div>
+                                        <span class="progress-text">75% Complete</span>
+                                    </div>
+                                </div>
+                                <button class="goal-edit-btn">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="goal-card">
+                                <div class="goal-icon">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <div class="goal-info">
+                                    <h4>Zero Waste</h4>
+                                    <p>Reduce household waste by 50% this month</p>
+                                    <div class="goal-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 40%"></div>
+                                        </div>
+                                        <span class="progress-text">40% Complete</span>
+                                    </div>
+                                </div>
+                                <button class="goal-edit-btn">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Badges Section -->
+                    <div class="badges-section">
+                        <h3>My Badges</h3>
+                        <div class="badges-grid" id="badgesGrid">
+                            <!-- Badges will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add Toast Container -->
+        <div class="toast-container" id="toastContainer"></div>
     </main>
 
     <!-- Footer -->
@@ -802,209 +940,98 @@
         </div>
     </footer>
 
-    <!-- Progress Tracking Modal -->
-    <div class="progress-modal" id="progressModal">
-        <div class="progress-modal-content">
-            <div class="progress-modal-header">
-                <h3>Track Your Progress</h3>
-                <button class="progress-modal-close">&times;</button>
-            </div>
-            <div class="progress-modal-body">
-                <div class="progress-form-group">
-                    <label for="carbonFootprint">Carbon Footprint Reduction (%)</label>
-                    <input type="range" id="carbonFootprint" min="0" max="100" value="0">
-                    <div class="progress-value">0%</div>
-                </div>
-                <div class="progress-form-group">
-                    <label for="waterConservation">Water Conservation (%)</label>
-                    <input type="range" id="waterConservation" min="0" max="100" value="0">
-                    <div class="progress-value">0%</div>
-                </div>
-                <div class="progress-form-group">
-                    <label for="wasteReduction">Waste Reduction (%)</label>
-                    <input type="range" id="wasteReduction" min="0" max="100" value="0">
-                    <div class="progress-value">0%</div>
-                </div>
-            </div>
-            <div class="progress-modal-footer">
-                <button class="btn" id="cancelProgress">Cancel</button>
-                <button class="btn btn-success" id="saveProgress">Save Progress</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Challenge Modal -->
-    <div class="challenge-modal" id="challengeModal">
-        <div class="challenge-modal-content">
-            <div class="challenge-modal-header">
-                <h3>Join Challenge</h3>
-                <button class="challenge-modal-close">&times;</button>
-            </div>
-            <div class="challenge-modal-body">
-                <div class="challenge-modal-info">
-                    <div class="challenge-modal-info-item">
-                        <i class="fas fa-users"></i>
-                        <span>Participants: <span id="challengeParticipants">0</span></span>
-                    </div>
-                    <div class="challenge-modal-info-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Time Remaining: <span id="challengeTimeRemaining">0 days</span></span>
-                    </div>
-                    <div class="challenge-modal-info-item">
-                        <i class="fas fa-trophy"></i>
-                        <span>Rewards: <span id="challengeRewards">Points & Badges</span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="challenge-modal-footer">
-                <button class="btn" id="cancelChallenge">Cancel</button>
-                <button class="btn btn-success" id="joinChallenge">Join Challenge</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- All Challenges Modal -->
-    <div class="challenges-list-modal" id="challengesListModal">
-        <div class="challenges-list-modal-content">
-            <div class="challenges-list-modal-header">
-                <h3>All Challenges</h3>
-                <button class="challenges-list-modal-close">&times;</button>
-            </div>
-            <div class="challenges-list-modal-body">
-                <div class="challenges-list-filters">
-                    <button class="challenge-filter active" data-filter="all">All</button>
-                    <button class="challenge-filter" data-filter="popular">Popular</button>
-                    <button class="challenge-filter" data-filter="new">New</button>
-                    <button class="challenge-filter" data-filter="featured">Featured</button>
-                </div>
-                <div class="challenges-list" id="challengesList">
-                    <!-- Challenge items will be dynamically added here -->
-                </div>
-            </div>
-            <div class="challenges-list-modal-footer">
-                <button class="btn" id="closeChallengesList">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Toast Container -->
-    <div class="toast-container" id="toastContainer"></div>
-
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
-    <script src="habits.js"></script>
-    <script src="rewards.js"></script>
-    <script src="community.js"></script>
-    <script src="eco-insights.js"></script>
     <script src="auth.js"></script>
-    <script src="progress.js"></script>
-    <script src="challenge-details.js"></script>
-=======
-    <title>Sustaina - Eco-Friendly Lifestyle Tracker</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav id="navbar">
-        <div class="logo">
-            <span class="leaf">🍃</span> Sustaina
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#about">About</a></li>
-            <li class="login-btn"><a href="#" id="loginBtn">Login</a></li>
-            <li class="signup-btn"><a href="#" id="signupBtn">Sign Up</a></li>
-        </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
-    </nav>
-    
-    <!-- Home Section -->
-    <section id="home" class="hero">
-        <div class="hero-text">
-            <h1>Welcome to <span class="highlight">Sustaina</span></h1>
-            <p>Your companion for a healthier lifestyle and a greener planet.</p>
-            <button class="cta-btn" id="getStartedBtn">Get Started</button>
-        </div>
-        <div class="hero-image">
-            <img src="images/eco-friendly-lifestyle.jpg" alt="Eco-friendly lifestyle">
-        </div>
-    </section>
-    
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <h2 class="section-title">Our Features</h2>
-        <div class="features-container">
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fas fa-leaf"></i></div>
-                <h3>Habit Tracker</h3>
-                <p>Track both your fitness and eco-friendly habits in one place.</p>
-            </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fas fa-fire"></i></div>
-                <h3>Streak System</h3>
-                <p>Stay motivated with our nature-inspired streak indicators.</p>
-            </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fas fa-medal"></i></div>
-                <h3>XP & Levels</h3>
-                <p>Earn XP and level up from Eco Novice to Earth Guardian.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="about-text reveal">
-            <h2>About Sustaina</h2>
-            <p>Sustaina is a student project designed to help people build healthier habits while reducing their environmental impact.</p>
-        </div>
-        <div class="about-image reveal">
-            <img src="images/about-sustaina.jpg" alt="About Sustaina">
-        </div>
-    </section>
-    
-    <!-- Login and Signup Section -->
-    <section id="auth-section" class="auth-container">
-        <div id="loginForm" class="auth-form">
-            <h2>Login</h2>
-            <form>
-                <input type="text" id="login-username" placeholder="Username" required>
-                <input type="password" id="login-password" placeholder="Password" required>
-                <button type="submit" id="login-btn">Login</button>
-            </form>
-            <p>Don't have an account? <a href="#" id="signup-toggle">Sign Up</a></p>
-        </div>
-        <div id="signupForm" class="auth-form" style="display: none;">
-            <h2>Sign Up</h2>
-            <form>
-                <input type="text" id="signup-username" placeholder="Username" required>
-                <input type="email" id="signup-email" placeholder="Email" required>
-                <input type="password" id="signup-password" placeholder="Password" required>
-                <input type="password" id="signup-confirm" placeholder="Confirm Password" required>
-                <button type="submit" id="signup-btn">Sign Up</button>
-            </form>
-            <p>Already have an account? <a href="#" id="login-toggle">Login</a></p>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <span class="leaf">🍃</span> Sustaina
-            </div>
-            <p>&copy; 2025 Sustaina. An Engineering Student Project.</p>
-        </div>
-    </footer>
-    
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="profile.js"></script>
 
+    <!-- Features Tabs Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all tab buttons and panes
+            const tabButtons = document.querySelectorAll('.features-tab-btn');
+            const tabPanes = document.querySelectorAll('.features-tab-pane');
+
+            // Add click event listener to each tab button
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons and panes
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    // Get the target tab pane ID
+                    const targetTab = this.getAttribute('data-tab');
+                    const targetPane = document.getElementById(`${targetTab}-tab`);
+
+                    // Add active class to target pane
+                    if (targetPane) {
+                        targetPane.classList.add('active');
+                    }
+                });
+            });
+
+            // Initialize Swiper for testimonials
+            new Swiper('.testimonials-slider', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2
+                    },
+                    1024: {
+                        slidesPerView: 3
+                    }
+                }
+            });
+
+            // Initialize Swiper for showcase
+            new Swiper('.showcase-slider', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.showcase-slider-next',
+                    prevEl: '.showcase-slider-prev',
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2
+                    },
+                    1024: {
+                        slidesPerView: 3
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Challenge Modal -->
+    <div id="challengeModal" class="challenge-modal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); align-items:center; justify-content:center;">
+      <div class="challenge-modal-content" style="background:#fff; border-radius:1.25rem; max-width:400px; width:90vw; padding:2rem 1.5rem; position:relative; box-shadow:0 2px 24px rgba(0,0,0,0.12);">
+        <button id="closeChallengeModal" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; color:#7ed957; cursor:pointer;"><i class="fas fa-times"></i></button>
+        <div id="challengeModalBody"></div>
+      </div>
+    </div>
+
+    <style>
+        /* Remove all profile-related styles as they are now in profile.css */
+        /* Keep only non-profile related styles if any */
+    </style>
+
+    <script>
+        // ... existing script code ...
+    </script>
 </body>
 </html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Sustaina</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="profile.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.imgur.com/8KgVB8B.png" type="image/png">
+</head>
+<body>
+    <!-- Profile Section -->
+    <section id="profile" class="profile-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tagline">Your Profile</span>
+                <h2 class="section-title">My Sustainability Journey</h2>
+            </div>
+            
+            <div class="profile-content">
+                <!-- Profile Header -->
+                <div class="profile-info">
+                    <div class="profile-header">
+                        <div class="profile-avatar-container">
+                            <img src="https://i.imgur.com/8LWTHYs.jpg" alt="Profile Picture" class="profile-picture" id="profilePicture">
+                            <button class="avatar-edit-btn" id="avatarEditBtn">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="profile-details">
+                            <h3>Sarah Johnson</h3>
+                            <p>Eco Warrior Level 3</p>
+                            <div class="profile-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">45</span>
+                                    <span class="stat-label">Days Streak</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">1,250</span>
+                                    <span class="stat-label">Eco Points</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">3</span>
+                                    <span class="stat-label">Badges</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Health Data Overview -->
+                <div class="health-data-section">
+                    <h3>Health & Wellness</h3>
+                    <div class="health-data-grid">
+                        <div class="health-data-card">
+                            <div class="health-data-icon">
+                                <i class="fas fa-weight"></i>
+                            </div>
+                            <div class="health-data-info">
+                                <h4>Weight</h4>
+                                <div class="health-data-value">68 kg</div>
+                                <div class="health-data-trend">
+                                    <i class="fas fa-arrow-down"></i>
+                                    <span>2 kg down this month</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="health-data-card">
+                            <div class="health-data-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="health-data-info">
+                                <h4>BMI</h4>
+                                <div class="health-data-value">22.5</div>
+                                <div class="health-data-trend">
+                                    <i class="fas fa-check"></i>
+                                    <span>Healthy Range</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="health-data-card">
+                            <div class="health-data-icon">
+                                <i class="fas fa-walking"></i>
+                            </div>
+                            <div class="health-data-info">
+                                <h4>Daily Steps</h4>
+                                <div class="health-data-value">8,500</div>
+                                <div class="health-data-trend">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>500 more than yesterday</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Goals Section -->
+                <div class="goals-section">
+                    <div class="goals-header">
+                        <h3>My Sustainability Goals</h3>
+                        <button class="btn btn-primary" id="addGoalBtn">
+                            <i class="fas fa-plus"></i> Add Goal
+                        </button>
+                    </div>
+                    <div class="goals-grid" id="goalsGrid">
+                        <div class="goal-card">
+                            <div class="goal-icon">
+                                <i class="fas fa-bicycle"></i>
+                            </div>
+                            <div class="goal-info">
+                                <h4>Reduce Car Usage</h4>
+                                <p>Use public transport or bike at least 3 times a week</p>
+                                <div class="goal-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 75%"></div>
+                                    </div>
+                                    <span class="progress-text">75% Complete</span>
+                                </div>
+                            </div>
+                            <button class="goal-edit-btn">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        <div class="goal-card">
+                            <div class="goal-icon">
+                                <i class="fas fa-recycle"></i>
+                            </div>
+                            <div class="goal-info">
+                                <h4>Zero Waste</h4>
+                                <p>Reduce household waste by 50% this month</p>
+                                <div class="goal-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 40%"></div>
+                                    </div>
+                                    <span class="progress-text">40% Complete</span>
+                                </div>
+                            </div>
+                            <button class="goal-edit-btn">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Badges Section -->
+                <div class="badges-section">
+                    <h3>My Badges</h3>
+                    <div class="badges-grid" id="badgesGrid">
+                        <!-- Badges will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html> 
