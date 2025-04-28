@@ -1,4 +1,3 @@
-// Wait for DOM to be fully loaded
 document.onreadystatechange = function() {
     if (document.readyState !== "complete") {
         document.body.style.visibility = "hidden";
@@ -10,25 +9,70 @@ document.onreadystatechange = function() {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
-    initPreloader();
-    initNavbar();
-    initMobileMenu();
-    initModals();
-    initFeatureTabs();
-    initSliders();
-    initPasswordToggle();
-    initPasswordStrength();
-    initBackToTop();
-    initDashboardPreview();
-    initAnimatedCounters();
-    initImpactChart();
-    initScrollAnimation();
-    initToasts();
-    initHealthTracker();
-    
-    // Update CTA section based on login status
-    updateCTASection();
+    try {
+        // Initialize core components first
+        initPreloader();
+        initNavbar();
+        initMobileMenu();
+        initModals();
+        initToasts();
+        
+        // Initialize feature-specific components
+        if (document.querySelector('.features-tabs')) {
+            initFeatureTabs();
+        }
+        
+        if (document.querySelector('.swiper')) {
+            initSliders();
+        }
+        
+        if (document.querySelector('.password-toggle')) {
+            initPasswordToggle();
+        }
+        
+        if (document.querySelector('.password-strength')) {
+            initPasswordStrength();
+        }
+        
+        if (document.querySelector('.back-to-top')) {
+            initBackToTop();
+        }
+        
+        if (document.querySelector('.dashboard-preview')) {
+            initDashboardPreview();
+        }
+        
+        if (document.querySelector('.counter')) {
+            initAnimatedCounters();
+        }
+        
+        if (document.querySelector('#impactChart')) {
+            initImpactChart();
+        }
+        
+        if (document.querySelector('.animate-on-scroll')) {
+            initScrollAnimation();
+        }
+        
+        if (document.querySelector('.health-tracker')) {
+            initHealthTracker();
+        }
+        
+        // Update CTA section based on login status
+        updateCTASection();
+        
+        // Initialize challenges if on challenges page
+        if (document.querySelector('.challenges-section')) {
+            initChallenges();
+        }
+        
+    } catch (error) {
+        console.error('Error during initialization:', error);
+        // Only show toast if there's a critical error
+        if (error.message.includes('critical')) {
+            showToast('error', 'Initialization Error', 'Some features may not work properly. Please refresh the page.');
+        }
+    }
 });
 
 // Preloader
@@ -911,3 +955,183 @@ function updateCTASection() {
         `;
     }
 }
+
+// AI Tracking Functionality
+const voiceInput = document.getElementById('voiceInput');
+if (voiceInput) {
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        // Process eco-action from voice input
+    };
+
+    voiceInput.addEventListener('click', () => {
+        recognition.start();
+    });
+}
+
+// Barcode Scanner Simulation
+document.getElementById('barcodeScan').addEventListener('click', () => {
+    const barcode = prompt('Enter product barcode:');
+    if (barcode) {
+        // Handle barcode lookup
+    }
+});
+
+// Score Calculator
+function calculateEcoScore() {
+    // Add scoring logic based on user activities
+    return {
+        total: 83,
+        categories: {
+            waste: 75,
+            energy: 85,
+            water: 90
+        }
+    };
+}
+
+// Store and display tracked actions
+const actionHistoryList = document.getElementById('actionHistoryList');
+let actions = JSON.parse(localStorage.getItem('ecoActions')) || [];
+
+function addAction(action) {
+    actions.unshift({ action, date: new Date().toLocaleString() });
+    localStorage.setItem('ecoActions', JSON.stringify(actions));
+    renderActions();
+}
+
+function renderActions() {
+    if (!actionHistoryList) return;
+    actionHistoryList.innerHTML = actions.map((a, i) =>
+        `<li>
+            <i class="fas fa-leaf"></i> ${a.action}
+            <span style="float:right;font-size:0.9em;color:#888">${a.date}</span>
+            <button onclick="deleteAction(${i})" style="float:right;margin-right:10px;background:none;border:none;color:#c00;cursor:pointer;">Delete</button>
+        </li>`
+    ).join('');
+}
+window.deleteAction = function(i) {
+    actions.splice(i, 1);
+    localStorage.setItem('ecoActions', JSON.stringify(actions));
+    renderActions();
+};
+
+// Hook up quick track input
+document.querySelector('.quick-track button').addEventListener('click', function() {
+    const input = document.querySelector('.quick-track input');
+    if (input.value.trim()) {
+        addAction(input.value.trim());
+        input.value = '';
+    }
+});
+
+// Hook up voice and barcode to add actions
+if (voiceInput) {
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        addAction(`Voice: ${transcript}`);
+    };
+}
+document.getElementById('barcodeScan').addEventListener('click', () => {
+    const barcode = prompt('Enter product barcode:');
+    if (barcode) addAction(`Scanned product: ${barcode}`);
+});
+document.getElementById('photoUpload').addEventListener('click', function() {
+    this.querySelector('input[type="file"]').click();
+});
+document.getElementById('photoUpload').querySelector('input[type="file"]').addEventListener('change', function(e) {
+    if (e.target.files.length) addAction(`Photo uploaded: ${e.target.files[0].name}`);
+});
+
+// Add after renderActions()
+function renderChart() {
+    if (!document.getElementById('actionsChart')) return;
+    // Count actions per day
+    const counts = {};
+    actions.forEach(a => {
+        const d = a.date.split(',')[0];
+        counts[d] = (counts[d] || 0) + 1;
+    });
+    const labels = Object.keys(counts).slice(-7);
+    const data = labels.map(l => counts[l]);
+    // Simple chart using Chart.js (already used in your code)
+    if (window.actionsChartInstance) window.actionsChartInstance.destroy();
+    window.actionsChartInstance = new Chart(document.getElementById('actionsChart').getContext('2d'), {
+        type: 'bar',
+        data: { labels, datasets: [{ label: 'Actions', data, backgroundColor: '#4CAF50' }] },
+        options: { plugins: { legend: { display: false } } }
+    });
+}
+renderChart();
+const oldAddAction = addAction;
+addAction = function(action) {
+    oldAddAction(action);
+    renderChart();
+};
+
+// Eco-Friendly Challenges Dynamic Rendering
+(function() {
+    const challenges = [
+        {
+            icon: 'fas fa-bicycle',
+            badge: 'POPULAR',
+            badgeColor: '#7ed957',
+            title: '30-Day Car-Free Challenge',
+            description: 'Reduce your carbon footprint by using alternative transportation for 30 days.',
+            participants: '1,245',
+            daysLeft: 15
+        },
+        {
+            icon: 'fas fa-lock',
+            badge: 'NEW',
+            badgeColor: '#7ed957',
+            title: 'Zero Waste Week',
+            description: 'Minimize your waste production and find creative ways to reuse and recycle.',
+            participants: '876',
+            daysLeft: 7
+        },
+        {
+            icon: 'fas fa-seedling',
+            badge: 'FEATURED',
+            badgeColor: '#7ed957',
+            title: 'Plant 100 Trees',
+            description: 'Join our community effort to plant 100 trees in your local area this month.',
+            participants: '2,103',
+            daysLeft: 22
+        }
+    ];
+
+    function renderChallenges() {
+        const section = document.getElementById('challenges');
+        if (!section) return;
+        const cardsRow = section.querySelector('.challenges-cards-row');
+        if (!cardsRow) return;
+        cardsRow.innerHTML = challenges.map(challenge => `
+            <div class="challenge-card" style="flex: 1 1 300px; max-width: 350px; min-width: 260px; background: #fff; border-radius: 1.25rem; box-shadow: 0 2px 16px rgba(0,0,0,0.04); padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center;">
+                <div style="margin-bottom: 0.5rem;">
+                    <span class="badge" style="background: ${challenge.badgeColor}; color: #fff; font-size: 0.85em; padding: 0.25em 1em; border-radius: 1em; font-weight: 600;">${challenge.badge}</span>
+                </div>
+                <div style="font-size: 2.5rem; color: #7ed957; margin-bottom: 0.5rem;"><i class="${challenge.icon}"></i></div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem;">${challenge.title}</h3>
+                <p style="text-align: center; color: #444; margin-bottom: 1.25rem;">${challenge.description}</p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 1.2em; font-size: 0.98em; color: #222; margin-bottom: 1.25rem;">
+                    <span><i class="fas fa-users" style="color:#7ed957;"></i> ${challenge.participants} participants</span>
+                    <span><i class="fas fa-clock" style="color:#7ed957;"></i> ${challenge.daysLeft} days left</span>
+                </div>
+                <button class="btn btn-outline join-challenge-btn" style="width: 100%;">Join Challenge</button>
+            </div>
+        `).join('');
+    }
+
+    // Initial render
+    document.addEventListener('DOMContentLoaded', renderChallenges);
+
+    // Example: Add event listeners for join buttons (future use)
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('join-challenge-btn')) {
+            alert('You joined the challenge!');
+        }
+    });
+})();
