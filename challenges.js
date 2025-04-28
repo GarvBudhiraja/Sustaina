@@ -19,7 +19,7 @@ const challenges = {
     },
     2: {
         title: "Zero Waste Week",
-        duration: 7,
+        duration:7,
         daysLeft: 7,
         participants: 876,
         instructions: [
@@ -118,7 +118,7 @@ function showJoinModal(challengeId, challenge) {
         </div>
     `;
     
-    modal.style.display ='flex';
+    modal.style.display = 'flex';
     
     // Handle join confirmation
     document.querySelector('.confirm-join-btn').addEventListener('click', () => {

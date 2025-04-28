@@ -100,41 +100,10 @@
     </section>
 
     <!-- Challenge Modal -->
-    <div class="challenge-modal" id="challengeModal">
-        <div class="challenge-modal-content">
-            <button id="closeChallengeModal" aria-label="Close modal">&times;</button>
-            <div class="modal-header">
-                <h3 id="modalTitle">Challenge Title</h3>
-            </div>
-            <div class="modal-content">
-                <div class="challenge-info">
-                    <p id="challengeDuration">Duration: 7 days</p>
-                    <p id="challengeParticipants">Participants: 0</p>
-                </div>
-                <div class="progress-info">
-                    <p>Progress: <span id="progressText">0%</span></p>
-                    <div class="progress-bar">
-                        <div class="progress" id="progressBar" style="width: 0%"></div>
-                    </div>
-                </div>
-                <div class="instructions">
-                    <h4>Instructions</h4>
-                    <ul id="challengeInstructions"></ul>
-                </div>
-                <div class="badge-info">
-                    <h4>Badge Reward</h4>
-                    <div class="badge-preview" id="badgePreview">
-                        <i class="fas fa-medal badge-icon"></i>
-                        <span id="badgeName">Eco Warrior</span>
-                    </div>
-                </div>
-                <button class="btn btn-primary" id="joinChallengeBtn">Join Challenge</button>
-                <button class="btn btn-outline" id="markCompleteBtn" style="display: none;">Mark as Complete</button>
-                <div class="completion-message" id="completionMessage" style="display: none;">
-                    <p>Congratulations! You've completed the challenge!</p>
-                    <p class="profile-notice">Your badge will appear on your profile.</p>
-                </div>
-            </div>
+    <div id="challengeModal" class="challenge-modal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); align-items:center; justify-content:center;">
+        <div class="challenge-modal-content" style="background:#fff; border-radius:1.25rem; max-width:400px; width:90vw; padding:2rem 1.5rem; position:relative; box-shadow:0 2px 24px rgba(0,0,0,0.12);">
+            <button id="closeChallengeModal" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; color:#7ed957; cursor:pointer;"><i class="fas fa-times"></i></button>
+            <div id="challengeModalBody"></div>
         </div>
     </div>
 

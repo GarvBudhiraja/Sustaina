@@ -219,12 +219,12 @@ function showProgressModal(challengeId, challenge) {
     
     // Handle challenge completion
     document.querySelector('.complete-challenge-btn').addEventListener('click', () => {
-        showCompletionModal(challengeId, challenge);
+        showCompletionModal(challenge);
     });
 }
 
 // Show completion modal
-function showCompletionModal(challengeId, challenge) {
+function showCompletionModal(challenge) {
     const modal = document.getElementById('challengeModal');
     const modalBody = document.getElementById('challengeModalBody');
     
@@ -254,12 +254,14 @@ function showCompletionModal(challengeId, challenge) {
             </button>
         </div>
     `;
-    // Mark challenge as completed and update button state immediately
-    completedChallenges.add(challengeId);
-    const button = document.querySelector(`.join-challenge-btn[data-challenge-id="${challengeId}"]`);
-    updateButtonState(button, 'completed');
+    
     document.querySelector('.close-modal-btn').addEventListener('click', () => {
         modal.style.display = 'none';
+        // Mark challenge as completed
+        const challengeId = document.querySelector('.complete-challenge-btn').dataset.challengeId;
+        completedChallenges.add(challengeId);
+        const button = document.querySelector(`.join-challenge-btn[data-challenge-id="${challengeId}"]`);
+        updateButtonState(button, 'completed');
     });
 }
 
@@ -298,4 +300,4 @@ document.getElementById('challengeModal').addEventListener('click', (e) => {
 // Close modal when clicking close button
 document.getElementById('closeChallengeModal').addEventListener('click', () => {
     document.getElementById('challengeModal').style.display = 'none';
-}); 
+});
