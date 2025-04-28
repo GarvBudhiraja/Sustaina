@@ -9,7 +9,7 @@
     height: 100vh;
     background: rgba(0, 0, 0, 0.35);
     align-items: center;
-    justify-content: center;
+    justify-content:center;
 }
 
 .challenge-modal-content {
