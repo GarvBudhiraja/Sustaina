@@ -163,10 +163,10 @@ section {
     box-shadow: 0 6px 20px rgba(46, 204, 113, 0.3);
 }
 
-.btn-outline {
+.btn-outline{
     background: transparent;
     border: 2px solid var(--primary-color);
-    color: var(--primary-color);
+    color:var(--primary-color);
 }
 
 .btn-outline:hover {
