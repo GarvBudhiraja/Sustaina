@@ -298,6 +298,6 @@ document.getElementById('challengeModal').addEventListener('click', (e) => {
 });
 
 // Close modal when clicking close button
-document.getElementById('closeChallengeModal').addEventListener('click', () => {
+document.getElementById('closeChallengeModal').addEventListener('click', () =>{
     document.getElementById('challengeModal').style.display = 'none';
 });

@@ -19,7 +19,7 @@ const challenges = {
     },
     2: {
         title: "Zero Waste Week",
-        duration: 7,
+        duration:7,
         daysLeft: 7,
         participants: 876,
         instructions: [

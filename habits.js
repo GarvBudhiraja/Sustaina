@@ -143,6 +143,6 @@ class HabitTracker {
 }
 
 // Initialize habit tracker when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () =>{
     window.habitTracker = new HabitTracker();
 }); 
