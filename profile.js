@@ -15,17 +15,38 @@ document.addEventListener('DOMContentLoaded', function() {
             profilePicture.src = user.photoURL || 'https://i.imgur.com/8LWTHYs.jpg';
         }
     }
-
+    
     // Show profile dropdown if user is logged in
     const profileDropdown = document.getElementById('profileDropdown');
     if (profileDropdown) {
-        profileDropdown.style.display = user ? 'block' : 'none';
+        profileDropdown.style.display = user ? 'block': 'none';
+    }
+    
+    // Avatar edit functionality
+    const avatarEditBtn = document.getElementById('avatarEditBtn');
+    if (avatarEditBtn) {
+        avatarEditBtn.addEventListener('click', function(){
+            // Implement avatar edit functionality here
+            console.log('Avatar edit clicked');
+        });
+    }
+    
+    // Badge carousel functionality
+    const badgeCarousel = document.querySelector('.badge-carousel');
+    if (badgeCarousel) {
+        // Initialize badge carousel
+        // Add your badge carousel initialization code here
+    }
+    
+    // Show profile section if user is logged in
+    const profileSection = document.getElementById('profile');
+    if (profileSection) {
+        profileSection.style.display = user ? 'block' : 'none';
     }
     
     // Handle profile section visibility
     document.querySelector('.dropdown-item[href="#profile"]').addEventListener('click', function(e) {
         e.preventDefault();
-        const profileSection = document.getElementById('profile');
         profileSection.style.display = 'block';
         window.scrollTo({
             top: profileSection.offsetTop - 80,
@@ -84,15 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initial badges display
     updateBadgesDisplay();
-
-    // Avatar edit functionality
-    const avatarEditBtn = document.getElementById('avatarEditBtn');
-    if (avatarEditBtn) {
-        avatarEditBtn.addEventListener('click', function() {
-            // Implement avatar edit functionality here
-            console.log('Avatar edit clicked');
-        });
-    }
 
     // Add Goal Functionality
     const addGoalBtn = document.getElementById('addGoalBtn');
@@ -179,11 +191,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-
-    // Badge carousel functionality
-    const badgeCarousel = document.querySelector('.badge-carousel');
-    if (badgeCarousel) {
-        // Initialize badge carousel
-        // Add your badge carousel initialization code here
-    }
 }); 

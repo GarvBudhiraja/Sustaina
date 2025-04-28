@@ -118,7 +118,7 @@ function showJoinModal(challengeId, challenge) {
         </div>
     `;
     
-    modal.style.display ='flex';
+    modal.style.display = 'flex';
     
     // Handle join confirmation
     document.querySelector('.confirm-join-btn').addEventListener('click', () => {

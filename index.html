@@ -13,9 +13,6 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <!-- Animation Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
@@ -24,7 +21,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="components.css">
     <link rel="stylesheet" href="auth.css">
-    <link rel="stylesheet" href="profile.css">
     
     <!-- Favicon -->
     <link rel="icon" href="https://i.imgur.com/8KgVB8B.png" type="image/png">
@@ -61,7 +57,7 @@
                 <a href="#home" class="navbar-link active">Home</a>
                 <a href="#features" class="navbar-link">Features</a>
                 <a href="about.html" class="navbar-link">About</a>
-                <a href="challenges.html" class="navbar-link">Challenges</a>
+                <a href="#testimonials" class="navbar-link">Testimonials</a>
                 <a href="contact.html" class="navbar-link">Contact</a>
             </div>
             
@@ -76,7 +72,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="dropdown-menu">
-                        <a href="profile.html" class="dropdown-item">
+                        <a href="#profile" class="dropdown-item">
                             <i class="fas fa-user"></i>
                             My Profile
                         </a>
@@ -120,7 +116,7 @@
             <a href="#home" class="mobile-menu-link active">Home</a>
             <a href="#features" class="mobile-menu-link">Features</a>
             <a href="about.html" class="mobile-menu-link">About</a>
-            <a href="challenges.html" class="mobile-menu-link">Challenges</a>
+            <a href="#testimonials" class="mobile-menu-link">Testimonials</a>
             <a href="contact.html" class="mobile-menu-link">Contact</a>
             <div class="mobile-menu-actions">
                 <a href="login.html" class="btn btn-login-mobile">Login</a>
@@ -364,6 +360,10 @@
                                             <span>Product Scan</span>
                                         </div>
                                     </div>
+                                    <div class="quick-track">
+                                        <input type="text" placeholder="Quick track (e.g. 'recycled 2kg paper')">
+                                        <button class="btn btn-accent">Add</button>
+                                    </div>
                                     <div class="action-history">
                                         <h4>Tracked Actions</h4>
                                         <ul id="actionHistoryList" class="feature-list"></ul>
@@ -397,7 +397,7 @@
                   <span><i class="fas fa-users" style="color:#7ed957;"></i> 1,245 participants</span>
                   <span><i class="fas fa-clock" style="color:#7ed957;"></i> 15 days left</span>
                 </div>
-                <button class="btn btn-outline join-challenge-btn" data-challenge-id="1" style="width: 100%;">
+                <button class="btn btn-outline" style="width: 100%;">
                     <span class="btn-text">Join Challenge</span>
                     <i class="fas fa-arrow-right btn-icon"></i>
                 </button>
@@ -414,7 +414,7 @@
                   <span><i class="fas fa-users" style="color:#7ed957;"></i> 876 participants</span>
                   <span><i class="fas fa-clock" style="color:#7ed957;"></i> 7 days left</span>
                 </div>
-                <button class="btn btn-outline join-challenge-btn" data-challenge-id="2" style="width: 100%;">
+                <button class="btn btn-outline" style="width: 100%;">
                     <span class="btn-text">Join Challenge</span>
                     <i class="fas fa-arrow-right btn-icon"></i>
                 </button>
@@ -431,7 +431,7 @@
                   <span><i class="fas fa-users" style="color:#7ed957;"></i> 2,103 participants</span>
                   <span><i class="fas fa-clock" style="color:#7ed957;"></i> 22 days left</span>
                 </div>
-                <button class="btn btn-outline join-challenge-btn" data-challenge-id="3" style="width: 100%;">
+                <button class="btn btn-outline" style="width: 100%;">
                     <span class="btn-text">Join Challenge</span>
                     <i class="fas fa-arrow-right btn-icon"></i>
                 </button>
@@ -720,15 +720,9 @@
                 </div>
                 
                 <div class="profile-content">
-                    <!-- Profile Header -->
                     <div class="profile-info">
                         <div class="profile-header">
-                            <div class="profile-avatar-container">
-                                <img src="https://i.imgur.com/8LWTHYs.jpg" alt="Profile Picture" class="profile-picture" id="profilePicture">
-                                <button class="avatar-edit-btn" id="avatarEditBtn">
-                                    <i class="fas fa-camera"></i>
-                                </button>
-                            </div>
+                            <img src="https://i.imgur.com/8LWTHYs.jpg" alt="Profile Picture" class="profile-picture">
                             <div class="profile-details">
                                 <h3>Sarah Johnson</h3>
                                 <p>Eco Warrior Level 3</p>
@@ -749,102 +743,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Health Data Overview -->
-                    <div class="health-data-section">
-                        <h3>Health & Wellness</h3>
-                        <div class="health-data-grid">
-                            <div class="health-data-card">
-                                <div class="health-data-icon">
-                                    <i class="fas fa-weight"></i>
-                                </div>
-                                <div class="health-data-info">
-                                    <h4>Weight</h4>
-                                    <div class="health-data-value">68 kg</div>
-                                    <div class="health-data-trend">
-                                        <i class="fas fa-arrow-down"></i>
-                                        <span>2 kg down this month</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="health-data-card">
-                                <div class="health-data-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="health-data-info">
-                                    <h4>BMI</h4>
-                                    <div class="health-data-value">22.5</div>
-                                    <div class="health-data-trend">
-                                        <i class="fas fa-check"></i>
-                                        <span>Healthy Range</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="health-data-card">
-                                <div class="health-data-icon">
-                                    <i class="fas fa-walking"></i>
-                                </div>
-                                <div class="health-data-info">
-                                    <h4>Daily Steps</h4>
-                                    <div class="health-data-value">8,500</div>
-                                    <div class="health-data-trend">
-                                        <i class="fas fa-arrow-up"></i>
-                                        <span>500 more than yesterday</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Goals Section -->
-                    <div class="goals-section">
-                        <div class="goals-header">
-                            <h3>My Sustainability Goals</h3>
-                            <button class="btn btn-primary" id="addGoalBtn">
-                                <i class="fas fa-plus"></i> Add Goal
-                            </button>
-                        </div>
-                        <div class="goals-grid" id="goalsGrid">
-                            <div class="goal-card">
-                                <div class="goal-icon">
-                                    <i class="fas fa-bicycle"></i>
-                                </div>
-                                <div class="goal-info">
-                                    <h4>Reduce Car Usage</h4>
-                                    <p>Use public transport or bike at least 3 times a week</p>
-                                    <div class="goal-progress">
-                                        <div class="progress-bar">
-                                            <div class="progress" style="width: 75%"></div>
-                                        </div>
-                                        <span class="progress-text">75% Complete</span>
-                                    </div>
-                                </div>
-                                <button class="goal-edit-btn">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                            </div>
-                            <div class="goal-card">
-                                <div class="goal-icon">
-                                    <i class="fas fa-recycle"></i>
-                                </div>
-                                <div class="goal-info">
-                                    <h4>Zero Waste</h4>
-                                    <p>Reduce household waste by 50% this month</p>
-                                    <div class="goal-progress">
-                                        <div class="progress-bar">
-                                            <div class="progress" style="width: 40%"></div>
-                                        </div>
-                                        <span class="progress-text">40% Complete</span>
-                                    </div>
-                                </div>
-                                <button class="goal-edit-btn">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                     
-                    <!-- Badges Section -->
                     <div class="badges-section">
                         <h3>My Badges</h3>
                         <div class="badges-grid" id="badgesGrid">
@@ -941,9 +840,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
     <script src="auth.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="profile.js"></script>
-    <script src="home-challenges.js"></script>
 
     <!-- Features Tabs Functionality -->
     <script>
@@ -1023,170 +919,504 @@
       </div>
     </div>
 
+    <script>
+    // --- Challenge Modal Logic ---
+    const challenges = [
+      {
+        id: 0,
+        title: '30-Day Car-Free Challenge',
+        duration: 15,
+        description: 'Reduce your carbon footprint by using alternative transportation for 30 days.',
+        howTo: 'Use a bicycle, walk, or public transport instead of a car for 30 days. Log your progress daily!',
+        badge: '🚴 Car-Free Hero',
+      },
+      {
+        id: 1,
+        title: 'Zero Waste Week',
+        duration: 7,
+        description: 'Minimize your waste production and find creative ways to reuse and recycle.',
+        howTo: 'Track your waste, reuse items, and recycle as much as possible for 7 days. Share your tips!',
+        badge: '♻️ Zero Waste Star',
+      },
+      {
+        id: 2,
+        title: 'Plant 100 Trees',
+        duration: 22,
+        description: 'Join our community effort to plant 100 trees in your local area this month.',
+        howTo: 'Participate in tree planting events or plant trees yourself. Upload a photo or log your activity!',
+        badge: '🌳 Tree Planter',
+      },
+    ];
+
+    // Store joined/completed state in localStorage for demo
+    function getChallengeState() {
+      return JSON.parse(localStorage.getItem('joinedChallenges') || '{}');
+    }
+    function setChallengeState(state) {
+      localStorage.setItem('joinedChallenges', JSON.stringify(state));
+    }
+
+    function showChallengeModal(idx) {
+      const state = getChallengeState();
+      const c = challenges[idx];
+      let html = `<h2 style='color:#7ed957; margin-bottom:0.5em;'>${c.title}</h2>`;
+      html += `<p style='color:#444; margin-bottom:1em;'>${c.description}</p>`;
+      html += `<strong>Duration left:</strong> <span style='color:#7ed957;'>${c.duration} days</span><br>`;
+      html += `<strong>How to complete:</strong> <div style='margin-bottom:1em;'>${c.howTo}</div>`;
+      
+      if (state[idx] && state[idx].completed) {
+        html += `<div style='margin:1em 0; color:#7ed957; font-size:1.2em;'><b>Challenge Completed!</b><br>You earned a badge: <span style='font-size:1.5em;'>${c.badge}</span></div>`;
+        html += `<div style='margin-bottom:1em;'>This badge will be shown on your profile.</div>`;
+        html += `<button id='restartChallengeBtn' style='width:100%; background:#7ed957; color:#fff; border:none; border-radius:0.5em; padding:0.75em 0; font-size:1.1em; margin-bottom:1em; cursor:pointer;'>Restart Challenge</button>`;
+      } else if (state[idx] && state[idx].joined) {
+        html += `<div style='margin:1em 0; color:#7ed957;'><b>You have joined this challenge!</b></div>`;
+        html += `<button id='markCompleteBtn' style='width:100%; background:#7ed957; color:#fff; border:none; border-radius:0.5em; padding:0.75em 0; font-size:1.1em; margin-bottom:1em; cursor:pointer;'>Mark as Complete</button>`;
+      } else {
+        html += `<button id='joinChallengeBtn' style='width:100%; background:#7ed957; color:#fff; border:none; border-radius:0.5em; padding:0.75em 0; font-size:1.1em; margin-bottom:1em; cursor:pointer;'>Join Challenge</button>`;
+      }
+      
+      document.getElementById('challengeModalBody').innerHTML = html;
+      document.getElementById('challengeModal').style.display = 'flex';
+
+      // Button logic
+      setTimeout(() => {
+        const joinBtn = document.getElementById('joinChallengeBtn');
+        if (joinBtn) joinBtn.onclick = function() {
+          const s = getChallengeState();
+          s[idx] = {joined:true, completed:false};
+          setChallengeState(s);
+          updateChallengeButtons();
+          showChallengeModal(idx);
+        };
+        
+        const completeBtn = document.getElementById('markCompleteBtn');
+        if (completeBtn) completeBtn.onclick = function() {
+          const s = getChallengeState();
+          s[idx] = {joined:true, completed:true};
+          setChallengeState(s);
+          updateChallengeButtons();
+          showChallengeModal(idx);
+          showToast(`Congrats! You earned the ${c.badge} badge!`);
+          updateBadgesDisplay();
+        };
+        
+        const restartBtn = document.getElementById('restartChallengeBtn');
+        if (restartBtn) restartBtn.onclick = function() {
+          const s = getChallengeState();
+          delete s[idx];
+          setChallengeState(s);
+          updateChallengeButtons();
+          showChallengeModal(idx);
+        };
+      }, 10);
+    }
+
+    function updateChallengeButtons() {
+      const state = getChallengeState();
+      document.querySelectorAll('.challenge-card').forEach((card, idx) => {
+        const btn = card.querySelector('button');
+        if (!btn) return;
+        if (state[idx] && state[idx].completed) {
+          btn.innerHTML = `
+            <span class="btn-text">Restart Challenge</span>
+            <i class="fas fa-redo btn-icon"></i>
+          `;
+          btn.disabled = false;
+          btn.style.background = '#fff';
+          btn.style.color = '#7ed957';
+          btn.style.border = '2px solid #7ed957';
+          btn.onclick = function(e) {
+            e.preventDefault();
+            const s = getChallengeState();
+            delete s[idx];
+            setChallengeState(s);
+            showChallengeModal(idx);
+            updateChallengeButtons();
+          };
+        } else if (state[idx] && state[idx].joined) {
+          btn.innerHTML = `
+            <span class="btn-text">In Progress</span>
+            <i class="fas fa-spinner btn-icon"></i>
+          `;
+          btn.disabled = false;
+          btn.style.background = '#fff';
+          btn.style.color = '#7ed957';
+          btn.style.border = '2px solid #7ed957';
+          btn.onclick = function(e) {
+            e.preventDefault();
+            showChallengeModal(idx);
+          };
+        } else {
+          btn.innerHTML = `
+            <span class="btn-text">Join Challenge</span>
+            <i class="fas fa-arrow-right btn-icon"></i>
+          `;
+          btn.disabled = false;
+          btn.style.background = '#fff';
+          btn.style.color = '#7ed957';
+          btn.style.border = '2px solid #7ed957';
+          btn.onclick = function(e) {
+            e.preventDefault();
+            showChallengeModal(idx);
+          };
+        }
+      });
+    }
+
+    // Attach click events to challenge buttons
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.challenge-card').forEach((card, idx) => {
+        const btn = card.querySelector('button');
+        if (btn) {
+          btn.onclick = function(e) {
+            e.preventDefault();
+            showChallengeModal(idx);
+          };
+        }
+      });
+      updateChallengeButtons();
+    });
+
+    // Modal close logic
+    document.getElementById('closeChallengeModal').onclick = function() {
+      document.getElementById('challengeModal').style.display = 'none';
+    };
+    window.onclick = function(event) {
+      if (event.target === document.getElementById('challengeModal')) {
+        document.getElementById('challengeModal').style.display = 'none';
+      }
+    };
+    </script>
+
     <style>
-        /* Remove all profile-related styles as they are now in profile.css */
-        /* Keep only non-profile related styles if any */
-        /* Challenge Modal Styles */
-        .challenge-modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0,0,0,0.35);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .challenge-modal-content {
-            background: #fff;
-            border-radius: 1.25rem;
-            max-width: 400px;
-            width: 90vw;
-            padding: 2rem 1.5rem;
+        /* Add Profile Dropdown Styles */
+        .profile-dropdown {
             position: relative;
-            box-shadow: 0 2px 24px rgba(0,0,0,0.12);
+            margin-left: 1rem;
         }
-
-        .modal-header {
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-header h3 {
-            margin: 0;
-            color: #333;
-            font-size: 1.5rem;
-        }
-
-        .modal-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .challenge-info p {
-            margin: 0.5rem 0;
-            color: #666;
-        }
-
-        .instructions h4 {
-            margin-bottom: 0.75rem;
-            color: #333;
-        }
-
-        .instructions ul {
-            margin: 0;
-            padding-left: 1.25rem;
-        }
-
-        .instructions li {
-            margin-bottom: 0.5rem;
-            color: #666;
-        }
-
-        .badge-info h4 {
-            margin-bottom: 0.75rem;
-            color: #333;
-        }
-
-        .badge-preview {
+        
+        .profile-btn {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 0.75rem;
-            background: #fff;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
             border-radius: 0.5rem;
-            border: 1px solid #e9ecef;
+            transition: background-color 0.2s;
         }
-
-        .badge-icon {
-            font-size: 2rem;
+        
+        .profile-btn:hover {
+            background-color: rgba(126, 217, 87, 0.1);
         }
-
-        .badge-preview.earned {
-            background: #f0fff0;
-            border-color: #7ed957;
+        
+        .profile-img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
         }
-
-        .progress-bar {
-            height: 0.5rem;
-            background: #e9ecef;
-            border-radius: 0.25rem;
-            overflow: hidden;
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            min-width: 200px;
+            display: none;
+            z-index: 1000;
         }
-
-        .progress {
-            height: 100%;
-            background: #7ed957;
-            transition: width 0.3s ease;
+        
+        .profile-dropdown:hover .dropdown-menu {
+            display: block;
         }
-
-        .completion-message {
-            text-align: center;
-            padding: 1rem;
-            background: #f0fff0;
-            border-radius: 0.75rem;
-            border: 1px solid #7ed957;
-        }
-
-        .completion-message p {
-            margin: 0;
+        
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
             color: #333;
-            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.2s;
         }
-
-        .profile-notice {
+        
+        .dropdown-item:hover {
+            background-color: rgba(126, 217, 87, 0.1);
+        }
+        
+        .dropdown-divider {
+            height: 1px;
+            background-color: #eee;
+            margin: 0.5rem 0;
+        }
+        
+        /* Profile Section Styles */
+        .profile-section {
+            padding: 4rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .profile-content {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-picture {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #7ed957;
+        }
+        
+        .profile-details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .stat-item {
             text-align: center;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #7ed957;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
             color: #666;
-            font-size: 0.9rem;
         }
-
-        .btn.joined {
-            background: #7ed957;
-            color: #fff;
+        
+        .badges-section {
+            margin-top: 2rem;
         }
-
-        .btn.completed {
-            background: #4CAF50;
-            color: #fff;
+        
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
-
-        .btn.completed:hover {
-            background: #45a049;
+        
+        .badge-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.2s;
         }
-
-        .reset-warning {
-            background: #fff3cd;
-            border: 1px solid #ffeeba;
-            border-radius: 0.5rem;
-            padding: 1rem;
+        
+        .badge-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .badge-icon {
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
-
-        .reset-warning p {
-            margin: 0;
-            color: #856404;
+        
+        .badge-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
-
-        .modal-actions {
+        
+        .badge-description {
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        /* Toast Styles */
+        .toast-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+        
+        .toast {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             display: flex;
+            align-items: center;
             gap: 1rem;
-            justify-content: flex-end;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .toast-icon {
+            font-size: 1.5rem;
+            color: #7ed957;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
-        .btn-icon {
+        /* Add button hover styles */
+        .challenge-card .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border: 2px solid #7ed957;
+            border-radius: 0.5rem;
+            background: #fff;
+            color: #7ed957;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .challenge-card .btn:hover {
+            background: #7ed957;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(126, 217, 87, 0.2);
+        }
+
+        .challenge-card .btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .challenge-card .btn .btn-text {
             transition: transform 0.3s ease;
         }
 
-        .btn.completed:hover .btn-icon {
-            transform: rotate(180deg);
+        .challenge-card .btn:hover .btn-text {
+            transform: translateX(-4px);
+        }
+
+        .challenge-card .btn .btn-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .challenge-card .btn:hover .btn-icon {
+            transform: translateX(4px);
+        }
+
+        .challenge-card .btn[style*="background: #7ed957"] {
+            background: #7ed957 !important;
+            color: #fff !important;
+            border: none !important;
+        }
+
+        .challenge-card .btn[style*="background: #7ed957"] .btn-icon {
+            display: none;
+        }
+
+        .challenge-card .btn[style*="background: #7ed957"]:hover {
+            background: #6bc84d !important;
         }
     </style>
 
     <script>
-        // ... existing script code ...
+        // Add Profile and Badges Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show profile dropdown if user is logged in
+            const profileDropdown = document.getElementById('profileDropdown');
+            const profileSection = document.getElementById('profile');
+            
+            // Check if user is logged in (for demo, we'll just show it)
+            profileDropdown.style.display = 'flex';
+            
+            // Handle profile section visibility
+            document.querySelector('.dropdown-item[href="#profile"]').addEventListener('click', function(e) {
+                e.preventDefault();
+                profileSection.style.display = 'block';
+                window.scrollTo({
+                    top: profileSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Function to show toast notification
+            function showToast(message) {
+                const toastContainer = document.getElementById('toastContainer');
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                toast.innerHTML = `
+                    <i class="fas fa-medal toast-icon"></i>
+                    <span>${message}</span>
+                `;
+                toastContainer.appendChild(toast);
+                
+                // Remove toast after 3 seconds
+                setTimeout(() => {
+                    toast.style.animation = 'slideOut 0.3s ease-out';
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+            
+            // Function to update badges display
+            function updateBadgesDisplay() {
+                const badgesGrid = document.getElementById('badgesGrid');
+                const state = getChallengeState();
+                badgesGrid.innerHTML = '';
+                
+                challenges.forEach((challenge, idx) => {
+                    if (state[idx] && state[idx].completed) {
+                        const badgeCard = document.createElement('div');
+                        badgeCard.className = 'badge-card';
+                        badgeCard.innerHTML = `
+                            <div class="badge-icon">${challenge.badge}</div>
+                            <h4 class="badge-name">${challenge.title}</h4>
+                            <p class="badge-description">${challenge.description}</p>
+                        `;
+                        badgesGrid.appendChild(badgeCard);
+                    }
+                });
+            }
+            
+            // Update badges display when challenge is completed
+            const originalShowChallengeModal = showChallengeModal;
+            showChallengeModal = function(idx) {
+                originalShowChallengeModal(idx);
+                const state = getChallengeState();
+                if (state[idx] && state[idx].completed) {
+                    showToast(`Congrats! You earned the ${challenges[idx].badge} badge!`);
+                    updateBadgesDisplay();
+                }
+            };
+            
+            // Initial badges display
+            updateBadgesDisplay();
+        });
     </script>
 </body>
 </html>

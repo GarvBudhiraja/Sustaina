@@ -9,70 +9,28 @@ document.onreadystatechange = function() {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    try {
-        // Initialize core components first
-        initPreloader();
-        initNavbar();
-        initMobileMenu();
-        initModals();
-        initToasts();
-        
-        // Initialize feature-specific components
-        if (document.querySelector('.features-tabs')) {
-            initFeatureTabs();
-        }
-        
-        if (document.querySelector('.swiper')) {
-            initSliders();
-        }
-        
-        if (document.querySelector('.password-toggle')) {
-            initPasswordToggle();
-        }
-        
-        if (document.querySelector('.password-strength')) {
-            initPasswordStrength();
-        }
-        
-        if (document.querySelector('.back-to-top')) {
-            initBackToTop();
-        }
-        
-        if (document.querySelector('.dashboard-preview')) {
-            initDashboardPreview();
-        }
-        
-        if (document.querySelector('.counter')) {
-            initAnimatedCounters();
-        }
-        
-        if (document.querySelector('#impactChart')) {
-            initImpactChart();
-        }
-        
-        if (document.querySelector('.animate-on-scroll')) {
-            initScrollAnimation();
-        }
-        
-        if (document.querySelector('.health-tracker')) {
-            initHealthTracker();
-        }
-        
-        // Update CTA section based on login status
-        updateCTASection();
-        
-        // Initialize challenges if on challenges page
-        if (document.querySelector('.challenges-section')) {
-            initChallenges();
-        }
-        
-    } catch (error) {
-        console.error('Error during initialization:', error);
-        // Only show toast if there's a critical error
-        if (error.message.includes('critical')) {
-            showToast('error', 'Initialization Error', 'Some features may not work properly. Please refresh the page.');
-        }
-    }
+    // Initialize all components
+    initPreloader();
+    initNavbar();
+    initMobileMenu();
+    initModals();
+    initFeatureTabs();
+    initSliders();
+    initPasswordToggle();
+    initPasswordStrength();
+    initBackToTop();
+    initDashboardPreview();
+    initAnimatedCounters();
+    initImpactChart();
+    initScrollAnimation();
+    initToasts();
+    initHealthTracker();
+    
+    // Update CTA section based on login status
+    updateCTASection();
+
+    // Eco-Friendly Challenges Dynamic Rendering
+    initChallenges();
 });
 
 // Preloader
