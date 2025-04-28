@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         profileSection.style.display = 'block';
         window.scrollTo({
-            top: profileSection.offsetTop - 80,
+            top: profileSection.offsetTop -80,
             behavior: 'smooth'
         });
     });
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function showToast(message) {
         const toastContainer = document.getElementById('toastContainer');
         const toast = document.createElement('div');
-        toast.className = 'toast';
+        toast.className = 'toast'; 
         toast.innerHTML = `
             <i class="fas fa-medal toast-icon"></i>
             <span>${message}</span>
