@@ -194,12 +194,12 @@ section {
     transition: all 0.3s ease;
 }
 
-.navbar.scrolled {
+.navbar.scrolled{
     padding: 12px 0;
     background-color: rgba(255, 255, 255, 0.98);
 }
 
-.navbar-container {
+.navbar-container{
     display: flex;
     align-items: center;
     justify-content: space-between;
