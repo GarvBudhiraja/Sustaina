@@ -24,7 +24,7 @@ class DynamicEcoWeather {
             this.updateWeatherUI(weather);
             this.startWeatherAnimation(weather);
         } catch (error) {
-            console.error('Error initializing weather:', error);
+            console.error('Error initializing weather:',error);
             this.showError();
         }
     }
