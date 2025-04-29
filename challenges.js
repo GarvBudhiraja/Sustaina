@@ -143,7 +143,7 @@ function showToast(message) {
         <span>${message}</span>
     `;
     
-    const container = document.querySelector('.toast-container') || createToastContainer();
+    const container = document.querySelector('.toast-container') ||createToastContainer();
     container.appendChild(toast);
     
     setTimeout(() => {
