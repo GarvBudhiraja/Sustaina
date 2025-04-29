@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustaina - Live Eco-Consciously</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    
+    <!-- Animation Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="challenges.css">
+    <link rel="stylesheet" href="weather.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon-precomposed" href="images/favicon-152.png">
+    <meta name="msapplication-TileColor" content="#2cd63c">
+    <meta name="msapplication-TileImage" content="images/favicon-144.png">
+</head>
+<body>
+    <!-- Single, clean preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="images/logo.svg" alt="Sustaina Logo" width="60" height="60">
+            <h2>Sustaina</h2>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <!-- Animated Background Elements -->
+    <div class="bg-elements">
+        <div class="leaf leaf-1"></div>
+        <div class="leaf leaf-2"></div>
+        <div class="leaf leaf-3"></div>
+        <div class="leaf leaf-4"></div>
+        <div class="leaf leaf-5"></div>
+        <div class="leaf leaf-6"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <img src="images/logo.svg" alt="Sustaina Logo" width="40" height="40">
+                    <span>Sustaina</span>
+                </a>
+            </div>
+            
+            <div class="navbar-menu">
+                <a href="#home" class="navbar-link active">Home</a>
+                <a href="#features" class="navbar-link">Features</a>
+                <a href="about.html" class="navbar-link">About</a>
+                <a href="challenges.html" class="navbar-link">Challenges</a>
+                <a href="#testimonials" class="navbar-link">Testimonials</a>
+                <a href="contact.html" class="navbar-link">Contact</a>
+            </div>
+            
+            <div class="navbar-actions">
+                <a href="login.html" class="btn btn-login">Login</a>
+                <a href="register.html" class="btn btn-primary">Sign Up</a>
+                <!-- Add Profile Dropdown -->
+                <div class="profile-dropdown" id="profileDropdown" style="display: none;">
+                    <button class="profile-btn" id="profileBtn">
+                        <img src="https://i.imgur.com/8LWTHYs.jpg" alt="Profile" class="profile-img">
+                        <span>Profile</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#profile" class="dropdown-item">
+                            <i class="fas fa-user"></i>
+                            My Profile
+                        </a>
+                        <a href="#badges" class="dropdown-item">
+                            <i class="fas fa-medal"></i>
+                            My Badges
+                        </a>
+                        <a href="#settings" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="login.html" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="navbar-logo">
+                <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo">
+                <span>Sustaina</span>
+            </div>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-body">
+            <a href="#home" class="mobile-menu-link active">Home</a>
+            <a href="#features" class="mobile-menu-link">Features</a>
+            <a href="about.html" class="mobile-menu-link">About</a>
+            <a href="challenges.html" class="mobile-menu-link">Challenges</a>
+            <a href="#testimonials" class="mobile-menu-link">Testimonials</a>
+            <a href="contact.html" class="mobile-menu-link">Contact</a>
+            <div class="mobile-menu-actions">
+                <a href="login.html" class="btn btn-login-mobile">Login</a>
+                <a href="register.html" class="btn btn-primary-mobile">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title animate__animated animate__fadeInUp">
+                        Live <span class="text-accent">Sustainably</span>, 
+                        Thrive <span class="text-accent">Naturally</span>
+                    </h1>
+                    <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">
+                        Track your eco-friendly habits, earn rewards, and make a positive impact on the planet with our gamified sustainability platform.
+                    </p>
+                    <div class="hero-actions animate__animated animate__fadeInUp animate__delay-2s">
+                        <a href="register.html" class="btn btn-primary btn-lg">
+                            Get Started <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <button class="btn btn-outline btn-lg" id="learnMoreBtn">
+                            Learn More <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
+                    <div class="hero-stats animate__animated animate__fadeInUp animate__delay-3s">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">10K+</span>
+                            <span class="hero-stat-label">Active Users</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">500K+</span>
+                            <span class="hero-stat-label">Eco Actions</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">50+</span>
+                            <span class="hero-stat-label">Rewards</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image animate__animated animate__fadeIn animate__delay-1s">
+                    <div class="weather-container">
+                        <div class="weather-background"></div>
+                        <div class="weather-info">
+                            <div class="weather-loading">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading weather data...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image-decoration"></div>
+                </div>
+            </div>
+            <div class="hero-wave">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#ffffff" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,224C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">What We Offer</span>
+                    <h2 class="section-title">Features That Drive Sustainability</h2>
+                    <p class="section-subtitle">
+                        Our platform combines gamification, habit tracking, and rewards to make sustainable living easy and enjoyable.
+                    </p>
+                </div>
+
+                <div class="features-tabs">
+                    <div class="features-tabs-nav">
+                        <button class="features-tab-btn active" data-tab="habits">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Habit Tracking</span>
+                        </button>
+                        <button class="features-tab-btn" data-tab="rewards">
+                            <i class="fas fa-gift"></i>
+                            <span>Rewards System</span>
+                        </button>
+                        <button class="features-tab-btn" data-tab="community">
+                            <i class="fas fa-users"></i>
+                            <span>Community</span>
+                        </button>
+                        <button class="features-tab-btn" data-tab="insights">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Eco Insights</span>
+                        </button>
+                        <button class="features-tab-btn" data-tab="ai-tracker">
+                            <i class="fas fa-robot"></i>
+                            <span>AI Tracking</span>
+                        </button>
+                    </div>
+
+                    <div class="features-tabs-content">
+                        <div class="features-tab-pane active" id="habits-tab">
+                            <div class="tab-content-wrapper">
+                                <div class="tab-content-image">
+                                    <img src="https://i.imgur.com/tKg0DvZ.png" alt="Habit Tracking Feature">
+                                </div>
+                                <div class="tab-content-info">
+                                    <h3>Track Your Eco-Friendly Habits</h3>
+                                    <p>
+                                        Build sustainable habits with our intuitive tracking system. Set daily, weekly, or monthly goals and watch your progress over time.
+                                    </p>
+                                    <ul class="feature-list">
+                                        <li>
+                                            <i class="fas fa-leaf"></i>
+                                            <span>Track water conservation, energy saving, waste reduction, and more</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-calendar-check"></i>
+                                            <span>Build streaks and maintain consistency with daily reminders</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-chart-bar"></i>
+                                            <span>Visualize your impact with beautiful, interactive charts</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-medal"></i>
+                                            <span>Earn XP and level up as you complete eco-friendly actions</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="features-tab-pane" id="rewards-tab">
+                            <div class="tab-content-wrapper">
+                                <div class="tab-content-image">
+                                    <img src="https://i.imgur.com/sFvQoQm.png" alt="Rewards System Feature">
+                                </div>
+                                <div class="tab-content-info">
+                                    <h3>Get Rewarded for Sustainable Living</h3>
+                                    <p>
+                                        Turn your eco-friendly actions into real-world rewards. Earn points, unlock achievements, and redeem exclusive offers from our sustainable partners.
+                                    </p>
+                                    <ul class="feature-list">
+                                        <li>
+                                            <i class="fas fa-trophy"></i>
+                                            <span>Collect badges and achievements for milestone accomplishments</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-ticket-alt"></i>
+                                            <span>Redeem eco-points for discounts at sustainable businesses</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-seedling"></i>
+                                            <span>Fund tree planting and conservation projects with your points</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-star"></i>
+                                            <span>Compete on leaderboards and earn special rewards</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="features-tab-pane" id="community-tab">
+                            <div class="tab-content-wrapper">
+                                <div class="tab-content-image">
+                                    <img src="https://i.imgur.com/ZLkGdvY.png" alt="Community Feature">
+                                </div>
+                                <div class="tab-content-info">
+                                    <h3>Join a Global Eco-Community</h3>
+                                    <p>
+                                        Connect with like-minded individuals, share tips, and participate in challenges with our supportive community of eco-enthusiasts.
+                                    </p>
+                                    <ul class="feature-list">
+                                        <li>
+                                            <i class="fas fa-users"></i>
+                                            <span>Join groups based on interests or location</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-comments"></i>
+                                            <span>Share your journey and learn from others</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-flag"></i>
+                                            <span>Participate in monthly community challenges</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-hands-helping"></i>
+                                            <span>Organize and join local sustainability events</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="features-tab-pane" id="insights-tab">
+                            <div class="tab-content-wrapper">
+                                <div class="tab-content-image">
+                                    <img src="https://i.imgur.com/6MQhQpC.png" alt="Eco Insights Feature">
+                                </div>
+                                <div class="tab-content-info">
+                                    <h3>Gain Valuable Eco Insights</h3>
+                                    <p>
+                                        Understand your environmental impact with detailed analytics and personalized recommendations for a more sustainable lifestyle.
+                                    </p>
+                                    <ul class="feature-list">
+                                        <li>
+                                            <i class="fas fa-tint"></i>
+                                            <span>Track your water footprint and find ways to reduce consumption</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-bolt"></i>
+                                            <span>Monitor energy usage and get tips for conservation</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-recycle"></i>
+                                            <span>Analyze your waste reduction progress over time</span>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-lightbulb"></i>
+                                            <span>Receive personalized suggestions based on your habits</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="features-tab-pane" id="ai-tracker-tab">
+                            <div class="tab-content-wrapper">
+                                <div class="tab-content-image">
+                                    <img src="https://i.imgur.com/abc123.jpg" alt="AI Tracking">
+                                </div>
+                                <div class="tab-content-info">
+                                    <h3>Smart Eco Tracking</h3>
+                                    <p>Track your sustainability efforts using multiple AI-powered methods:</p>
+                                    <div class="tracking-methods">
+                                        <div class="method-card" id="photoUpload">
+                                            <i class="fas fa-camera"></i>
+                                            <span>Snap Sustainability</span>
+                                            <input type="file" accept="image/*" hidden>
+                                        </div>
+                                        <div class="method-card" id="voiceInput">
+                                            <i class="fas fa-microphone"></i>
+                                            <span>Voice Logging</span>
+                                        </div>
+                                        <div class="method-card" id="barcodeScan">
+                                            <i class="fas fa-barcode"></i>
+                                            <span>Product Scan</span>
+                                        </div>
+                                    </div>
+                                    <div class="quick-track">
+                                        <input type="text" placeholder="Quick track (e.g. 'recycled 2kg paper')">
+                                        <button class="btn btn-accent">Add</button>
+                                    </div>
+                                    <div class="action-history">
+                                        <h4>Tracked Actions</h4>
+                                        <ul id="actionHistoryList" class="feature-list"></ul>
+                                    </div>
+                                    <canvas id="actionsChart" height="100"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Eco-Friendly Challenges Section -->
+        <section class="challenges-section" id="challenges">
+          <div class="container">
+            <div class="section-header" style="margin-bottom: 2.5rem;">
+              <h2 class="section-title">Eco-Friendly Challenges</h2>
+              <p class="section-subtitle">Participate in community challenges to boost your sustainability efforts and earn extra rewards.</p>
+            </div>
+            <div class="challenges-cards-row" style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+              <!-- Challenge Card 1 -->
+              <div class="challenge-card" style="flex: 1 1 300px; max-width: 350px; min-width: 260px; background: #fff; border-radius: 1.25rem; box-shadow: 0 2px 16px rgba(0,0,0,0.04); padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center;">
+                <div style="margin-bottom: 0.5rem;">
+                  <span class="badge" style="background: #7ed957; color: #fff; font-size: 0.85em; padding: 0.25em 1em; border-radius: 1em; font-weight: 600;">POPULAR</span>
+                </div>
+                <div style="font-size: 2.5rem; color: #7ed957; margin-bottom: 0.5rem;"><i class="fas fa-bicycle"></i></div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem;">30-Day Car-Free Challenge</h3>
+                <p style="text-align: center; color: #444; margin-bottom: 1.25rem;">Reduce your carbon footprint by using alternative transportation for 30 days.</p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 1.2em; font-size: 0.98em; color: #222; margin-bottom: 1.25rem;">
+                  <span><i class="fas fa-users" style="color:#7ed957;"></i> 1,245 participants</span>
+                  <span><i class="fas fa-clock" style="color:#7ed957;"></i> 15 days left</span>
+                </div>
+                <button class="btn btn-outline" style="width: 100%; background: transparent; color: #2d3436; border: 1px solid #e0e0e0; border-radius: 0.75rem; padding: 0.875rem; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.3s ease; cursor: pointer;">
+                    <span class="btn-text">Join Challenge</span>
+                    <i class="fas fa-arrow-right btn-icon"></i>
+                </button>
+              </div>
+              <!-- Challenge Card 2 -->
+              <div class="challenge-card" style="flex: 1 1 300px; max-width: 350px; min-width: 260px; background: #fff; border-radius: 1.25rem; box-shadow: 0 2px 16px rgba(0,0,0,0.04); padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center;">
+                <div style="margin-bottom: 0.5rem;">
+                  <span class="badge" style="background: #7ed957; color: #fff; font-size: 0.85em; padding: 0.25em 1em; border-radius: 1em; font-weight: 600;">NEW</span>
+                </div>
+                <div style="font-size: 2.5rem; color: #7ed957; margin-bottom: 0.5rem;"><i class="fas fa-lock"></i></div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem;">Zero Waste Week</h3>
+                <p style="text-align: center; color: #444; margin-bottom: 1.25rem;">Minimize your waste production and find creative ways to reuse and recycle.</p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 1.2em; font-size: 0.98em; color: #222; margin-bottom: 1.25rem;">
+                  <span><i class="fas fa-users" style="color:#7ed957;"></i> 876 participants</span>
+                  <span><i class="fas fa-clock" style="color:#7ed957;"></i> 7 days left</span>
+                </div>
+                <button class="btn btn-outline" style="width: 100%; background: transparent; color: #2d3436; border: 1px solid #e0e0e0; border-radius: 0.75rem; padding: 0.875rem; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.3s ease; cursor: pointer;">
+                    <span class="btn-text">Join Challenge</span>
+                    <i class="fas fa-arrow-right btn-icon"></i>
+                </button>
+              </div>
+              <!-- Challenge Card 3 -->
+              <div class="challenge-card" style="flex: 1 1 300px; max-width: 350px; min-width: 260px; background: #fff; border-radius: 1.25rem; box-shadow: 0 2px 16px rgba(0,0,0,0.04); padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center;">
+                <div style="margin-bottom: 0.5rem;">
+                  <span class="badge" style="background: #7ed957; color: #fff; font-size: 0.85em; padding: 0.25em 1em; border-radius: 1em; font-weight: 600;">FEATURED</span>
+                </div>
+                <div style="font-size: 2.5rem; color: #7ed957; margin-bottom: 0.5rem;"><i class="fas fa-seedling"></i></div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem;">Plant 100 Trees</h3>
+                <p style="text-align: center; color: #444; margin-bottom: 1.25rem;">Join our community effort to plant 100 trees in your local area this month.</p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 1.2em; font-size: 0.98em; color: #222; margin-bottom: 1.25rem;">
+                  <span><i class="fas fa-users" style="color:#7ed957;"></i> 2,103 participants</span>
+                  <span><i class="fas fa-clock" style="color:#7ed957;"></i> 22 days left</span>
+                </div>
+                <button class="btn btn-outline" style="width: 100%; background: transparent; color: #2d3436; border: 1px solid #e0e0e0; border-radius: 0.75rem; padding: 0.875rem; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.3s ease; cursor: pointer;">
+                    <span class="btn-text">Join Challenge</span>
+                    <i class="fas fa-arrow-right btn-icon"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- End Eco-Friendly Challenges Section -->
+
+        <!-- How It Works Section -->
+        <section class="how-it-works-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">Simple Process</span>
+                    <h2 class="section-title">How Sustaina Works</h2>
+                    <p class="section-subtitle">
+                        Get started with Sustaina in just a few simple steps and begin your journey to a more sustainable lifestyle.
+                    </p>
+                </div>
+
+                <div class="steps-container">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3 class="step-title">Create Account</h3>
+                        <p class="step-description">
+                            Sign up for free and set up your profile with your sustainability goals and interests.
+                        </p>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3 class="step-title">Track Habits</h3>
+                        <p class="step-description">
+                            Add eco-friendly habits to your dashboard and track them daily to build consistency.
+                        </p>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-level-up-alt"></i>
+                        </div>
+                        <h3 class="step-title">Earn & Level Up</h3>
+                        <p class="step-description">
+                            Gain XP and eco-points for completed actions and watch your impact grow over time.
+                        </p>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3 class="step-title">Redeem Rewards</h3>
+                        <p class="step-description">
+                            Use your earned points to get discounts, fund eco-projects, or unlock special features.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="steps-cta">
+                    <button class="btn btn-primary btn-lg" id="getStartedBtnSteps">
+                        Start Your Eco Journey
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Showcase Section -->
+        <section class="app-showcase-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">App Showcase</span>
+                    <h2 class="section-title">Explore Sustaina Features</h2>
+                    <p class="section-subtitle">
+                        Take a closer look at our intuitive interface and powerful features designed to make sustainable living easy and rewarding.
+                    </p>
+                </div>
+
+                <div class="showcase-slider-container">
+                    <div class="swiper showcase-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="showcase-item">
+                                    <div class="placeholder-image">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>Dashboard Preview</span>
+                                    </div>
+                                    <div class="showcase-info">
+                                        <h3>Personalized Dashboard</h3>
+                                        <p>Track your progress, see daily tasks, and monitor your impact all in one place.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="showcase-item">
+                                    <img src="https://i.imgur.com/tKg0DvZ.png" alt="Habit Tracker Screen">
+                                    <div class="showcase-info">
+                                        <h3>Habit Tracker</h3>
+                                        <p>Manage your eco-friendly habits with our intuitive tracking system.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="showcase-item">
+                                    <img src="https://i.imgur.com/sFvQoQm.png" alt="Rewards Screen">
+                                    <div class="showcase-info">
+                                        <h3>Rewards Marketplace</h3>
+                                        <p>Redeem your eco-points for exclusive offers from sustainable brands.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="showcase-item">
+                                    <img src="https://i.imgur.com/ZLkGdvY.png" alt="Community Screen">
+                                    <div class="showcase-info">
+                                        <h3>Community Hub</h3>
+                                        <p>Connect with like-minded individuals and participate in challenges.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="showcase-item">
+                                    <img src="https://i.imgur.com/6MQhQpC.png" alt="Analytics Screen">
+                                    <div class="showcase-info">
+                                        <h3>Impact Analytics</h3>
+                                        <p>Visualize your environmental impact with detailed charts and insights.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="showcase-slider-nav">
+                        <button class="showcase-slider-prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="showcase-slider-next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">User Stories</span>
+                    <h2 class="section-title">What Our Community Says</h2>
+                    <p class="section-subtitle">
+                        Hear from our users about how Sustaina has helped them live more sustainably and make a positive impact.
+                    </p>
+                </div>
+
+                <div class="testimonials-slider-container">
+                    <div class="swiper testimonials-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">
+                                        "Sustaina has completely transformed how I approach sustainability. The habit tracking and rewards make it fun to be eco-conscious, and I've reduced my carbon footprint by 30% in just three months!"
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <img src="https://i.imgur.com/8LWTHYs.jpg" alt="Sarah Johnson">
+                                        <div class="testimonial-author-info">
+                                            <h4>Sarah Johnson</h4>
+                                            <span>Using Sustaina for 6 months</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">
+                                        "As a parent, I wanted to teach my kids about sustainability in a fun way. Sustaina has become our family activity - we compete to see who can earn the most eco-points each week. It's educational and engaging!"
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <img src="https://i.imgur.com/Gs8JgcP.jpg" alt="Michael Rodriguez">
+                                        <div class="testimonial-author-info">
+                                            <h4>Michael Rodriguez</h4>
+                                            <span>Using Sustaina for 1 year</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <p class="testimonial-text">
+                                        "The community aspect of Sustaina is what sets it apart. I've connected with eco-conscious people in my area, and we've even organized local clean-up events. The app makes it easy to coordinate and track our collective impact."
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <img src="https://i.imgur.com/pJmxJ5t.jpg" alt="Emma Chen">
+                                        <div class="testimonial-author-info">
+                                            <h4>Emma Chen</h4>
+                                            <span>Using Sustaina for 8 months</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">
+                                        "I've tried several sustainability apps, but Sustaina is by far the most comprehensive and user-friendly. The insights feature helped me identify areas where I could make the biggest impact, and the rewards are actually useful!"
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <img src="https://i.imgur.com/JQcXnZF.jpg" alt="David Patel">
+                                        <div class="testimonial-author-info">
+                                            <h4>David Patel</h4>
+                                            <span>Using Sustaina for 4 months</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-container">
+                    <div class="cta-content">
+                        <h2 class="cta-title">Ready to Start Your Eco Journey?</h2>
+                        <p class="cta-text">
+                            Join thousands of users who are making a positive impact on the planet. Sign up today and get access to all Sustaina features for free.
+                        </p>
+                        <div class="cta-actions">
+                            <a href="register.html" class="btn btn-light btn-lg" id="ctaSignupBtn">
+                                Sign Up Now <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="about.html" class="btn btn-outline-light btn-lg">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cta-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Dashboard Preview</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add Profile Section -->
+        <section id="profile" class="profile-section" style="display: none;">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">Your Profile</span>
+                    <h2 class="section-title">My Sustainability Journey</h2>
+                </div>
+                
+                <div class="profile-content">
+                    <div class="profile-info">
+                        <div class="profile-header">
+                            <img src="https://i.imgur.com/8LWTHYs.jpg" alt="Profile Picture" class="profile-picture">
+                            <div class="profile-details">
+                                <h3>Sarah Johnson</h3>
+                                <p>Eco Warrior Level 3</p>
+                                <div class="profile-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-number">45</span>
+                                        <span class="stat-label">Days Streak</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">1,250</span>
+                                        <span class="stat-label">Eco Points</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">3</span>
+                                        <span class="stat-label">Badges</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="badges-section">
+                        <h3>My Badges</h3>
+                        <div class="badges-grid" id="badgesGrid">
+                            <!-- Badges will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add Toast Container -->
+        <div class="toast-container" id="toastContainer"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-content">
+                <!-- Footer About -->
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo">
+                        <span>Sustaina</span>
+                    </a>
+                    <p class="footer-description">
+                        Empowering individuals to live sustainably through habit tracking, rewards, and community engagement. Together, we can create a more sustainable future for our planet.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer-social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">Quick Links</h3>
+                        <ul class="footer-menu">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">Features</h3>
+                        <ul class="footer-menu">
+                            <li><a href="#">Habit Tracking</a></li>
+                            <li><a href="#">Rewards System</a></li>
+                            <li><a href="#">Community</a></li>
+                            <li><a href="#">Eco Insights</a></li>
+                            <li><a href="#">Challenges</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">Support</h3>
+                        <ul class="footer-menu">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Contact Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">© 2024 Sustaina. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="weather.js"></script>
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script src="challenges.js"></script>
+
+    <!-- Features Tabs Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all tab buttons and panes
+            const tabButtons = document.querySelectorAll('.features-tab-btn');
+            const tabPanes = document.querySelectorAll('.features-tab-pane');
+
+            // Add click event listener to each tab button
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons and panes
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    // Get the target tab pane ID
+                    const targetTab = this.getAttribute('data-tab');
+                    const targetPane = document.getElementById(`${targetTab}-tab`);
+
+                    // Add active class to target pane
+                    if (targetPane) {
+                        targetPane.classList.add('active');
+                    }
+                });
+            });
+
+            // Initialize Swiper for testimonials
+            new Swiper('.testimonials-slider', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2
+                    },
+                    1024: {
+                        slidesPerView: 3
+                    }
+                }
+            });
+
+            // Initialize Swiper for showcase
+            new Swiper('.showcase-slider', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.showcase-slider-next',
+                    prevEl: '.showcase-slider-prev',
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2
+                    },
+                    1024: {
+                        slidesPerView: 3
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Challenge Modal -->
+    <div id="challengeModal" class="challenge-modal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); align-items:center; justify-content:center;">
+      <div class="challenge-modal-content" style="background:#fff; border-radius:1.25rem; max-width:400px; width:90vw; padding:2rem 1.5rem; position:relative; box-shadow:0 2px 24px rgba(0,0,0,0.12);">
+        <button id="closeChallengeModal" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; color:#7ed957; cursor:pointer;"><i class="fas fa-times"></i></button>
+        <div id="challengeModalBody"></div>
+      </div>
+    </div>
+
+    <style>
+        /* Add Profile Dropdown Styles */
+        .profile-dropdown {
+            position: relative;
+            margin-left: 1rem;
+        }
+        
+        .profile-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s;
+        }
+        
+        .profile-btn:hover {
+            background-color: rgba(126, 217, 87, 0.1);
+        }
+        
+        .profile-img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            min-width: 200px;
+            display: none;
+            z-index: 1000;
+        }
+        
+        .profile-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: rgba(126, 217, 87, 0.1);
+        }
+        
+        .dropdown-divider {
+            height: 1px;
+            background-color: #eee;
+            margin: 0.5rem 0;
+        }
+        
+        /* Profile Section Styles */
+        .profile-section {
+            padding: 4rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .profile-content {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-picture {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #7ed957;
+        }
+        
+        .profile-details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #7ed957;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        .badges-section {
+            margin-top: 2rem;
+        }
+        
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .badge-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.2s;
+        }
+        
+        .badge-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .badge-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .badge-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .badge-description {
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        /* Toast Styles */
+        .toast-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+        
+        .toast {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .toast-icon {
+            font-size: 1.5rem;
+            color: #7ed957;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Add button hover styles */
+        .challenge-card .btn {
+            width: 100%;
+            background: transparent;
+            color: #2d3436;
+            border: 1px solid #e0e0e0;
+            border-radius: 0.75rem;
+            padding: 0.875rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .challenge-card .btn:hover {
+            background: #f5f5f5;
+            color: #2d3436;
+            border-color: #e0e0e0;
+        }
+
+        .challenge-card .btn .btn-text {
+            transition: transform 0.3s ease;
+        }
+
+        .challenge-card .btn:hover .btn-text {
+            transform: translateX(-4px);
+        }
+
+        .challenge-card .btn .btn-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .challenge-card .btn:hover .btn-icon {
+            transform: translateX(4px);
+        }
+    </style>
+
+    <script>
+        // Add Profile and Badges Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show profile dropdown if user is logged in
+            const profileDropdown = document.getElementById('profileDropdown');
+            const profileSection = document.getElementById('profile');
+            
+            // Check if user is logged in (for demo, we'll just show it)
+            profileDropdown.style.display = 'flex';
+            
+            // Handle profile section visibility
+            document.querySelector('.dropdown-item[href="#profile"]').addEventListener('click', function(e) {
+                e.preventDefault();
+                profileSection.style.display = 'block';
+                window.scrollTo({
+                    top: profileSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Function to show toast notification
+            function showToast(message) {
+                const toastContainer = document.getElementById('toastContainer');
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                toast.innerHTML = `
+                    <i class="fas fa-medal toast-icon"></i>
+                    <span>${message}</span>
+                `;
+                toastContainer.appendChild(toast);
+                
+                // Remove toast after 3 seconds
+                setTimeout(() => {
+                    toast.style.animation = 'slideOut 0.3s ease-out';
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+            
+            // Function to update badges display
+            function updateBadgesDisplay() {
+                const badgesGrid = document.getElementById('badgesGrid');
+                const state = getChallengeState();
+                badgesGrid.innerHTML = '';
+                
+                challenges.forEach((challenge, idx) => {
+                    if (state[idx] && state[idx].completed) {
+                        const badgeCard = document.createElement('div');
+                        badgeCard.className = 'badge-card';
+                        badgeCard.innerHTML = `
+                            <div class="badge-icon">${challenge.badge}</div>
+                            <h4 class="badge-name">${challenge.title}</h4>
+                            <p class="badge-description">${challenge.description}</p>
+                        `;
+                        badgesGrid.appendChild(badgeCard);
+                    }
+                });
+            }
+            
+            // Update badges display when challenge is completed
+            const originalShowChallengeModal = showChallengeModal;
+            showChallengeModal = function(idx) {
+                originalShowChallengeModal(idx);
+                const state = getChallengeState();
+                if (state[idx] && state[idx].completed) {
+                    showToast(`Congrats! You earned the ${challenges[idx].badge} badge!`);
+                    updateBadgesDisplay();
+                }
+            };
+            
+            // Initial badges display
+            updateBadgesDisplay();
+        });
+    </script>
+</body>
+</html>

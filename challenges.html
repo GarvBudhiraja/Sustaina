@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustaina - Eco Challenges</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animation Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="challenges.css">
+    <link rel="stylesheet" href="auth.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon-precomposed" href="images/favicon-152.png">
+    <meta name="msapplication-TileColor" content="#2cd63c">
+    <meta name="msapplication-TileImage" content="images/favicon-144.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="images/logo.svg" alt="Sustaina Logo">
+                <span>Sustaina</span>
+            </div>
+            
+            <div class="navbar-menu">
+                <a href="index.html" class="navbar-link">Home</a>
+                <a href="index.html#features" class="navbar-link">Features</a>
+                <a href="about.html" class="navbar-link">About</a>
+                <a href="challenges.html" class="navbar-link active">Challenges</a>
+                <a href="index.html#testimonials" class="navbar-link">Testimonials</a>
+                <a href="contact.html" class="navbar-link">Contact</a>
+            </div>
+            
+            <div class="navbar-actions">
+                <a href="login.html" class="btn btn-login">Login</a>
+                <a href="register.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            
+            <div class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="navbar-logo">
+                <img src="images/logo.svg" alt="Sustaina Logo">
+                <span>Sustaina</span>
+            </div>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-body">
+            <a href="index.html" class="mobile-menu-link">Home</a>
+            <a href="index.html#features" class="mobile-menu-link">Features</a>
+            <a href="about.html" class="mobile-menu-link">About</a>
+            <a href="challenges.html" class="mobile-menu-link active">Challenges</a>
+            <a href="index.html#testimonials" class="mobile-menu-link">Testimonials</a>
+            <a href="contact.html" class="mobile-menu-link">Contact</a>
+            <div class="mobile-menu-actions">
+                <a href="login.html" class="btn btn-login-mobile">Login</a>
+                <a href="register.html" class="btn btn-primary-mobile">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Challenges Section -->
+        <section class="challenges-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">Eco Challenges</span>
+                    <h2 class="section-title">Join Our Sustainability Challenges</h2>
+                    <p class="section-subtitle">
+                        Participate in community challenges to boost your sustainability efforts and earn rewards.
+                    </p>
+                </div>
+
+                <div class="challenges-cards-row">
+                    <!-- Challenge Card 1 -->
+                    <div class="challenge-card">
+                        <div class="badge">POPULAR</div>
+                        <div class="challenge-icon">
+                            <i class="fas fa-bicycle"></i>
+                        </div>
+                        <h3>30-Day Car-Free Challenge</h3>
+                        <p>Reduce your carbon footprint by using alternative transportation for 30 days.</p>
+                        <div class="challenge-stats">
+                            <span><i class="fas fa-users"></i> 1,245 participants</span>
+                            <span><i class="fas fa-clock"></i> 15 days left</span>
+                        </div>
+                        <button class="btn btn-outline join-challenge">
+                            <span class="btn-text">Join Challenge</span>
+                            <i class="fas fa-arrow-right btn-icon"></i>
+                        </button>
+                    </div>
+
+                    <!-- Challenge Card 2 -->
+                    <div class="challenge-card">
+                        <div class="badge">NEW</div>
+                        <div class="challenge-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Zero Waste Week</h3>
+                        <p>Minimize your waste production and find creative ways to reuse and recycle.</p>
+                        <div class="challenge-stats">
+                            <span><i class="fas fa-users"></i> 876 participants</span>
+                            <span><i class="fas fa-clock"></i> 7 days left</span>
+                        </div>
+                        <button class="btn btn-outline join-challenge">
+                            <span class="btn-text">Join Challenge</span>
+                            <i class="fas fa-arrow-right btn-icon"></i>
+                        </button>
+                    </div>
+
+                    <!-- Challenge Card 3 -->
+                    <div class="challenge-card">
+                        <div class="badge">FEATURED</div>
+                        <div class="challenge-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Plant 100 Trees</h3>
+                        <p>Join our community effort to plant 100 trees in your local area this month.</p>
+                        <div class="challenge-stats">
+                            <span><i class="fas fa-users"></i> 2,103 participants</span>
+                            <span><i class="fas fa-clock"></i> 22 days left</span>
+                        </div>
+                        <button class="btn btn-outline join-challenge">
+                            <span class="btn-text">Join Challenge</span>
+                            <i class="fas fa-arrow-right btn-icon"></i>
+                        </button>
+                    </div>
+
+                    <!-- Challenge Card 4 - Energy Saver Challenge -->
+                    <div class="challenge-card">
+                        <div class="badge">NEW</div>
+                        <div class="challenge-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Energy Saver Challenge</h3>
+                        <p>Reduce home electricity use by 10–20% in 2 weeks by tracking lights, AC, and devices.</p>
+                        <div class="challenge-stats">
+                            <span><i class="fas fa-users"></i> 543 participants</span>
+                            <span><i class="fas fa-clock"></i> 14 days left</span>
+                        </div>
+                        <button class="btn btn-outline join-challenge">
+                            <span class="btn-text">Join Challenge</span>
+                            <i class="fas fa-arrow-right btn-icon"></i>
+                        </button>
+                    </div>
+
+                    <!-- Challenge Card 5 - Plastic-Free Month -->
+                    <div class="challenge-card">
+                        <div class="badge">POPULAR</div>
+                        <div class="challenge-icon">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <h3>Plastic-Free Month</h3>
+                        <p>Avoid using single-use plastics for 30 days and discover sustainable alternatives.</p>
+                        <div class="challenge-stats">
+                            <span><i class="fas fa-users"></i> 1,879 participants</span>
+                            <span><i class="fas fa-clock"></i> 30 days left</span>
+                        </div>
+                        <button class="btn btn-outline join-challenge">
+                            <span class="btn-text">Join Challenge</span>
+                            <i class="fas fa-arrow-right btn-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenge Modal -->
+        <div id="challengeModal" class="challenge-modal">
+            <div class="challenge-modal-content">
+                <button id="closeChallengeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div id="challengeModalBody"></div>
+            </div>
+        </div>
+
+        <!-- Toast Container -->
+        <div class="toast-container" id="toastContainer"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <img src="images/logo.svg" alt="Sustaina Logo">
+                        <span>Sustaina</span>
+                    </a>
+                    <p class="footer-description">
+                        Empowering individuals to live sustainably through habit tracking, rewards, and community engagement.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">© 2024 Sustaina. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="challenges.js"></script>
+    <!-- <script src="script.js"></script> -->
+</body>
+</html> 
