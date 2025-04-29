@@ -1,330 +1,247 @@
-// Challenge data structure
-const challenges = {
-    1: {
-        title: "30-Day Car-Free Challenge",
-        duration: 30,
-        daysLeft: 15,
+// Challenge data
+const challenges = [
+    {
+        id: 0,
+        title: '30-Day Car-Free Challenge',
+        duration: 15,
+        description: 'Reduce your carbon footprint by using alternative transportation for 30 days.',
+        howTo: 'Use a bicycle, walk, or public transport instead of a car for 30 days. Log your progress daily!',
+        badge: '🚴 Car-Free Hero',
         participants: 1245,
-        instructions: [
-            "Use public transportation, cycling, or walking for your daily commute",
-            "Track your progress in the app",
-            "Share your experience with the community",
-            "Complete at least 20 days to earn the badge"
-        ],
-        badge: {
-            name: "Eco-Commuter",
-            description: "Awarded for completing 30 days of car-free commuting",
-            icon: "🚲"
-        }
+        daysLeft: 15
     },
-    2: {
-        title: "Zero Waste Week",
-        duration:7,
-        daysLeft: 7,
+    {
+        id: 1,
+        title: 'Zero Waste Week',
+        duration: 7,
+        description: 'Minimize your waste production and find creative ways to reuse and recycle.',
+        howTo: 'Track your waste, reuse items, and recycle as much as possible for 7 days. Share your tips!',
+        badge: '♻️ Zero Waste Star',
         participants: 876,
-        instructions: [
-            "Carry reusable bags and containers",
-            "Compost organic waste",
-            "Avoid single-use plastics",
-            "Find creative ways to reuse items"
-        ],
-        badge: {
-            name: "Zero Waste Warrior",
-            description: "Awarded for completing a week of zero waste living",
-            icon: "♻️"
-        }
+        daysLeft: 7
     },
-    3: {
-        title: "Plant 100 Trees",
-        duration: 30,
-        daysLeft: 22,
+    {
+        id: 2,
+        title: 'Plant 100 Trees',
+        duration: 22,
+        description: 'Join our community effort to plant 100 trees in your local area this month.',
+        howTo: 'Participate in tree planting events or plant trees yourself. Upload a photo or log your activity!',
+        badge: '🌳 Tree Planter',
         participants: 2103,
-        instructions: [
-            "Plant trees in your local area",
-            "Document each planting with photos",
-            "Share your progress in the community",
-            "Complete at least 10 plantings to earn the badge"
-        ],
-        badge: {
-            name: "Tree Guardian",
-            description: "Awarded for contributing to reforestation efforts",
-            icon: "🌳"
-        }
+        daysLeft: 22
+    },
+    {
+        id: 3,
+        title: 'Solar Energy Switch',
+        duration: 30,
+        description: 'Switch to solar-powered devices and track your renewable energy usage for 30 days.',
+        howTo: 'Use solar-powered chargers and devices, track your energy savings, and share your experience!',
+        badge: '☀️ Solar Champion',
+        participants: 543,
+        daysLeft: 25
+    },
+    {
+        id: 4,
+        title: 'Vegan Food Month',
+        duration: 30,
+        description: 'Embrace a plant-based diet for a month and share your favorite vegan recipes.',
+        howTo: 'Follow a vegan diet, discover new recipes, and share your culinary journey with the community!',
+        badge: '🥗 Vegan Explorer',
+        participants: 1567,
+        daysLeft: 18
+    },
+    {
+        id: 5,
+        title: 'Water Conservation',
+        duration: 14,
+        description: 'Reduce your daily water consumption and track savings for 2 weeks.',
+        howTo: 'Monitor water usage, fix leaks, and implement water-saving practices. Log your daily savings!',
+        badge: '💧 Water Guardian',
+        participants: 987,
+        daysLeft: 12
+    },
+    {
+        id: 6,
+        title: 'Plastic-Free Shopping',
+        duration: 21,
+        description: 'Complete your shopping without single-use plastics for 21 days.',
+        howTo: 'Use reusable bags, containers, and packaging alternatives. Document your plastic-free purchases!',
+        badge: '🛍️ Plastic-Free Pro',
+        participants: 756,
+        daysLeft: 19
+    },
+    {
+        id: 7,
+        title: 'Energy Efficiency',
+        duration: 30,
+        description: 'Reduce your household energy consumption by 30% in one month.',
+        howTo: 'Track energy usage, use efficient appliances, and implement energy-saving habits!',
+        badge: '⚡ Energy Master',
+        participants: 1324,
+        daysLeft: 28
+    },
+    {
+        id: 8,
+        title: 'Upcycling Challenge',
+        duration: 30,
+        description: 'Transform 5 items you would normally throw away into something useful.',
+        howTo: 'Get creative with waste materials, share your upcycling projects, and inspire others!',
+        badge: '🎨 Upcycling Artist',
+        participants: 892,
+        daysLeft: 16
     }
-};
+];
 
-// Track user's joined challenges
-const userChallenges = new Set();
+// Challenge state management
+function getChallengeState() {
+    return JSON.parse(localStorage.getItem('joinedChallenges') || '{}');
+}
 
-// Initialize challenge buttons
-document.addEventListener('DOMContentLoaded', () => {
-    const joinButtons = document.querySelectorAll('.join-challenge-btn');
-    joinButtons.forEach(button => {
-        const challengeId = button.dataset.challengeId;
-        if (userChallenges.has(challengeId)) {
-            updateButtonState(button, true);
-        }
-    });
-});
+function setChallengeState(state) {
+    localStorage.setItem('joinedChallenges', JSON.stringify(state));
+}
 
-// Handle join challenge button clicks
-document.querySelectorAll('.join-challenge-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        const challengeId = button.dataset.challengeId;
-        const challenge = challenges[challengeId];
+// UI update functions
+function updateChallengeButtons() {
+    const state = getChallengeState();
+    document.querySelectorAll('.challenge-card').forEach((card, idx) => {
+        const btn = card.querySelector('button');
+        if (!btn) return;
         
-        if (!userChallenges.has(challengeId)) {
-            showJoinModal(challengeId, challenge);
+        if (state[idx] && state[idx].completed) {
+            btn.innerHTML = `
+                <span>Restart Challenge</span>
+                <i class="fas fa-redo"></i>
+            `;
+            btn.classList.add('completed');
+        } else if (state[idx] && state[idx].joined) {
+            btn.innerHTML = `
+                <span>In Progress</span>
+                <i class="fas fa-spinner"></i>
+            `;
+            btn.classList.add('in-progress');
         } else {
-            showProgressModal(challengeId, challenge);
+            btn.innerHTML = `
+                <span>Join Challenge</span>
+                <i class="fas fa-arrow-right"></i>
+            `;
+            btn.classList.remove('completed', 'in-progress');
         }
-    });
-});
-
-// Show join confirmation modal
-function showJoinModal(challengeId, challenge) {
-    const modal = document.getElementById('challengeModal');
-    const modalBody = document.getElementById('challengeModalBody');
-    
-    modalBody.innerHTML = `
-        <div class="modal-header">
-            <h3>Join ${challenge.title}</h3>
-        </div>
-        <div class="modal-content">
-            <div class="challenge-info">
-                <p><strong>Duration:</strong> ${challenge.duration} days</p>
-                <p><strong>Days Left:</strong> ${challenge.daysLeft} days</p>
-                <p><strong>Participants:</strong> ${challenge.participants}</p>
-            </div>
-            <div class="instructions">
-                <h4>How to Complete:</h4>
-                <ul>
-                    ${challenge.instructions.map(instruction => `<li>${instruction}</li>`).join('')}
-                </ul>
-            </div>
-            <div class="badge-info">
-                <h4>Earn This Badge:</h4>
-                <div class="badge-preview">
-                    <span class="badge-icon">${challenge.badge.icon}</span>
-                    <div>
-                        <strong>${challenge.badge.name}</strong>
-                        <p>${challenge.badge.description}</p>
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-primary confirm-join-btn" data-challenge-id="${challengeId}">
-                Join Challenge
-            </button>
-        </div>
-    `;
-    
-    modal.style.display = 'flex';
-    
-    // Handle join confirmation
-    document.querySelector('.confirm-join-btn').addEventListener('click', () => {
-        userChallenges.add(challengeId);
-        const button = document.querySelector(`.join-challenge-btn[data-challenge-id="${challengeId}"]`);
-        updateButtonState(button, true);
-        modal.style.display = 'none';
-        showProgressModal(challengeId, challenge);
+        
+        btn.onclick = function(e) {
+            e.preventDefault();
+            showChallengeModal(idx);
+        };
     });
 }
 
-// Show progress modal
-function showProgressModal(challengeId, challenge) {
-    const modal = document.getElementById('challengeModal');
-    const modalBody = document.getElementById('challengeModalBody');
-    
-    modalBody.innerHTML = `
-        <div class="modal-header">
-            <h3>${challenge.title}</h3>
-        </div>
-        <div class="modal-content">
-            <div class="progress-info">
-                <div class="progress-bar">
-                    <div class="progress" style="width: ${((challenge.duration - challenge.daysLeft) / challenge.duration) * 100}%"></div>
-                </div>
-                <p>${challenge.daysLeft} days remaining</p>
-            </div>
-            <div class="instructions">
-                <h4>How to Complete:</h4>
-                <ul>
-                    ${challenge.instructions.map(instruction => `<li>${instruction}</li>`).join('')}
-                </ul>
-            </div>
-            <div class="badge-info">
-                <h4>Earn This Badge:</h4>
-                <div class="badge-preview">
-                    <span class="badge-icon">${challenge.badge.icon}</span>
-                    <div>
-                        <strong>${challenge.badge.name}</strong>
-                        <p>${challenge.badge.description}</p>
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-primary complete-challenge-btn" data-challenge-id="${challengeId}">
-                Mark as Complete
-            </button>
-        </div>
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `
+        <i class="fas fa-check-circle"></i>
+        <span>${message}</span>
     `;
     
-    modal.style.display = 'flex';
+    const container = document.querySelector('.toast-container') || createToastContainer();
+    container.appendChild(toast);
     
-    // Handle challenge completion
-    document.querySelector('.complete-challenge-btn').addEventListener('click', () => {
-        showCompletionModal(challenge);
-    });
+    setTimeout(() => {
+        toast.classList.add('fade-out');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
 }
 
-// Show completion modal
-function showCompletionModal(challenge) {
-    const modal = document.getElementById('challengeModal');
-    const modalBody = document.getElementById('challengeModalBody');
-    
-    modalBody.innerHTML = `
-        <div class="modal-header">
-            <h3>Challenge Complete! 🎉</h3>
-        </div>
-        <div class="modal-content">
-            <div class="completion-message">
-                <p>Congratulations! You've completed the ${challenge.title}!</p>
-            </div>
-            <div class="badge-earned">
-                <h4>You've Earned:</h4>
-                <div class="badge-preview earned">
-                    <span class="badge-icon">${challenge.badge.icon}</span>
-                    <div>
-                        <strong>${challenge.badge.name}</strong>
-                        <p>${challenge.badge.description}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="profile-notice">
-                <p>This badge will appear on your profile page.</p>
-            </div>
-            <button class="btn btn-primary close-modal-btn">
-                Close
-            </button>
-        </div>
+function createToastContainer() {
+    const container = document.createElement('div');
+    container.className = 'toast-container';
+    document.body.appendChild(container);
+    return container;
+}
+
+// Challenge modal functionality
+function showChallengeModal(idx) {
+    const state = getChallengeState();
+    const c = challenges[idx];
+    let html = `
+        <h2 style='color:#2cd63c; margin-bottom:0.5em;'>${c.title}</h2>
+        <p style='color:#444; margin-bottom:1em;'>${c.description}</p>
+        <strong>Duration left:</strong> <span style='color:#2cd63c;'>${c.daysLeft} days</span><br>
+        <strong>How to complete:</strong> <div style='margin-bottom:1em;'>${c.howTo}</div>
     `;
     
-    document.querySelector('.close-modal-btn').addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-}
-
-// Update button state
-function updateButtonState(button, isJoined) {
-    if (isJoined) {
-        button.innerHTML = `
-            <span class="btn-text">In Progress</span>
-            <i class="fas fa-check btn-icon"></i>
+    if (state[idx] && state[idx].completed) {
+        html += `
+            <div style='margin:1em 0; color:#2cd63c; font-size:1.2em;'>
+                <b>Challenge Completed!</b><br>
+                You earned a badge: <span style='font-size:1.5em;'>${c.badge}</span>
+            </div>
+            <div style='margin-bottom:1em;'>This badge will be shown on your profile.</div>
+            <button id='restartChallengeBtn' class='btn btn-primary' style='width:100%;'>Restart Challenge</button>
         `;
-        button.classList.add('joined');
-    } else {
-        button.innerHTML = `
-            <span class="btn-text">Join Challenge</span>
-            <i class="fas fa-arrow-right btn-icon"></i>
+    } else if (state[idx] && state[idx].joined) {
+        html += `
+            <div style='margin:1em 0; color:#2cd63c;'><b>You have joined this challenge!</b></div>
+            <button id='markCompleteBtn' class='btn btn-primary' style='width:100%;'>Mark as Complete</button>
         `;
-        button.classList.remove('joined');
-    }
-}
-
-// Close modal when clicking outside
-document.getElementById('challengeModal').addEventListener('click', (e) => {
-    if (e.target === document.getElementById('challengeModal')) {
-        document.getElementById('challengeModal').style.display = 'none';
-    }
-});
-
-// Close modal with escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        document.getElementById('challengeModal').style.display = 'none';
-    }
-});
-
-// DOM Elements
-const challengeModal = document.getElementById('challengeModal');
-const closeChallengeModal = document.getElementById('closeChallengeModal');
-const modalTitle = document.getElementById('modalTitle');
-const challengeDuration = document.getElementById('challengeDuration');
-const challengeParticipants = document.getElementById('challengeParticipants');
-const progressText = document.getElementById('progressText');
-const progressBar = document.getElementById('progressBar');
-const challengeInstructions = document.getElementById('challengeInstructions');
-const badgeName = document.getElementById('badgeName');
-const joinChallengeBtn = document.getElementById('joinChallengeBtn');
-const markCompleteBtn = document.getElementById('markCompleteBtn');
-const completionMessage = document.getElementById('completionMessage');
-
-// Sample challenge data
-const sampleChallenge = {
-    title: "7-Day Plastic Free Challenge",
-    duration: "7 days",
-    participants: 0,
-    progress: 0,
-    instructions: [
-        "Use reusable water bottles instead of plastic ones",
-        "Bring your own shopping bags",
-        "Avoid single-use plastic straws",
-        "Use reusable containers for food storage",
-        "Choose products with minimal plastic packaging"
-    ],
-    badge: "Plastic Free Warrior"
-};
-
-// Initialize modal with challenge data
-function initializeModal(challenge) {
-    modalTitle.textContent = challenge.title;
-    challengeDuration.textContent = `Duration: ${challenge.duration}`;
-    challengeParticipants.textContent = `Participants: ${challenge.participants}`;
-    progressText.textContent = `${challenge.progress}%`;
-    progressBar.style.width = `${challenge.progress}%`;
-    badgeName.textContent = challenge.badge.name;
-
-    // Clear and populate instructions
-    challengeInstructions.innerHTML = '';
-    challenge.instructions.forEach(instruction => {
-        const li = document.createElement('li');
-        li.textContent = instruction;
-        challengeInstructions.appendChild(li);
-    });
-
-    // Show appropriate buttons based on progress
-    if (challenge.progress === 0) {
-        joinChallengeBtn.style.display = 'block';
-        markCompleteBtn.style.display = 'none';
-        completionMessage.style.display = 'none';
-    } else if (challenge.progress === 100) {
-        joinChallengeBtn.style.display = 'none';
-        markCompleteBtn.style.display = 'none';
-        completionMessage.style.display = 'block';
     } else {
-        joinChallengeBtn.style.display = 'none';
-        markCompleteBtn.style.display = 'block';
-        completionMessage.style.display = 'none';
+        html += `
+            <button id='joinChallengeBtn' class='btn btn-primary' style='width:100%;'>Join Challenge</button>
+        `;
     }
+    
+    document.getElementById('challengeModalBody').innerHTML = html;
+    document.getElementById('challengeModal').style.display = 'flex';
+
+    // Button logic
+    setTimeout(() => {
+        const joinBtn = document.getElementById('joinChallengeBtn');
+        if (joinBtn) joinBtn.onclick = function() {
+            const s = getChallengeState();
+            s[idx] = {joined: true, completed: false};
+            setChallengeState(s);
+            updateChallengeButtons();
+            showChallengeModal(idx);
+            showToast(`You've joined the ${c.title} challenge!`);
+        };
+        
+        const completeBtn = document.getElementById('markCompleteBtn');
+        if (completeBtn) completeBtn.onclick = function() {
+            const s = getChallengeState();
+            s[idx] = {joined: true, completed: true};
+            setChallengeState(s);
+            updateChallengeButtons();
+            showChallengeModal(idx);
+            showToast(`Congratulations! You've earned the ${c.badge} badge!`);
+            updateBadgesDisplay();
+        };
+        
+        const restartBtn = document.getElementById('restartChallengeBtn');
+        if (restartBtn) restartBtn.onclick = function() {
+            const s = getChallengeState();
+            delete s[idx];
+            setChallengeState(s);
+            updateChallengeButtons();
+            showChallengeModal(idx);
+            showToast(`You've restarted the ${c.title} challenge!`);
+        };
+    }, 10);
 }
 
-// Event Listeners
-closeChallengeModal.addEventListener('click', () => {
-    challengeModal.style.display = 'none';
-});
-
-joinChallengeBtn.addEventListener('click', () => {
-    sampleChallenge.participants += 1;
-    sampleChallenge.progress = 25;
-    initializeModal(sampleChallenge);
-});
-
-markCompleteBtn.addEventListener('click', () => {
-    sampleChallenge.progress = 100;
-    initializeModal(sampleChallenge);
-});
-
-// Initialize modal with sample challenge
-initializeModal(sampleChallenge);
-
-// Show modal
-challengeModal.style.display = 'flex'; 
+// Initialize challenges
+document.addEventListener('DOMContentLoaded', function() {
+    updateChallengeButtons();
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        const modal = document.getElementById('challengeModal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    };
+    
+    // Close modal with X button
+    document.getElementById('closeChallengeModal').onclick = function() {
+        document.getElementById('challengeModal').style.display = 'none';
+    };
+}); 
