@@ -2704,3 +2704,476 @@ textarea.form-control {
         gap: 15px;
     }
 }
+
+.placeholder-image {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.placeholder-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.placeholder-image i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #2cd63c;
+}
+
+.placeholder-image span {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.cta-section {
+    background-color: #258d2f;
+    padding: 6rem 0;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.cta-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.cta-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.cta-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.cta-actions .btn-light {
+    background: #fff;
+    color: #2cd63c;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.cta-actions .btn-light:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+.cta-actions .btn-outline-light {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.cta-actions .btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
+    .cta-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .cta-content {
+        max-width: 100%;
+    }
+
+    .cta-title {
+        font-size: 2.8rem;
+    }
+
+    .cta-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .cta-title {
+        font-size: 2.2rem;
+    }
+
+    .cta-text {
+        font-size: 1.1rem;
+    }
+
+    .cta-actions {
+        flex-direction: column;
+    }
+
+    .cta-actions .btn {
+        width: 100%;
+    }
+}
+
+.challenges-hero {
+    background-color: #f8f9fa;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.challenges-hero .badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: linear-gradient(135deg, #2cd63c 0%, #1ea832 100%);
+    color: white;
+    border-radius: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.challenges-hero h1 {
+    font-size: 3rem;
+    color: #2d3436;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.challenges-hero p {
+    font-size: 1.2rem;
+    color: #636e72;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.challenges-section {
+    padding: 4rem 0;
+    background-color: #fff;
+}
+
+.challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.challenge-card {
+    background: #fff;
+    border-radius: 1.25rem;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.challenge-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25em 1em;
+    border-radius: 1em;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.badge-popular {
+    background-color: #2cd63c;
+    color: white;
+}
+
+.badge-new {
+    background-color: #00b894;
+    color: white;
+}
+
+.badge-featured {
+    background-color: #0984e3;
+    color: white;
+}
+
+.challenge-icon {
+    font-size: 2.5rem;
+    color: #2cd63c;
+    margin-bottom: 1rem;
+}
+
+.challenge-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: #2d3436;
+}
+
+.challenge-card p {
+    color: #636e72;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.challenge-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1.2em;
+    font-size: 0.95em;
+    color: #2d3436;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.challenge-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.challenge-stats i {
+    color: #2cd63c;
+}
+
+.challenge-card .btn-outline {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid #2cd63c;
+    color: #2cd63c;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.challenge-card .btn-outline:hover {
+    background-color: #2cd63c;
+    color: white;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .challenges-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .challenges-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .challenges-hero h1 {
+        font-size: 2rem;
+    }
+
+    .challenges-hero p {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .challenge-card {
+        padding: 1.5rem 1rem;
+    }
+}
+
+.challenge-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.challenge-modal-content {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: modalSlideIn 0.3s ease forwards;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#closeChallengeModal {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: #f1f1f1;
+    border: none;
+    font-size: 1.25rem;
+    color: #333;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#closeChallengeModal:hover {
+    background: var(--gradient);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.challenge-modal-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-right: 2.5rem;
+}
+
+.challenge-modal-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.challenge-details {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    border: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+.challenge-details strong {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.challenge-details p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.challenge-modal-content .btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+.challenge-modal-content .btn-primary {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.2);
+}
+
+.challenge-modal-content .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.3);
+}
+
+@media (max-width: 768px) {
+    .challenge-modal-content {
+        width: 95%;
+        padding: 2rem;
+    }
+
+    .challenge-modal-content h2 {
+        font-size: 1.75rem;
+    }
+
+    .challenge-details {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .challenge-modal-content {
+        padding: 1.75rem;
+    }
+
+    .challenge-modal-content h2 {
+        font-size: 1.5rem;
+    }
+
+    #closeChallengeModal {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .challenge-details {
+        padding: 1.25rem;
+    }
+}

@@ -11,7 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     
     <!-- Animation Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -21,17 +22,24 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="components.css">
     <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="challenges.css">
+    <link rel="stylesheet" href="weather.css">
     
     <!-- Favicon -->
-    <link rel="icon" href="https://i.imgur.com/8KgVB8B.png" type="image/png">
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon-precomposed" href="images/favicon-152.png">
+    <meta name="msapplication-TileColor" content="#2cd63c">
+    <meta name="msapplication-TileImage" content="images/favicon-144.png">
 </head>
 <body>
     <!-- Single, clean preloader -->
     <div id="preloader">
         <div class="preloader-content">
-            <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo">
+            <img src="images/logo.svg" alt="Sustaina Logo" width="60" height="60">
             <h2>Sustaina</h2>
-            <div class="spinner"></div>
+            <div class="loader"></div>
         </div>
     </div>
 
@@ -49,14 +57,17 @@
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-logo">
-                <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo">
-                <span>Sustaina</span>
+                <a href="index.html">
+                    <img src="images/logo.svg" alt="Sustaina Logo" width="40" height="40">
+                    <span>Sustaina</span>
+                </a>
             </div>
             
             <div class="navbar-menu">
                 <a href="#home" class="navbar-link active">Home</a>
                 <a href="#features" class="navbar-link">Features</a>
                 <a href="about.html" class="navbar-link">About</a>
+                <a href="challenges.html" class="navbar-link">Challenges</a>
                 <a href="#testimonials" class="navbar-link">Testimonials</a>
                 <a href="contact.html" class="navbar-link">Contact</a>
             </div>
@@ -116,6 +127,7 @@
             <a href="#home" class="mobile-menu-link active">Home</a>
             <a href="#features" class="mobile-menu-link">Features</a>
             <a href="about.html" class="mobile-menu-link">About</a>
+            <a href="challenges.html" class="mobile-menu-link">Challenges</a>
             <a href="#testimonials" class="mobile-menu-link">Testimonials</a>
             <a href="contact.html" class="mobile-menu-link">Contact</a>
             <div class="mobile-menu-actions">
@@ -162,7 +174,15 @@
                     </div>
                 </div>
                 <div class="hero-image animate__animated animate__fadeIn animate__delay-1s">
-                    <img src="https://i.imgur.com/JKgQPCh.png" alt="Sustaina App Dashboard">
+                    <div class="weather-container">
+                        <div class="weather-background"></div>
+                        <div class="weather-info">
+                            <div class="weather-loading">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading weather data...</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="hero-image-decoration"></div>
                 </div>
             </div>
@@ -397,7 +417,7 @@
                   <span><i class="fas fa-users" style="color:#7ed957;"></i> 1,245 participants</span>
                   <span><i class="fas fa-clock" style="color:#7ed957;"></i> 15 days left</span>
                 </div>
-                <button class="btn btn-outline" style="width: 100%;">
+                <button class="btn btn-outline" style="width: 100%; background: transparent; color: #2d3436; border: 1px solid #e0e0e0; border-radius: 0.75rem; padding: 0.875rem; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.3s ease; cursor: pointer;">
                     <span class="btn-text">Join Challenge</span>
                     <i class="fas fa-arrow-right btn-icon"></i>
                 </button>
@@ -414,7 +434,7 @@
                   <span><i class="fas fa-users" style="color:#7ed957;"></i> 876 participants</span>
                   <span><i class="fas fa-clock" style="color:#7ed957;"></i> 7 days left</span>
                 </div>
-                <button class="btn btn-outline" style="width: 100%;">
+                <button class="btn btn-outline" style="width: 100%; background: transparent; color: #2d3436; border: 1px solid #e0e0e0; border-radius: 0.75rem; padding: 0.875rem; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.3s ease; cursor: pointer;">
                     <span class="btn-text">Join Challenge</span>
                     <i class="fas fa-arrow-right btn-icon"></i>
                 </button>
@@ -431,7 +451,7 @@
                   <span><i class="fas fa-users" style="color:#7ed957;"></i> 2,103 participants</span>
                   <span><i class="fas fa-clock" style="color:#7ed957;"></i> 22 days left</span>
                 </div>
-                <button class="btn btn-outline" style="width: 100%;">
+                <button class="btn btn-outline" style="width: 100%; background: transparent; color: #2d3436; border: 1px solid #e0e0e0; border-radius: 0.75rem; padding: 0.875rem; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.3s ease; cursor: pointer;">
                     <span class="btn-text">Join Challenge</span>
                     <i class="fas fa-arrow-right btn-icon"></i>
                 </button>
@@ -522,7 +542,10 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="showcase-item">
-                                    <img src="https://i.imgur.com/JKgQPCh.png" alt="Dashboard Screen">
+                                    <div class="placeholder-image">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>Dashboard Preview</span>
+                                    </div>
                                     <div class="showcase-info">
                                         <h3>Personalized Dashboard</h3>
                                         <p>Track your progress, see daily tasks, and monitor your impact all in one place.</p>
@@ -705,7 +728,10 @@
                         </div>
                     </div>
                     <div class="cta-image">
-                        <img src="https://i.imgur.com/tKg0DvZ.png" alt="Sustaina App">
+                        <div class="placeholder-image">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Dashboard Preview</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -838,8 +864,10 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="weather.js"></script>
     <script src="script.js"></script>
     <script src="auth.js"></script>
+    <script src="challenges.js"></script>
 
     <!-- Features Tabs Functionality -->
     <script>
@@ -918,175 +946,6 @@
         <div id="challengeModalBody"></div>
       </div>
     </div>
-
-    <script>
-    // --- Challenge Modal Logic ---
-    const challenges = [
-      {
-        id: 0,
-        title: '30-Day Car-Free Challenge',
-        duration: 15,
-        description: 'Reduce your carbon footprint by using alternative transportation for 30 days.',
-        howTo: 'Use a bicycle, walk, or public transport instead of a car for 30 days. Log your progress daily!',
-        badge: '🚴 Car-Free Hero',
-      },
-      {
-        id: 1,
-        title: 'Zero Waste Week',
-        duration: 7,
-        description: 'Minimize your waste production and find creative ways to reuse and recycle.',
-        howTo: 'Track your waste, reuse items, and recycle as much as possible for 7 days. Share your tips!',
-        badge: '♻️ Zero Waste Star',
-      },
-      {
-        id: 2,
-        title: 'Plant 100 Trees',
-        duration: 22,
-        description: 'Join our community effort to plant 100 trees in your local area this month.',
-        howTo: 'Participate in tree planting events or plant trees yourself. Upload a photo or log your activity!',
-        badge: '🌳 Tree Planter',
-      },
-    ];
-
-    // Store joined/completed state in localStorage for demo
-    function getChallengeState() {
-      return JSON.parse(localStorage.getItem('joinedChallenges') || '{}');
-    }
-    function setChallengeState(state) {
-      localStorage.setItem('joinedChallenges', JSON.stringify(state));
-    }
-
-    function showChallengeModal(idx) {
-      const state = getChallengeState();
-      const c = challenges[idx];
-      let html = `<h2 style='color:#7ed957; margin-bottom:0.5em;'>${c.title}</h2>`;
-      html += `<p style='color:#444; margin-bottom:1em;'>${c.description}</p>`;
-      html += `<strong>Duration left:</strong> <span style='color:#7ed957;'>${c.duration} days</span><br>`;
-      html += `<strong>How to complete:</strong> <div style='margin-bottom:1em;'>${c.howTo}</div>`;
-      
-      if (state[idx] && state[idx].completed) {
-        html += `<div style='margin:1em 0; color:#7ed957; font-size:1.2em;'><b>Challenge Completed!</b><br>You earned a badge: <span style='font-size:1.5em;'>${c.badge}</span></div>`;
-        html += `<div style='margin-bottom:1em;'>This badge will be shown on your profile.</div>`;
-        html += `<button id='restartChallengeBtn' style='width:100%; background:#7ed957; color:#fff; border:none; border-radius:0.5em; padding:0.75em 0; font-size:1.1em; margin-bottom:1em; cursor:pointer;'>Restart Challenge</button>`;
-      } else if (state[idx] && state[idx].joined) {
-        html += `<div style='margin:1em 0; color:#7ed957;'><b>You have joined this challenge!</b></div>`;
-        html += `<button id='markCompleteBtn' style='width:100%; background:#7ed957; color:#fff; border:none; border-radius:0.5em; padding:0.75em 0; font-size:1.1em; margin-bottom:1em; cursor:pointer;'>Mark as Complete</button>`;
-      } else {
-        html += `<button id='joinChallengeBtn' style='width:100%; background:#7ed957; color:#fff; border:none; border-radius:0.5em; padding:0.75em 0; font-size:1.1em; margin-bottom:1em; cursor:pointer;'>Join Challenge</button>`;
-      }
-      
-      document.getElementById('challengeModalBody').innerHTML = html;
-      document.getElementById('challengeModal').style.display = 'flex';
-
-      // Button logic
-      setTimeout(() => {
-        const joinBtn = document.getElementById('joinChallengeBtn');
-        if (joinBtn) joinBtn.onclick = function() {
-          const s = getChallengeState();
-          s[idx] = {joined:true, completed:false};
-          setChallengeState(s);
-          updateChallengeButtons();
-          showChallengeModal(idx);
-        };
-        
-        const completeBtn = document.getElementById('markCompleteBtn');
-        if (completeBtn) completeBtn.onclick = function() {
-          const s = getChallengeState();
-          s[idx] = {joined:true, completed:true};
-          setChallengeState(s);
-          updateChallengeButtons();
-          showChallengeModal(idx);
-          showToast(`Congrats! You earned the ${c.badge} badge!`);
-          updateBadgesDisplay();
-        };
-        
-        const restartBtn = document.getElementById('restartChallengeBtn');
-        if (restartBtn) restartBtn.onclick = function() {
-          const s = getChallengeState();
-          delete s[idx];
-          setChallengeState(s);
-          updateChallengeButtons();
-          showChallengeModal(idx);
-        };
-      }, 10);
-    }
-
-    function updateChallengeButtons() {
-      const state = getChallengeState();
-      document.querySelectorAll('.challenge-card').forEach((card, idx) => {
-        const btn = card.querySelector('button');
-        if (!btn) return;
-        if (state[idx] && state[idx].completed) {
-          btn.innerHTML = `
-            <span class="btn-text">Restart Challenge</span>
-            <i class="fas fa-redo btn-icon"></i>
-          `;
-          btn.disabled = false;
-          btn.style.background = '#fff';
-          btn.style.color = '#7ed957';
-          btn.style.border = '2px solid #7ed957';
-          btn.onclick = function(e) {
-            e.preventDefault();
-            const s = getChallengeState();
-            delete s[idx];
-            setChallengeState(s);
-            showChallengeModal(idx);
-            updateChallengeButtons();
-          };
-        } else if (state[idx] && state[idx].joined) {
-          btn.innerHTML = `
-            <span class="btn-text">In Progress</span>
-            <i class="fas fa-spinner btn-icon"></i>
-          `;
-          btn.disabled = false;
-          btn.style.background = '#fff';
-          btn.style.color = '#7ed957';
-          btn.style.border = '2px solid #7ed957';
-          btn.onclick = function(e) {
-            e.preventDefault();
-            showChallengeModal(idx);
-          };
-        } else {
-          btn.innerHTML = `
-            <span class="btn-text">Join Challenge</span>
-            <i class="fas fa-arrow-right btn-icon"></i>
-          `;
-          btn.disabled = false;
-          btn.style.background = '#fff';
-          btn.style.color = '#7ed957';
-          btn.style.border = '2px solid #7ed957';
-          btn.onclick = function(e) {
-            e.preventDefault();
-            showChallengeModal(idx);
-          };
-        }
-      });
-    }
-
-    // Attach click events to challenge buttons
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.challenge-card').forEach((card, idx) => {
-        const btn = card.querySelector('button');
-        if (btn) {
-          btn.onclick = function(e) {
-            e.preventDefault();
-            showChallengeModal(idx);
-          };
-        }
-      });
-      updateChallengeButtons();
-    });
-
-    // Modal close logic
-    document.getElementById('closeChallengeModal').onclick = function() {
-      document.getElementById('challengeModal').style.display = 'none';
-    };
-    window.onclick = function(event) {
-      if (event.target === document.getElementById('challengeModal')) {
-        document.getElementById('challengeModal').style.display = 'none';
-      }
-    };
-    </script>
 
     <style>
         /* Add Profile Dropdown Styles */
@@ -1286,32 +1145,25 @@
 
         /* Add button hover styles */
         .challenge-card .btn {
+            width: 100%;
+            background: transparent;
+            color: #2d3436;
+            border: 1px solid #e0e0e0;
+            border-radius: 0.75rem;
+            padding: 0.875rem;
+            font-weight: 500;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            padding: 0.75rem 1.25rem;
-            border: 2px solid #7ed957;
-            border-radius: 0.5rem;
-            background: #fff;
-            color: #7ed957;
-            font-weight: 500;
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .challenge-card .btn:hover {
-            background: #7ed957;
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(126, 217, 87, 0.2);
-        }
-
-        .challenge-card .btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
+            background: #f5f5f5;
+            color: #2d3436;
+            border-color: #e0e0e0;
         }
 
         .challenge-card .btn .btn-text {
@@ -1328,20 +1180,6 @@
 
         .challenge-card .btn:hover .btn-icon {
             transform: translateX(4px);
-        }
-
-        .challenge-card .btn[style*="background: #7ed957"] {
-            background: #7ed957 !important;
-            color: #fff !important;
-            border: none !important;
-        }
-
-        .challenge-card .btn[style*="background: #7ed957"] .btn-icon {
-            display: none;
-        }
-
-        .challenge-card .btn[style*="background: #7ed957"]:hover {
-            background: #6bc84d !important;
         }
     </style>
 

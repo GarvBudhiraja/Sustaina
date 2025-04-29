@@ -31,6 +31,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Eco-Friendly Challenges Dynamic Rendering
     initChallenges();
+
+    // Smooth scroll functionality
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').slice(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Handle Learn More button
+    const learnMoreBtn = document.querySelector('.hero-actions .btn-outline');
+    if (learnMoreBtn) {
+        learnMoreBtn.addEventListener('click', function() {
+            const featuresSection = document.getElementById('features');
+            if (featuresSection) {
+                featuresSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+
+    // Handle mobile menu
+    const navbarToggle = document.getElementById('navbarToggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+    if (navbarToggle && mobileMenu && mobileMenuClose) {
+        navbarToggle.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+        });
+    }
 });
 
 // Preloader
@@ -1093,3 +1136,20 @@ addAction = function(action) {
         }
     });
 })();
+
+// Handle profile dropdown if exists
+const profileBtn = document.getElementById('profileBtn');
+const profileDropdown = document.querySelector('.profile-dropdown .dropdown-menu');
+
+if (profileBtn && profileDropdown) {
+    profileBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        profileDropdown.classList.toggle('show');
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!profileDropdown.contains(e.target)) {
+            profileDropdown.classList.remove('show');
+        }
+    });
+}

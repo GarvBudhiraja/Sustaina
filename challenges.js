@@ -148,7 +148,7 @@ function showToast(message) {
     
     setTimeout(() => {
         toast.classList.add('fade-out');
-        setTimeout(() => toast.remove(), 300);
+        setTimeout(() => toast.remove(),300);
     }, 3000);
 }
 

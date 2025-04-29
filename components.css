@@ -29,19 +29,27 @@
 .navbar-logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 10px;
+}
+
+.navbar-logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 .navbar-logo img {
-    height: 32px;
-    width: auto;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 
 .navbar-logo span {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #27ae60;
-    letter-spacing: 1px;
+    color: var(--primary-color);
 }
 
 .navbar-menu {
@@ -212,14 +220,23 @@
 }
 
 .footer-logo {
-    height: 45px;
-    margin-bottom: 1.5rem;
-    filter: brightness(0) invert(1);
-    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    margin-bottom: 20px;
 }
 
-.footer-logo:hover {
-    transform: scale(1.05);
+.footer-logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.footer-logo span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
 }
 
 .footer-about p {
