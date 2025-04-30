@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'hidden';
     });
 
-    mobileMenuClose.addEventListener('click', function() {
+    mobileMenuClose.addEventListener('click', function(){
         mobileMenu.classList.remove('show');
         document.body.style.overflow = '';
     });
