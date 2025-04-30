@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             !mobileMenu.contains(e.target) && 
             !navbarToggle.contains(e.target)) {
             mobileMenu.classList.remove('show');
-            document.body.style.overflow = '';
+            document.body.style.overflow ='';
         }
     });
 
