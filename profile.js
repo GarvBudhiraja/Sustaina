@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 id: 3,
                 title: 'Green Transport',
-                description: 'Use only eco-friendly transportation for a week',
+                description:'Use only eco-friendly transportation for a week',
                 points: 50,
                 icon: 'fa-bicycle'
             }
