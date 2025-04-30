@@ -54,6 +54,7 @@
 .profile-details h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+<<<<<<< HEAD
     color: #2c3e50;
 }
 
@@ -68,6 +69,8 @@
 #profileLevel i {
     color: #7ed957;
     font-size: 1.1rem;
+=======
+>>>>>>> e1f6cb8eac7fda6c30baca5d3bb636ff9c2f0e4a
 }
 
 .profile-stats {
@@ -252,6 +255,7 @@
     color: #7ed957;
 }
 
+<<<<<<< HEAD
 /* Badges Section */
 .badges-section {
     margin-top: 2rem;
@@ -265,10 +269,16 @@
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     color: #2c3e50;
+=======
+/* Badges Section Styles */
+.badges-section {
+    margin-top: 2rem;
+>>>>>>> e1f6cb8eac7fda6c30baca5d3bb636ff9c2f0e4a
 }
 
 .badges-grid {
     display: grid;
+<<<<<<< HEAD
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
     padding: 1rem 0;
@@ -407,6 +417,39 @@
 
 .badge-card {
     animation: badgeAppear 0.3s ease-out forwards;
+=======
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.badge-card {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: transform 0.2s;
+}
+
+.badge-card:hover {
+    transform: translateY(-4px);
+}
+
+.badge-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.badge-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.badge-description {
+    font-size: 0.875rem;
+    color: #666;
+>>>>>>> e1f6cb8eac7fda6c30baca5d3bb636ff9c2f0e4a
 }
 
 /* Profile Dropdown Styles */
