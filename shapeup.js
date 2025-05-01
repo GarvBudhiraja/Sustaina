@@ -27,7 +27,7 @@ function initializeNavigation() {
 
     // Add click event listeners for navbar links
     navbarLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
+        link.addEventListener('click', (e) =>{
             e.preventDefault();
             const targetId = link.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
@@ -342,7 +342,7 @@ function getProgressContent(feature) {
         `
     };
 
-    return content[feature] || '<p>Content not available.</p>';
+    return content[feature] ||'<p>Content not available.</p>';
 }
 
 // Community features functionality

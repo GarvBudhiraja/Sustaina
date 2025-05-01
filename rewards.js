@@ -24,12 +24,12 @@ class RewardsSystem {
         });
 
         // Reward redemption buttons
-        document.addEventListener('click', (e) => {
+        document.addEventListener('click',(e) => {
             if (e.target.classList.contains('redeem-reward')) {
                 const rewardId = e.target.dataset.rewardId;
                 this.redeemReward(rewardId);
             }
-        });
+        });z
     }
 
     addPoints(amount) {

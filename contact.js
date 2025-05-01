@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'hidden';
     });
 
-    mobileMenuClose.addEventListener('click', function() {
+    mobileMenuClose.addEventListener('click', function(){
         mobileMenu.classList.remove('show');
         document.body.style.overflow = '';
     });
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             !mobileMenu.contains(e.target) && 
             !navbarToggle.contains(e.target)) {
             mobileMenu.classList.remove('show');
-            document.body.style.overflow = '';
+            document.body.style.overflow ='';
         }
     });
 
