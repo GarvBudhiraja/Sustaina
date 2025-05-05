@@ -1,178 +1,283 @@
-// Profile and Badges Functionality
+// Initialize profile.js
+console.log('Initializing profile.js...');
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Show profile dropdown if user is logged in
-    const profileDropdown = document.getElementById('profileDropdown');
-    const profileSection = document.getElementById('profile');
+    // Initialize challenges if not defined
+    if (typeof challenges === 'undefined') {
+        window.challenges = [
+            {
+                id: 1,
+                title: 'Zero Waste Week',
+                description: 'Go one week without producing any non-recyclable waste',
+                points: 100,
+                icon: 'fa-recycle'
+            },
+            {
+                id: 2,
+                title: 'Energy Saver',
+                description: 'Reduce your energy consumption by 20% this month',
+                points: 75,
+                icon: 'fa-bolt'
+            },
+            {
+                id: 3,
+                title: 'Green Transport',
+                description:'Use only eco-friendly transportation for a week',
+                points: 50,
+                icon: 'fa-bicycle'
+            }
+        ];
+    }
+
+    // Initialize required functions if not defined
+    if (typeof getChallengeState !== 'function') {
+        window.getChallengeState = function(challengeId) {
+            const states = JSON.parse(localStorage.getItem('challengeStates') || '{}');
+            return states[challengeId] || { completed: false, progress: 0 };
+        };
+    }
+
+    if (typeof showChallengeModal !== 'function') {
+        window.showChallengeModal = function(challengeId) {
+            console.log('Challenge modal clicked:', challengeId);
+        };
+    }
+
+    // Get current user from auth storage
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('currentUser'));
     
-    // Check if user is logged in (for demo, we'll just show it)
-    profileDropdown.style.display = 'flex';
+    // Initialize user profile with logged in user data or default guest data
+    const user = currentUser || {
+        fullName: 'Guest User',
+        email: 'guest@example.com',
+        avatar: 'https://ui-avatars.com/api/?name=Guest+User&background=random',
+        level: 1,
+        points: 0,
+        badges: []
+    };
+
+    // Update profile display with user information
+    const profileName = document.getElementById('profileName');
+    const profilePicture = document.getElementById('profilePicture');
+    const profileLevel = document.getElementById('profileLevel');
     
-    // Handle profile section visibility
-    document.querySelector('.dropdown-item[href="#profile"]').addEventListener('click', function(e) {
-        e.preventDefault();
-        profileSection.style.display = 'block';
-        window.scrollTo({
-            top: profileSection.offsetTop - 80,
-            behavior: 'smooth'
-        });
-    });
-    
-    // Function to show toast notification
-    function showToast(message) {
-        const toastContainer = document.getElementById('toastContainer');
-        const toast = document.createElement('div');
-        toast.className = 'toast';
-        toast.innerHTML = `
-            <i class="fas fa-medal toast-icon"></i>
-            <span>${message}</span>
-        `;
-        toastContainer.appendChild(toast);
-        
-        // Remove toast after 3 seconds
-        setTimeout(() => {
-            toast.style.animation = 'slideOut 0.3s ease-out';
-            setTimeout(() => toast.remove(), 300);
-        }, 3000);
+    if (profileName) {
+        profileName.textContent = user.fullName;
+        console.log('Setting profile name:', user.fullName);
+    } else {
+        console.log('Profile name element not found');
     }
     
-    // Function to update badges display
+    if (profilePicture) {
+        profilePicture.src = user.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.fullName)}&background=random`;
+        profilePicture.alt = user.fullName;
+    }
+    
+    if (profileLevel) {
+        profileLevel.textContent = user.email;
+        profileLevel.innerHTML = `<i class="fas fa-envelope"></i> ${user.email}`;
+    }
+
+    // Update badges display
     function updateBadgesDisplay() {
         const badgesGrid = document.getElementById('badgesGrid');
-        const state = getChallengeState();
-        badgesGrid.innerHTML = '';
-        
-        challenges.forEach((challenge, idx) => {
-            if (state[idx] && state[idx].completed) {
-                const badgeCard = document.createElement('div');
-                badgeCard.className = 'badge-card';
-                badgeCard.innerHTML = `
-                    <div class="badge-icon">${challenge.badge}</div>
-                    <h4 class="badge-name">${challenge.title}</h4>
-                    <p class="badge-description">${challenge.description}</p>
-                `;
-                badgesGrid.appendChild(badgeCard);
+        if (!badgesGrid) {
+            console.log('Badges grid element not found');
+            return;
+        }
+
+        // For debugging: log the challenge states
+        const states = JSON.parse(localStorage.getItem('challengeStates') || '{}');
+        console.log('Challenge states:', states);
+
+        // Get user's completed challenges
+        const completedChallenges = challenges.filter(challenge => {
+            const state = states[challenge.id];
+            return state && state.completed === true;
+        });
+
+        console.log('Completed challenges:', completedChallenges);
+
+        // Get additional badges from user profile
+        const userBadges = user.badges || [];
+
+        // Combine all badges
+        const allBadges = [
+            ...completedChallenges.map(challenge => ({
+                title: challenge.title,
+                icon: challenge.icon,
+                description: challenge.description,
+                type: 'challenge'
+            })),
+            ...userBadges.map(badge => ({
+                title: badge.title,
+                icon: badge.icon,
+                description: badge.description,
+                type: 'achievement'
+            }))
+        ];
+
+        console.log('All badges to display:', allBadges);
+
+        if (allBadges.length === 0) {
+            badgesGrid.innerHTML = `
+                <div class="empty-badges">
+                    <i class="fas fa-medal empty-icon"></i>
+                    <p>Complete challenges to earn badges!</p>
+                    <a href="challenges.html" class="btn btn-primary">View Challenges</a>
+                </div>
+            `;
+            return;
+        }
+
+        badgesGrid.innerHTML = allBadges.map(badge =>`
+            <div class="badge-card">
+                <div class="badge-icon">
+                    <i class="fas ${badge.icon}"></i>
+                </div>
+                <div class="badge-info">
+                    <h4>${badge.title}</h4>
+                    <p>${badge.description}</p>
+                    <span class="badge-type ${badge.type}">${badge.type}</span>
+                </div>
+            </div>
+        `).join('');
+
+        // Update the badge count in profile stats
+        const badgeCountElement = document.querySelector('.stat-item .stat-number');
+        if (badgeCountElement) {
+            badgeCountElement.textContent = allBadges.length;
+        }
+    }
+
+    // If user is not logged in, redirect to login page
+    if (!currentUser) {
+        showToast('Please log in to view your profile', 'warning');
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 2000);
+        return;
+    }
+
+    // Profile dropdown functionality
+    const profileDropdown = document.getElementById('profileDropdown');
+    const profileBtn = document.getElementById('profileBtn');
+    const profileSection = document.getElementById('profile');
+
+    if (profileDropdown) {
+        profileDropdown.style.display = 'block';
+    }
+
+    if (profileBtn) {
+        profileBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const dropdownMenu = profileDropdown.querySelector('.dropdown-menu');
+            if (dropdownMenu) {
+                dropdownMenu.classList.toggle('show');
             }
         });
     }
-    
-    // Update badges display when challenge is completed
-    const originalShowChallengeModal = showChallengeModal;
-    showChallengeModal = function(idx) {
-        originalShowChallengeModal(idx);
-        const state = getChallengeState();
-        if (state[idx] && state[idx].completed) {
-            showToast(`Congrats! You earned the ${challenges[idx].badge} badge!`);
-            updateBadgesDisplay();
+
+    // Show profile section when clicked from dropdown
+    const profileLink = document.querySelector('.dropdown-item[href="#profile"]');
+    if (profileLink) {
+        profileLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (profileSection) {
+                profileSection.style.display = 'block';
+                document.documentElement.scrollTop = profileSection.offsetTop;
+            }
+        });
+    }
+
+    // Show toast function
+    function showToast(message, type = 'success') {
+        const toastContainer = document.getElementById('toastContainer');
+        if (!toastContainer) return;
+
+        const toast = document.createElement('div');
+        toast.className = `toast toast-${type}`;
+        toast.textContent = message;
+        
+        toastContainer.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.remove();
+        }, 3000);
+    }
+
+    // Goals functionality
+    const addGoalBtn = document.getElementById('addGoalBtn');
+    const goalsContainer = document.querySelector('.goals-container');
+
+    if (addGoalBtn) {
+        addGoalBtn.addEventListener('click', function() {
+            const goalInput = document.getElementById('goalInput');
+            if (!goalInput || !goalInput.value.trim()) return;
+
+            const goalElement = createGoalElement(goalInput.value);
+            if (goalsContainer) {
+                goalsContainer.appendChild(goalElement);
+            }
+            goalInput.value = '';
+            showToast('Goal added successfully!');
+        });
+    }
+
+    function createGoalElement(goalText) {
+        const goal = document.createElement('div');
+        goal.className = 'goal-item';
+        goal.innerHTML = `
+            <span class="goal-text">${goalText}</span>
+            <div class="goal-actions">
+                <button class="edit-goal" title="Edit">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="delete-goal" title="Delete">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        `;
+
+        goal.querySelector('.delete-goal').addEventListener('click', function() {
+            goal.remove();
+            showToast('Goal deleted');
+        });
+
+        goal.querySelector('.edit-goal').addEventListener('click', function() {
+            const goalText = goal.querySelector('.goal-text');
+            const newText = prompt('Edit goal:', goalText.textContent);
+            if (newText && newText.trim()) {
+                goalText.textContent = newText;
+                showToast('Goal updated');
+            }
+        });
+
+        return goal;
+    }
+
+    // For testing: Set some challenges as completed if they're not already set
+    function initializeTestChallenges() {
+        const states = JSON.parse(localStorage.getItem('challengeStates') || '{}');
+        let updated = false;
+
+        // Check if challenges 1, 2, and 3 are completed
+        [1, 2, 3].forEach(id => {
+            if (!states[id] || states[id].completed !== true) {
+                states[id] = { completed: true, progress: 100 };
+                updated = true;
+            }
+        });
+
+        if (updated) {
+            localStorage.setItem('challengeStates', JSON.stringify(states));
+            console.log('Updated challenge states:', states);
         }
-    };
-    
-    // Initial badges display
+    }
+
+    // Initialize test challenges and update display
+    initializeTestChallenges();
     updateBadgesDisplay();
 
-    // Avatar Upload Functionality
-    const avatarEditBtn = document.getElementById('avatarEditBtn');
-    const profilePicture = document.getElementById('profilePicture');
-    
-    avatarEditBtn.addEventListener('click', function() {
-        const input = document.createElement('input');
-        input.type = 'file';
-        input.accept = 'image/*';
-        input.onchange = function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    profilePicture.src = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
-        };
-        input.click();
-    });
-
-    // Add Goal Functionality
-    const addGoalBtn = document.getElementById('addGoalBtn');
-    const goalsGrid = document.getElementById('goalsGrid');
-    
-    addGoalBtn.addEventListener('click', function() {
-        const newGoal = document.createElement('div');
-        newGoal.className = 'goal-card';
-        newGoal.innerHTML = `
-            <div class="goal-icon">
-                <i class="fas fa-plus"></i>
-            </div>
-            <div class="goal-info">
-                <h4>New Goal</h4>
-                <p>Set your sustainability goal</p>
-                <div class="goal-progress">
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 0%"></div>
-                    </div>
-                    <span class="progress-text">0% Complete</span>
-                </div>
-            </div>
-            <button class="goal-edit-btn">
-                <i class="fas fa-edit"></i>
-            </button>
-        `;
-        goalsGrid.appendChild(newGoal);
-    });
-
-    // Goal Edit Functionality
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.goal-edit-btn')) {
-            const goalCard = e.target.closest('.goal-card');
-            const goalInfo = goalCard.querySelector('.goal-info');
-            const currentTitle = goalInfo.querySelector('h4').textContent;
-            const currentDescription = goalInfo.querySelector('p').textContent;
-            
-            // Create edit form
-            const editForm = document.createElement('div');
-            editForm.className = 'goal-edit-form';
-            editForm.innerHTML = `
-                <input type="text" value="${currentTitle}" class="goal-title-input">
-                <textarea class="goal-description-input">${currentDescription}</textarea>
-                <div class="goal-edit-actions">
-                    <button class="btn btn-primary save-goal-btn">Save</button>
-                    <button class="btn btn-outline cancel-goal-btn">Cancel</button>
-                </div>
-            `;
-            
-            goalInfo.innerHTML = '';
-            goalInfo.appendChild(editForm);
-            
-            // Save goal
-            const saveBtn = editForm.querySelector('.save-goal-btn');
-            saveBtn.addEventListener('click', function() {
-                const newTitle = editForm.querySelector('.goal-title-input').value;
-                const newDescription = editForm.querySelector('.goal-description-input').value;
-                
-                goalInfo.innerHTML = `
-                    <h4>${newTitle}</h4>
-                    <p>${newDescription}</p>
-                    <div class="goal-progress">
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 0%"></div>
-                        </div>
-                        <span class="progress-text">0% Complete</span>
-                    </div>
-                `;
-            });
-            
-            // Cancel edit
-            const cancelBtn = editForm.querySelector('.cancel-goal-btn');
-            cancelBtn.addEventListener('click', function() {
-                goalInfo.innerHTML = `
-                    <h4>${currentTitle}</h4>
-                    <p>${currentDescription}</p>
-                    <div class="goal-progress">
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 0%"></div>
-                        </div>
-                        <span class="progress-text">0% Complete</span>
-                    </div>
-                `;
-            });
-        }
-    });
+    console.log('Profile.js initialization complete');
 }); 

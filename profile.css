@@ -54,6 +54,23 @@
 .profile-details h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+<<<<<<< HEAD
+    color: #2c3e50;
+}
+
+#profileLevel {
+    color: #666;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#profileLevel i {
+    color: #7ed957;
+    font-size: 1.1rem;
+=======
+>>>>>>> e1f6cb8eac7fda6c30baca5d3bb636ff9c2f0e4a
 }
 
 .profile-stats {
@@ -238,13 +255,169 @@
     color: #7ed957;
 }
 
+<<<<<<< HEAD
+/* Badges Section */
+.badges-section {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.badges-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+=======
 /* Badges Section Styles */
 .badges-section {
     margin-top: 2rem;
+>>>>>>> e1f6cb8eac7fda6c30baca5d3bb636ff9c2f0e4a
 }
 
 .badges-grid {
     display: grid;
+<<<<<<< HEAD
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.badge-card {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.badge-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.badge-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.badge-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.badge-info {
+    flex: 1;
+}
+
+.badge-info h4 {
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+}
+
+.badge-info p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 0.75rem 0;
+}
+
+.badge-type {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.badge-type.challenge {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.badge-type.achievement {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.empty-badges {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #666;
+}
+
+.empty-badges .empty-icon {
+    font-size: 3rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
+.empty-badges p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.empty-badges .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #4CAF50;
+    color: white;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.empty-badges .btn:hover {
+    background: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .badges-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .badge-card {
+        padding: 1rem;
+    }
+    
+    .badge-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+    }
+    
+    .badge-icon i {
+        font-size: 1.25rem;
+    }
+}
+
+/* Animation for new badges */
+@keyframes badgeAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.badge-card {
+    animation: badgeAppear 0.3s ease-out forwards;
+=======
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5rem;
     margin-top: 1rem;
@@ -276,6 +449,7 @@
 .badge-description {
     font-size: 0.875rem;
     color: #666;
+>>>>>>> e1f6cb8eac7fda6c30baca5d3bb636ff9c2f0e4a
 }
 
 /* Profile Dropdown Styles */

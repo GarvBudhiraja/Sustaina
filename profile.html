@@ -11,20 +11,88 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="components.css">
+<<<<<<< HEAD
+    <link rel="stylesheet"href="profile.css">
+    
+    <!-- Favicon -->
+    <link rel="icon"href="https://i.imgur.com/8KgVB8B.png" type="image/png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo" width="40" height="40">
+                    <span>Sustaina</span>
+                </a>
+            </div>
+            
+            <div class="navbar-menu">
+                <a href="index.html" class="navbar-link">Home</a>
+                <a href="index.html#features" class="navbar-link">Features</a>
+                <a href="about.html" class="navbar-link">About</a>
+                <a href="challenges.html" class="navbar-link">Challenges</a>
+                <a href="contact.html" class="navbar-link">Contact</a>
+            </div>
+            
+            <div class="navbar-actions">
+                <!-- This will be dynamically updated by auth.js -->
+            </div>
+            
+            <div class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <img src="https://i.imgur.com/8KgVB8B.png" alt="Sustaina Logo" width="32" height="32">
+                    <span>Sustaina</span>
+                </a>
+            </div>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-body">
+            <a href="index.html" class="mobile-menu-link">Home</a>
+            <a href="index.html#features" class="mobile-menu-link">Features</a>
+            <a href="about.html" class="mobile-menu-link">About</a>
+            <a href="challenges.html" class="mobile-menu-link">Challenges</a>
+            <a href="contact.html" class="mobile-menu-link">Contact</a>
+            <div class="mobile-menu-actions">
+                <!-- This will be dynamically updated by auth.js -->
+            </div>
+        </div>
+    </div>
+
+=======
     <link rel="stylesheet" href="profile.css">
     
     <!-- Favicon -->
     <link rel="icon" href="https://i.imgur.com/8KgVB8B.png" type="image/png">
 </head>
 <body>
+>>>>>>> e1f6cb8eac7fda6c30baca5d3bb636ff9c2f0e4a
     <!-- Profile Section -->
     <section id="profile" class="profile-section">
         <div class="container">
+            <a href="index.html" class="home-button">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
             <div class="section-header">
                 <span class="section-tagline">Your Profile</span>
                 <h2 class="section-title">My Sustainability Journey</h2>
@@ -35,14 +103,14 @@
                 <div class="profile-info">
                     <div class="profile-header">
                         <div class="profile-avatar-container">
-                            <img src="https://i.imgur.com/8LWTHYs.jpg" alt="Profile Picture" class="profile-picture" id="profilePicture">
+                            <img src="" alt="Profile Picture" class="profile-picture" id="profilePicture">
                             <button class="avatar-edit-btn" id="avatarEditBtn">
                                 <i class="fas fa-camera"></i>
                             </button>
                         </div>
                         <div class="profile-details">
-                            <h3>Sarah Johnson</h3>
-                            <p>Eco Warrior Level 3</p>
+                            <h3 id="profileName"></h3>
+                            <p id="profileLevel">Eco Warrior Level 3</p>
                             <div class="profile-stats">
                                 <div class="stat-item">
                                     <span class="stat-number">45</span>
@@ -108,6 +176,9 @@
                 </div>
 
                 <!-- Goals Section -->
+<<<<<<< HEAD
+
+=======
                 <div class="goals-section">
                     <div class="goals-header">
                         <h3>My Sustainability Goals</h3>
@@ -154,6 +225,7 @@
                         </div>
                     </div>
                 </div>
+>>>>>>> e1f6cb8eac7fda6c30baca5d3bb636ff9c2f0e4a
                 
                 <!-- Badges Section -->
                 <div class="badges-section">
@@ -170,7 +242,12 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <!-- Scripts -->
+<<<<<<< HEAD
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="auth.js"></script>
+=======
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+>>>>>>> e1f6cb8eac7fda6c30baca5d3bb636ff9c2f0e4a
     <script src="profile.js"></script>
 </body>
 </html> 
